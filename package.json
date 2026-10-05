@@ -1,0 +1,36 @@
+{
+  "name": "chief-mate-prep",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.28.0",
+  "scripts": {
+    "dev": "pnpm content:bundle && pnpm --filter web dev",
+    "build": "pnpm content:bundle && pnpm --filter web build",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "typecheck": "pnpm -r --parallel typecheck && tsc -p scripts/tsconfig.json --noEmit",
+    "test": "vitest run",
+    "e2e": "pnpm --filter web e2e",
+    "content:validate": "tsx scripts/validate-content.ts",
+    "content:import": "tsx scripts/import-content.ts",
+    "content:bundle": "tsx scripts/export-offline-bundle.ts",
+    "content:gate": "tsx scripts/export-offline-bundle.ts --prod --check",
+    "ci:all": "pnpm content:validate && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm e2e && pnpm content:import && pnpm secrets:check",
+    "secrets:check": "node scripts/check-secrets.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@vitest/coverage-v8": "^2.1.9",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "fflate": "^0.8.3",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.9",
+    "tsx": "^4.23.15",
+    "typescript": "~5.6.3",
+    "typescript-eslint": "^8.71.0",
+    "vitest": "^2.1.9",
+    "yaml": "^2.9.1",
+    "zod": "^3.25.76"
+  }
+}
