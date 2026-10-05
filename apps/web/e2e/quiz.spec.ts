@@ -22,11 +22,17 @@ test("20 answers update analytics; a content report is saved", async ({ page }) 
   await page.goto("/practice");
   await expect(page.getByText("Confident mistakes: 5")).toBeVisible();
   // missed items land in the spaced-repetition deck
-  await page.goto("/review");
-  await expect(page.getByRole("heading", { name: /Review 1\/5/ })).toBeVisible({ timeout: 15_000 }).catch(async () => {
-    // confident errors are due after 10 minutes; deck exists but may not be due yet
-    await expect(page.getByText(/Nothing due|Review/)).toBeVisible();
-  });
+  const cards = await page.evaluate(
+    () =>
+      new Promise<number>((resolve) => {
+        const req = indexedDB.open("chief-mate-prep");
+        req.onsuccess = () => {
+          const c = req.result.transaction("srs", "readonly").objectStore("srs").count();
+          c.onsuccess = () => resolve(c.result);
+        };
+      }),
+  );
+  expect(cards).toBe(5);
   // report is stored locally (and queued for sync)
   const reports = await page.evaluate(
     () =>

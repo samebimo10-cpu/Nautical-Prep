@@ -8,13 +8,17 @@ test("10-question UK-persona oral in text mode, with debrief of missed key point
   await page.getByTestId("start-oral").click();
   await expect(page.getByTestId("transcript")).toContainText("I'm your examiner");
   let turns = 0;
-  while (turns < 25 && !(await page.getByTestId("oral-verdict").isVisible())) {
+  while (turns < 25) {
+    await expect(page.getByTestId("oral-input").or(page.getByTestId("oral-verdict"))).toBeVisible();
+    if (await page.getByTestId("oral-verdict").isVisible()) break;
     await page.getByTestId("oral-input").fill("I would inform the Master and follow the company procedures.");
+    const n = await page.getByTestId("transcript").locator("li").count();
     await page.getByTestId("oral-send").click();
+    await expect.poll(() => page.getByTestId("transcript").locator("li").count()).toBeGreaterThanOrEqual(n + 2);
     turns++;
   }
   await expect(page.getByTestId("oral-verdict")).toHaveText("NOT YET");
-  await expect(page.getByTestId("debrief").locator("li")).toHaveCount(10);
+  await expect(page.getByTestId("debrief").locator(":scope > li")).toHaveCount(10);
   await expect(page.getByTestId("debrief")).toContainText("Model answer");
   // weak answers trigger examiner probes (follow-ups)
   expect(turns).toBeGreaterThan(10);
@@ -38,7 +42,8 @@ test("voice oral: push-to-talk fills the transcript live (Web Speech API stubbed
       }
     }
     (window as unknown as { webkitSpeechRecognition: unknown }).webkitSpeechRecognition = FakeRecognition;
-    (window as unknown as { speechSynthesis: unknown }).speechSynthesis = { speak: (u: { onend?: () => void }) => setTimeout(() => u.onend?.(), 10), cancel() {} };
+    (window as unknown as { SpeechRecognition: unknown }).SpeechRecognition = FakeRecognition;
+    Object.defineProperty(window, "speechSynthesis", { configurable: true, value: { speak: (u: { onend?: () => void }) => setTimeout(() => u.onend?.(), 10), cancel() {} } });
     (window as unknown as { SpeechSynthesisUtterance: unknown }).SpeechSynthesisUtterance = class {
       constructor(public text: string) {}
     };

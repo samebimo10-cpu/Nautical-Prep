@@ -104,6 +104,9 @@ function ItemMeta({ item }: { item: Item }) {
       <span className="capitalize">{item.topic.replace(/-/g, " ")}</span>
       <span>· Level {item.difficulty}</span>
       <DraftBadge status={item.status} />
+      <span className="ml-auto">
+        <ReportButton itemId={item.id} />
+      </span>
     </div>
   );
 }
@@ -178,8 +181,7 @@ export function McqCard({ item, onDone }: { item: McqItem; onDone: (score: numbe
           </p>
           <p className="mt-1 text-sm leading-relaxed">{item.explanation}</p>
           <Sources item={item} />
-          <div className="mt-3 flex items-center justify-between">
-            <ReportButton itemId={item.id} />
+          <div className="mt-3 flex items-center justify-end">
             <button className="btn-primary" onClick={() => onDone(correct ? 1 : 0)} data-testid="next">
               Next →
             </button>
@@ -262,8 +264,7 @@ function WrittenCard({ item, onDone }: { item: WrittenItem; onDone: (score: numb
             </div>
           )}
           <Sources item={item} />
-          <div className="flex items-center justify-between">
-            <ReportButton itemId={item.id} />
+          <div className="flex items-center justify-end">
             <button className="btn-primary" onClick={save}>
               Save & next →
             </button>

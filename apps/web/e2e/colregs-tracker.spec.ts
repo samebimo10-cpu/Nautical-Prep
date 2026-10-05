@@ -21,7 +21,8 @@ test("sea-time tracker totals and eligibility shows 'not confirmed'", async ({ p
 test("regulation update flags linked items for revision", async ({ page }) => {
   await onboard(page, "Nigeria");
   await page.goto("/profile");
-  await page.getByLabel(/Reviewer mode/).check();
+  await page.getByLabel(/Reviewer mode/).click();
+  await expect(page.getByLabel(/Reviewer mode/)).toBeChecked();
   await page.goto("/admin");
   await page.getByRole("tab", { name: "updates" }).click();
   await page.getByLabel("Title").fill("MARPOL Annex VI amendment");

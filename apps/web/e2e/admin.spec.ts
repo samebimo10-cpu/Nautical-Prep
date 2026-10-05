@@ -4,7 +4,8 @@ import { onboard } from "./helpers";
 test("reviewer approves a draft item and the decision is recorded for export", async ({ page }) => {
   await onboard(page, "United Kingdom");
   await page.goto("/profile");
-  await page.getByLabel(/Reviewer mode/).check();
+  await page.getByLabel(/Reviewer mode/).click();
+  await expect(page.getByLabel(/Reviewer mode/)).toBeChecked();
   await page.goto("/admin");
   const banner = page.getByText(/draft items awaiting review/);
   const before = Number((await banner.innerText()).match(/(\d+) draft/)![1]);
