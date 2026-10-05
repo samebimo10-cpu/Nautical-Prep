@@ -1,0 +1,284 @@
+defaults:
+  competence: MGMT
+  type: oral
+items:
+  - id: mgmt-oral-enclosed-rescue
+    topic: enclosed-space
+    difficulty: 2
+    question: A crew member collapses inside a ballast tank. What do you do as Chief Mate?
+    model_answer: |
+      Raise the alarm (emergency or general alarm, inform the bridge and Master) and start the enclosed space rescue plan. DON'T enter without breathing apparatus, and stop anyone trying to rush in. Muster the rescue team with SCBA, spare sets, lifelines and harnesses, a rescue stretcher or tripod, resuscitator/oxygen, lighting, communications and a medical kit. Ventilate the space and test the atmosphere. Keep a standby person at the entrance with communication. Rescuers enter in BA under control, give the casualty air (spare BA or escape set), recover them and give first aid and CPR as needed, and seek radio medical advice. Account for everyone. Afterwards: report and investigate (why was the person in there, was there a permit, were atmosphere tests done), and review the permit-to-work system.
+    key_points:
+      - point: Raise the alarm and inform bridge/Master
+        match: ["alarm|master|bridge"]
+      - point: Do not enter without breathing apparatus
+        match: ["breathing apparatus|scba|ba", "not enter|don't enter|dont enter|never enter|no one enter|without"]
+      - point: Organised rescue team with BA, lifelines, stretcher
+        match: ["rescue team|team|stretcher|lifeline|harness|tripod"]
+      - point: Ventilate and test atmosphere
+        match: ["ventilat|test|gas detect|oxygen"]
+      - point: Standby person and communication at entrance
+        match: ["standby|attendant|communicat|entrance"]
+      - point: First aid / CPR / medical advice
+        match: ["first aid|cpr|resuscitat|oxygen|medical|tmas"]
+    follow_ups:
+      - What drills does SOLAS require for enclosed space rescue and how often?
+    critical: true
+    sources:
+      - { label: IMO Res. A.1050(27), ref: Entering enclosed spaces }
+      - { label: SOLAS, ref: Ch. III Reg. 19.3.6 }
+
+  - id: mgmt-oral-mob
+    topic: man-overboard
+    difficulty: 1
+    question: You are on watch and a crew member falls overboard. Describe your actions.
+    model_answer: |
+      Shout "man overboard" and the side. Release the bridge-wing lifebuoy with light and smoke on that side. Put the helm hard over towards that side to swing the stern away. Press the MOB button on GPS/ECDIS to mark the position. Raise the alarm (three prolonged blasts, general alarm per the SMS) and hoist flag "O". Post a lookout to keep pointing at the person. Call the Master. Engine room on standby. Start the appropriate recovery manoeuvre (Anderson turn if immediate and in sight, Williamson if at night, in poor visibility or with a delay). Prepare the rescue boat and crew. Send a DSC urgency or distress message as appropriate and inform the MRCC and nearby ships. Keep the plot and note times and positions. If not found, start a search pattern (sector search) per IAMSAR. Recover with care (hypothermia, horizontal lift) and give first aid.
+    key_points:
+      - point: Release lifebuoy with light and smoke
+        match: ["lifebuoy|life buoy|life ring|smoke"]
+      - point: Helm hard over to the side of the person
+        match: ["helm|rudder|hard over|hard to"]
+      - point: Mark position (MOB button) / note time
+        match: ["mob button|mark|position|gps|ecdis"]
+      - point: Alarm, lookout pointing, Master informed
+        match: ["alarm|lookout|look out|master"]
+      - point: Recovery manoeuvre (Williamson/Anderson/Scharnow)
+        match: ["williamson|anderson|scharnow|turn"]
+      - point: Rescue boat ready; MRCC / urgency message
+        match: ["rescue boat|mrcc|rcc|urgency|pan pan|mayday|dsc"]
+      - point: Search pattern if not found (sector)
+        match: ["sector|search pattern|expanding square"]
+    follow_ups:
+      - When would you prefer a Williamson turn?
+    critical: true
+    sources:
+      - { label: IAMSAR Manual Vol. III, ref: Man overboard }
+
+  - id: mgmt-oral-engine-fire
+    topic: fire-fighting
+    difficulty: 2
+    question: A fire is reported in the engine room and cannot be controlled with portable equipment. Describe the actions leading up to the use of the fixed CO2 system.
+    model_answer: |
+      Raise the alarm and muster the crew. The Master takes command from the bridge. Stop ventilation fans and close fire dampers, skylights, doors and openings. Stop fuel oil pumps and use the quick-closing valves. Evacuate the space and carry out a headcount (everyone must be accounted for). Inform the engine room team. Consider ship safety (no propulsion, navigation hazards, anchoring, NUC lights or signals, distress or urgency message). Boundary cool the adjacent spaces. Release CO2 as per the system instructions (alarm, then release the required number of bottles). Keep the space closed for a long time to let it cool. Monitor boundary temperatures. Re-entry only after cooling, with a BA team and a hose ready, and with careful ventilation. Prepare for abandonment if needed.
+    key_points:
+      - point: Alarm and muster; Master in command
+        match: ["alarm|muster|master"]
+      - point: Close ventilation, dampers, openings
+        match: ["ventilat|damper|skylight|opening|door"]
+      - point: Stop fuel — quick-closing valves
+        match: ["quick closing|fuel|stop pump|qcv"]
+      - point: Evacuate and headcount before CO2 release
+        match: ["headcount|head count|account|evacuat|muster"]
+      - point: Boundary cooling
+        match: ["boundary"]
+      - point: Keep closed to cool; careful re-entry with BA
+        match: ["keep closed|cool|re entry|reentry|do not open|re ignit|reignit"]
+      - point: Navigational safety / distress or urgency
+        match: ["nuc|not under command|anchor|distress|urgency|navigat"]
+    follow_ups:
+      - Why must the space not be opened too early?
+    critical: true
+    sources:
+      - { label: SOLAS, ref: Ch. II-2 }
+      - { label: FSS Code, ref: Ch. 5 }
+
+  - id: mgmt-oral-collision
+    topic: emergency-response
+    difficulty: 2
+    question: Your ship has been in collision. What are your immediate actions as Chief Mate?
+    model_answer: |
+      Sound the general alarm and inform the Master. Close watertight doors. Assess damage: sound all tanks and bilges, look for water ingress, fire and pollution. Engines: don't withdraw if you've penetrated the other ship until it's safe. Check stability and the damaged condition (loading computer, class ERS). Account for crew and casualties. Communicate with the other vessel: exchange names, ports of registry and destinations (required by SOLAS and national laws). Stand by to assist. Send distress or urgency as necessary. Display the correct lights and signals (NUC if applicable). Prepare LSA. Pollution response under SOPEP. Record times, positions and events, and preserve VDR data (save the VDR). Report to the company, DPA, flag, coastal State and P&I. Don't make admissions of liability.
+    key_points:
+      - point: General alarm, Master informed
+        match: ["alarm|master"]
+      - point: Close watertight doors
+        match: ["watertight|wtd"]
+      - point: Sound tanks and assess damage, ingress, stability
+        match: ["sound|damage|ingress|stabilit"]
+      - point: Don't back out if embedded; stand by to assist
+        match: ["back out|astern|withdraw|separate|stand by|assist"]
+      - point: Exchange information with other vessel
+        match: ["exchange|name|port of registry|information"]
+      - point: Distress/urgency, LSA readiness, SOPEP
+        match: ["distress|urgency|mayday|lifeboat|lsa|sopep|pollution"]
+      - point: Preserve VDR and records; report to company/flag
+        match: ["vdr|record|log|report|company|flag|dpa"]
+    follow_ups:
+      - Why is it important to save the VDR data?
+    critical: true
+    sources:
+      - { label: SOLAS, ref: Ch. V Reg. 20 (VDR) }
+
+  - id: mgmt-oral-grounding
+    topic: emergency-response
+    difficulty: 2
+    question: Your ship runs aground. What are your actions, and what would you consider before trying to refloat?
+    model_answer: |
+      Stop engines. Sound the general alarm and inform the Master. Close watertight doors. Exhibit aground lights and shapes and sound signals. Fix the position. Sound all tanks and bilges and take soundings around the hull to find where she is aground and the nature of the seabed. Check for damage, ingress and pollution (SOPEP). Assess stability and hull stress in the grounded condition and as the tide changes. Report to the company, DPA, coastal State and class (ERS), and send urgency or distress if needed.
+      Before refloating: tidal predictions (refloat on a rising tide), damage and whether she'll stay afloat and stable once off, risk of pollution, the effect of discharging ballast or cargo or fuel, the engine and propeller and rudder condition, the need for tugs or salvage (LOF), weather forecast, and the risk of the ship drifting onto further danger. Don't go full astern blindly.
+    key_points:
+      - point: Stop engines; alarm; Master
+        match: ["stop engine|engines stop|alarm|master"]
+      - point: Watertight doors, signals for aground
+        match: ["watertight|aground light|three ball|signal"]
+      - point: Sound tanks and around the hull; nature of seabed
+        match: ["sound|seabed|bottom|around the hull|soundings"]
+      - point: Damage/ingress/pollution assessment
+        match: ["damage|ingress|pollution|sopep"]
+      - point: Stability and hull stress, tide changes
+        match: ["stabilit|stress|tide"]
+      - point: Report to company/coastal state/class; salvage/tugs
+        match: ["report|company|coastal|class|ers|salvage|tug"]
+      - point: Don't refloat without assessment
+        match: ["refloat|astern|assess"]
+    follow_ups:
+      - What signals does a vessel aground show?
+    sources:
+      - { label: Emergency response practice, ref: Grounding }
+
+  - id: mgmt-oral-pilot-ladder
+    topic: pilot-transfer
+    difficulty: 1
+    question: How would you check that the pilot boarding arrangement is safe?
+    model_answer: |
+      Rigged per SOLAS V/23 and the IMPA poster: the pilot ladder in good condition (steps, ropes, spreaders), certified, and not overdue for replacement. Secured to strong points (not to the rails or steps). Steps horizontal and resting firmly against the ship's side clear of discharges, in the parallel body length, away from the propeller. Climb of at least 1.5 m and not more than 9 m, otherwise a combination arrangement with the accommodation ladder. Man-ropes if the pilot requires them. Lighting at night. A lifebuoy with self-igniting light and a heaving line at hand. A responsible officer in radio contact with the bridge to supervise and escort the pilot. Safe access to deck, with handholds and stanchions. Ship heading to give a lee and speed agreed with the pilot boat.
+    key_points:
+      - point: Ladder condition and certification
+        match: ["condition|certif|damage|step|spreader"]
+      - point: Secured to strong points, not rails/steps
+        match: ["strong point|secure|lashed|shackle|not to the step|not to rail"]
+      - point: Climb 1.5–9 m / combination arrangement over 9 m
+        match: ["9 m|9 metre|nine|1.5|combination|accommodation ladder"]
+      - point: Lifebuoy with light and heaving line
+        match: ["lifebuoy|life buoy|heaving line"]
+      - point: Lighting at night
+        match: ["light"]
+      - point: Responsible officer supervising with radio
+        match: ["officer|supervis|radio|communicat"]
+      - point: Lee and speed agreed with pilot boat
+        match: ["lee|speed|heading"]
+    follow_ups:
+      - What changed in SOLAS V/23 recently regarding pilot transfer arrangements?
+    critical: true
+    sources:
+      - { label: SOLAS, ref: Ch. V Reg. 23 }
+      - { label: IMO Res. A.1045(27), ref: Pilot transfer arrangements }
+
+  - id: mgmt-oral-heavy-weather
+    topic: emergency-response
+    difficulty: 2
+    question: Heavy weather is forecast. What preparations would you make as Chief Mate?
+    model_answer: |
+      Inform the Master and plan with them (weather routing, possible alteration of course or speed). Secure the ship: cargo lashings checked and tightened, deck stores, hatches and vents closed (weathertight), anchors secured and hawse pipes or spurling pipes covered, lifeboats secured, accommodation and stores secured, and loose items in the galley, engine room and cabins. Check stability: avoid excess or insufficient GM, minimise free surface, ballast to improve immersion and steering. Lifelines rigged and no access to exposed decks (or only with a permit). Close watertight doors and portholes and fit deadlights. Hand steering. Inform the engine room. Prepare an enclosed-space or MOB risk assessment for anyone needing to work on deck. Keep an eye on parametric and synchronous rolling. Record in the log (useful for a later note of protest).
+    key_points:
+      - point: Master informed; route/speed planning
+        match: ["master|route|routeing|routing|speed|course"]
+      - point: Cargo lashings and deck items secured
+        match: ["lashing|cargo|secur|deck store"]
+      - point: Weathertight closures, hatches, vents, deadlights
+        match: ["hatch|vent|weathertight|watertight|deadlight|porthole|close"]
+      - point: Stability check (GM, free surface, ballast)
+        match: ["stabilit|gm|free surface|ballast"]
+      - point: Lifelines and restricted deck access
+        match: ["lifeline|access|restrict"]
+      - point: Log entries for protest
+        match: ["log|record|protest"]
+    follow_ups:
+      - What signs of parametric rolling would you watch for?
+    sources:
+      - { label: IMO MSC.1/Circ.1228, ref: Heavy weather guidance }
+
+  - id: mgmt-oral-brm
+    topic: brm
+    difficulty: 2
+    question: What do you understand by Bridge Resource Management, and how would you run a bridge team briefing before entering port?
+    model_answer: |
+      BRM is the effective management and use of all resources (people, equipment and information) to achieve a safe passage. It covers leadership, teamwork, communication (closed loop), situational awareness, a shared mental model, workload management, challenge and response, decision making and avoiding single-person errors.
+      Briefing before port: the passage plan (route, tidal window, UKC, abort points, contingencies), roles and responsibilities (con, navigation, lookout, helm, communications), when to call the Master, pilot boarding arrangements, VTS reporting and channels, traffic expectations, equipment status and defects, weather, engine readiness and anchors ready, the language of communication, and encouragement to speak up. Afterwards a debrief to capture lessons.
+    key_points:
+      - point: Use of all resources — people, equipment, information
+        match: ["resource|people|equipment|information"]
+      - point: Communication (closed loop) and challenge/response
+        match: ["closed loop|repeat back|read back|challenge|speak up|communicat"]
+      - point: Situational awareness / shared mental model
+        match: ["situational awareness|shared mental|mental model|awareness"]
+      - point: Roles and responsibilities assigned
+        match: ["role|responsib|duties|task"]
+      - point: Passage plan, abort points, contingencies discussed
+        match: ["passage plan|abort|contingenc|tidal window|ukc"]
+      - point: Debrief afterwards
+        match: ["debrief|lesson"]
+    follow_ups:
+      - How would you deal with a junior officer who is reluctant to challenge the pilot?
+    sources:
+      - { label: STCW Code, ref: Table A-II/2 (BRM, leadership) }
+
+  - id: mgmt-oral-pms
+    topic: maintenance
+    difficulty: 1
+    question: How do you manage deck maintenance as Chief Mate?
+    model_answer: |
+      Through the planned maintenance system (PMS) in the SMS: scheduled tasks from manufacturers' instructions and class and statutory requirements (LSA and FFA inspections under SOLAS III/20 and II-2/14, mooring equipment, hatch covers, cranes and lifting gear, pilot ladders, watertight doors). Prioritise using risk assessment and critical equipment lists. Plan work with permits and resources, and order spares. Keep records and report defects and non-conformities. Monitor the condition of the hull and coatings and ballast tank inspections (coating condition). Prepare for surveys and audits. Delegate to the bosun and crew with daily work planning, toolbox talks and safe working practice, and supervise quality.
+    key_points:
+      - point: Planned maintenance system
+        match: ["planned maintenance|pms|schedule"]
+      - point: Statutory/class requirements (LSA, FFA, lifting gear)
+        match: ["lsa|ffa|class|survey|statutory|crane|lifting"]
+      - point: Critical equipment and risk-based priority
+        match: ["critical|priorit|risk"]
+      - point: Records, defects and spares
+        match: ["record|report|defect|spare"]
+      - point: Delegation, toolbox talks, permits
+        match: ["bosun|delegat|toolbox|permit|supervis"]
+    follow_ups:
+      - What is critical equipment under the ISM Code?
+    sources:
+      - { label: ISM Code, ref: Section 10 }
+
+  - id: mgmt-oral-oil-spill
+    topic: pollution-response
+    difficulty: 2
+    question: During bunkering an oil spill occurs on deck and some oil goes overboard. What do you do?
+    model_answer: |
+      Stop bunkering immediately (emergency stop signal to the barge or terminal). Raise the alarm and inform the Master. Follow the SOPEP: contain the oil on deck with scupper plugs (which should already be in), absorbents and SOPEP equipment. Prevent fire (no ignition sources, fire equipment ready). Find and isolate the source (overflow, leaking hose or flange). Transfer oil to a slack tank if overflowing. Report immediately to the coastal State or port authority (SOPEP contact list) and inform the company, DPA and P&I. Record it in the ORB and log (times, quantities, actions). Cooperate with the clean-up. Preserve evidence. Investigate the cause (gauge failure, communication, topping-off rate) through the SMS.
+    key_points:
+      - point: Stop bunkering immediately
+        match: ["stop"]
+      - point: Alarm and Master; SOPEP activated
+        match: ["alarm|master|sopep"]
+      - point: Contain on deck — scupper plugs, absorbents
+        match: ["scupper|absorb|contain|sawdust|boom"]
+      - point: Fire precautions
+        match: ["fire|ignition"]
+      - point: Report to coastal State/port authority
+        match: ["report|coastal|port authorit|coast guard"]
+      - point: Record in ORB and investigate cause
+        match: ["oil record book|orb|record|log|investigat"]
+    follow_ups:
+      - What preparations should be made before bunkering begins?
+    critical: true
+    sources:
+      - { label: MARPOL, ref: Annex I Reg. 37 (SOPEP) }
+
+  - id: mgmt-oral-abandon
+    topic: emergency-response
+    difficulty: 2
+    question: The Master orders abandon ship. Describe the actions and your responsibilities as Chief Mate.
+    model_answer: |
+      The abandon ship signal is given (by verbal order after the general alarm, per the muster list). Send a distress alert (DSC, satellite, EPIRB activated, or it float-frees), with the position. Crew muster at stations with lifejackets, immersion suits and warm clothing, and a headcount is taken. The Chief Mate typically commands a lifeboat or a muster station per the muster list: check the boat is ready, take the SART/AIS-SART, portable VHF, extra water and blankets, and documents if possible. Lower the boat under control, avoiding the propeller and any windward-side hazards. Clear the ship, gather the survival craft together, stream sea anchors, and maintain morale and survival routine (water rationing, lookouts). Use pyrotechnics only when rescue is in sight.
+    key_points:
+      - point: Distress alert / EPIRB / position
+        match: ["distress|epirb|mayday|dsc"]
+      - point: Muster with lifejackets/immersion suits and headcount
+        match: ["muster|lifejacket|life jacket|immersion suit|headcount|head count"]
+      - point: SART and portable VHF to survival craft
+        match: ["sart|vhf|radio"]
+      - point: Controlled launching, clear of hazards
+        match: ["launch|lower|propeller|clear"]
+      - point: Survival routine — sea anchor, lookouts, rationing, pyrotechnics wisely
+        match: ["sea anchor|drogue|lookout|ration|pyrotechnic|flare|together"]
+    follow_ups:
+      - Why should liferafts and boats stay together?
+    sources:
+      - { label: SOLAS, ref: Ch. III }

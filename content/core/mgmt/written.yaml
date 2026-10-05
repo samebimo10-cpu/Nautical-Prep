@@ -1,0 +1,22 @@
+defaults:
+  competence: MGMT
+  type: written
+items:
+  - id: mgmt-written-enclosed
+    topic: enclosed-space
+    difficulty: 2
+    prompt: Describe the procedure to be followed before and during entry into an enclosed space, and outline the shipboard requirements for enclosed space rescue drills.
+    model_answer: |
+      Before entry: identify the space as enclosed; risk assessment; permit to work authorised by a responsible officer; isolate the space (mechanical and electrical, lines blanked); ventilate thoroughly; test the atmosphere at various levels with calibrated instruments (O2 21%, flammable < 1% LFL, toxic gases such as H2S and CO below OEL); rescue equipment ready at the entrance; attendant stationed with communications; agree the communication system; lighting (intrinsically safe where needed); personnel briefed, with personal gas monitors and EEBDs if appropriate.
+      During: continuous ventilation and periodic or continuous monitoring; regular communication; evacuate if conditions change or the alarm sounds; record entry and exit.
+      Drills: SOLAS III/19 requires enclosed space entry and rescue drills at least every two months, planned and conducted safely, including the checking and use of PPE, gas detectors, communication, rescue equipment and first aid. Records kept.
+    marking_points:
+      - { point: Risk assessment and permit, weight: 2 }
+      - { point: Isolation of space, weight: 1 }
+      - { point: Ventilation and atmosphere testing with values, weight: 3 }
+      - { point: Attendant, communications, rescue equipment, weight: 2 }
+      - { point: Continuous monitoring and evacuation criteria, weight: 1 }
+      - { point: Drills every 2 months with content, weight: 2 }
+    sources:
+      - { label: IMO Res. A.1050(27), ref: Entering enclosed spaces }
+      - { label: SOLAS, ref: Ch. III Reg. 19.3.6 }

@@ -7,6 +7,7 @@ import { gradeMock } from "@cm/learning";
 import { db } from "../../lib/db";
 import { enqueue } from "../../lib/sync";
 import { recordAttempt, trackEvent } from "../../lib/record";
+import { optionOrder } from "../../lib/shuffle";
 
 function fmtTime(ms: number) {
   const s = Math.max(0, Math.floor(ms / 1000));
@@ -97,17 +98,18 @@ export function MockRun() {
             <>
               <p className="mb-3 text-lg font-medium">{item.stem}</p>
               <div role="radiogroup" aria-label="Options" className="grid gap-2">
-                {item.options.map((o, i) => (
+                {optionOrder(`${mock.id}:${item.id}`).map((i, pos) => (
                   <button
                     key={i}
                     role="radio"
                     aria-checked={mock.answers[item.id] === i}
                     onClick={() => setAnswer(i)}
-                    data-testid={`mock-option-${i}`}
+                    data-testid={`mock-option-${pos}`}
+                    data-correct={i === item.correct_index ? "true" : undefined}
                     className={`min-h-[48px] rounded-xl border px-3 py-2 text-left ${mock.answers[item.id] === i ? "border-sea-500 bg-sea-400/10" : "border-slate-200"}`}
                   >
-                    <span className="mr-2 font-bold">{"ABCD"[i]}.</span>
-                    {o}
+                    <span className="mr-2 font-bold">{"ABCD"[pos]}.</span>
+                    {item.options[i]}
                   </button>
                 ))}
               </div>

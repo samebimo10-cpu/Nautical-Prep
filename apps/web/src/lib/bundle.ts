@@ -69,7 +69,9 @@ export async function ensureBundle(country: string, onProgress: (p: Progress) =>
   }
   const raw = await download(`/bundles/${entry.file}`, entry.bytes, onProgress);
   onProgress({ loaded: entry.bytes, total: entry.bytes, phase: "installing" });
-  const json = JSON.parse(strFromU8(gunzipSync(raw)));
+  // Some servers/CDNs transparently decode .gz (Content-Encoding); detect the gzip magic bytes.
+  const isGzip = raw[0] === 0x1f && raw[1] === 0x8b;
+  const json = JSON.parse(strFromU8(isGzip ? gunzipSync(raw) : raw));
   const bundle = OfflineBundle.parse(json);
   await db.transaction("rw", [db.items, db.scenarios, db.configs, db.meta], async () => {
     await db.items.clear();

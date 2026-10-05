@@ -1,0 +1,59 @@
+defaults:
+  competence: LOCAL
+  countries: [ gh ]
+items:
+  - id: gh-local-gma-001
+    type: mcq
+    topic: administration
+    difficulty: 1
+    stem: Ghana's maritime administration responsible for seafarer certification and maritime safety is the
+    options:
+      - Ghana Ports and Harbours Authority (GPHA)
+      - Ghana Maritime Authority (GMA)
+      - Ghana Shippers' Authority
+      - Ghana Navy
+    correct_index: 1
+    explanation: The GMA (established by Act 630, 2002) administers the Ghana Shipping Act 2003 (Act 645), including seafarer certification, flag and port State control, and maritime safety and security. GPHA runs the ports (Tema, Takoradi).
+    sources:
+      - { label: Ghana Maritime Authority Act 2002 (Act 630), ref: Functions }
+
+  - id: gh-local-psc-001
+    type: mcq
+    topic: psc
+    difficulty: 1
+    stem: Ghana participates in which regional PSC agreement?
+    options:
+      - Indian Ocean MoU
+      - Paris MoU
+      - Abuja MoU
+      - Tokyo MoU
+    correct_index: 2
+    explanation: Ghana participates in the Abuja MoU (West and Central Africa).
+    sources:
+      - { label: Abuja MoU, ref: Member States }
+
+  - id: gh-local-oral-tema
+    type: oral
+    topic: ports
+    difficulty: 2
+    examiner_style: gh
+    question: You are arriving at Tema. What information and preparations would you make for arrival, pilotage and berthing?
+    model_answer: |
+      Check the latest port information (Guide to Port Entry, agent's advice, Sailing Directions, local notices), pre-arrival notifications (ISPS pre-arrival information, health declaration, crew and cargo documents through the agent), and VHF channels and reporting to port control. Pilot boarding position and ladder arrangements. Tugs and mooring plan. Security level and Gulf of Guinea security precautions at the anchorage. Draft and UKC for the channel and berth. Tide and swell. Bridge team briefing, anchors ready, engines tested. Waste reception arrangements (MARPOL). GMA/PSC inspection readiness.
+    key_points:
+      - point: Port information and agent liaison
+        match: [ "port information|guide to port|agent|sailing direction" ]
+      - point: Pre-arrival notifications (ISPS, health, documents)
+        match: [ "pre arrival|isps|health|declaration|notification" ]
+      - point: VHF reporting / port control
+        match: [ "vhf|port control|report" ]
+      - point: Pilot boarding and ladder
+        match: [ "pilot" ]
+      - point: UKC, tide, swell
+        match: [ "ukc|draft|tide|swell|depth" ]
+      - point: Security precautions
+        match: [ "security|piracy|robbery" ]
+    follow_ups:
+      - What documents would PSC in Tema likely check first?
+    sources:
+      - { label: Port practice, ref: Arrival preparations }

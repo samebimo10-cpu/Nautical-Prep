@@ -1,0 +1,30 @@
+# Supabase CLI local config (minimal). Run: supabase start && supabase db reset
+project_id = "chief-mate-prep"
+
+[api]
+port = 54321
+
+[db]
+port = 54322
+major_version = 15
+
+[auth]
+site_url = "http://localhost:5173"
+additional_redirect_urls = ["http://localhost:4173"]
+
+[auth.email]
+enable_signup = true
+enable_confirmations = false
+otp_length = 6
+
+[auth.external.google]
+enabled = false   # set client id/secret in dashboard (Checkpoint A)
+client_id = "env(GOOGLE_CLIENT_ID)"
+secret = "env(GOOGLE_CLIENT_SECRET)"
+
+[functions.oral-examiner]
+verify_jwt = true
+[functions.grade-answer]
+verify_jwt = true
+[functions.payments-webhook]
+verify_jwt = false

@@ -1,0 +1,180 @@
+defaults:
+  competence: LOCAL
+  countries: [ uk ]
+items:
+  - id: uk-local-maib-001
+    type: mcq
+    topic: accident-reporting
+    difficulty: 1
+    stem: In the UK, which body investigates marine accidents with the sole objective of determining causes to prevent recurrence (not to apportion blame)?
+    options:
+      - Maritime and Coastguard Agency (MCA)
+      - Health and Safety Executive
+      - Port of London Authority
+      - Marine Accident Investigation Branch (MAIB)
+    correct_index: 3
+    explanation: The MAIB investigates accidents to improve safety, not to apportion blame or liability. The MCA is the UK maritime administration (surveys, certification, enforcement, HM Coastguard).
+    sources:
+      - { label: Merchant Shipping (Accident Reporting and Investigation) Regulations 2012, ref: Purpose }
+
+  - id: uk-local-notices-001
+    type: mcq
+    topic: mca-notices
+    difficulty: 1
+    stem: Which type of MCA notice contains mandatory information that must be complied with under UK legislation?
+    options:
+      - Merchant Shipping Notice (MSN)
+      - Marine Information Note (MIN)
+      - Notice to Mariners (NtM)
+      - Marine Guidance Note (MGN)
+    correct_index: 0
+    explanation: MSNs carry mandatory technical detail of regulations. MGNs give guidance and best practice, and MINs are time-limited information for training establishments, surveyors and so on.
+    sources:
+      - { label: MCA, ref: M-Notices system }
+
+  - id: uk-local-region-001
+    type: mcq
+    topic: buoyage
+    difficulty: 1
+    stem: UK waters use which IALA buoyage region?
+    options:
+      - Region B — port hand marks green
+      - Region A — port hand marks red
+      - Both regions depending on the coast
+      - No IALA system
+    correct_index: 1
+    explanation: The UK uses Region A, where port-hand lateral marks are red cans and starboard-hand marks are green cones, in the conventional direction of buoyage.
+    sources:
+      - { label: IALA Maritime Buoyage System, ref: Regions }
+
+  - id: uk-local-dover-001
+    type: mcq
+    topic: ship-reporting
+    difficulty: 2
+    stem: Ships of 300 GT and above transiting the Dover Strait TSS participate in which mandatory reporting system?
+    options:
+      - STRAITREP
+      - REEFREP
+      - CALDOVREP (operated by Dover Coastguard and CROSS Gris-Nez)
+      - AMVER only
+    correct_index: 2
+    explanation: CALDOVREP is the mandatory ship reporting system in the Dover Strait/Pas de Calais, operated by HM Coastguard Dover and CROSS Gris-Nez. The Channel Navigation Information Service (CNIS) provides traffic information.
+    sources:
+      - { label: Admiralty List of Radio Signals Vol. 6, ref: Dover Strait }
+
+  - id: uk-local-log-001
+    type: mcq
+    topic: official-log
+    difficulty: 2
+    stem: On UK ships, births, deaths, disciplinary matters and certain prescribed events are recorded in
+    options:
+      - The deck log only
+      - The ship's articles only
+      - The Oil Record Book
+      - The Official Log Book
+    correct_index: 3
+    explanation: The Official Log Book (as required by UK regulations) records prescribed entries such as drills, inspections, births and deaths, and disciplinary matters. It's separate from the deck (navigational) log.
+    sources:
+      - { label: Merchant Shipping (Official Log Books) Regulations, ref: Prescribed entries }
+
+  - id: uk-local-oral-maib
+    type: oral
+    topic: accident-reporting
+    difficulty: 2
+    examiner_style: uk
+    question: Your UK-flagged ship has had a serious injury on board. What are the reporting requirements and what would you preserve?
+    model_answer: |
+      Report to the MAIB as soon as practicable by the quickest means (the master or senior surviving officer is responsible, and the owner must also report). Notify the company and DPA under the SMS, and the flag (MCA) as required. Preserve evidence: VDR data (save it), logbooks, charts or ECDIS records, documents, photographs, equipment involved, and witness details. Don't alter the scene unless needed for safety. Record events in the Official Log Book. Cooperate with MAIB inspectors, who have powers to board, interview and take evidence. MAIB investigations aim to prevent recurrence, not to apportion blame.
+    key_points:
+      - point: Report to MAIB as soon as practicable
+        match: [ "maib|marine accident investigation" ]
+      - point: Inform company / DPA
+        match: [ "company|dpa|designated person|owner" ]
+      - point: Preserve VDR and records
+        match: [ "vdr|voyage data recorder|log|record|evidence" ]
+      - point: Official Log Book entry
+        match: [ "official log" ]
+      - point: Purpose — not to apportion blame
+        match: [ "blame|prevent recurrence|lessons" ]
+    follow_ups:
+      - What powers does an MAIB inspector have?
+    sources:
+      - { label: Merchant Shipping (Accident Reporting and Investigation) Regulations 2012, ref: Reporting }
+
+  - id: uk-local-oral-cswp
+    type: oral
+    topic: safe-working
+    difficulty: 1
+    examiner_style: uk
+    question: What is the Code of Safe Working Practices for Merchant Seafarers, and how is it used on UK ships?
+    model_answer: |
+      The COSWP is published by the MCA and gives best-practice guidance on improving health and safety on board. It covers risk assessment, permits to work, PPE, enclosed spaces, working aloft and overside, hot work, lifting, mooring, the safety officer and safety committee, and so on. UK ships must carry a copy. It supports compliance with the Merchant Shipping (Health and Safety at Work) Regulations, including the employer's duty to carry out risk assessments. It's used in safety committee meetings, toolbox talks and the SMS procedures.
+    key_points:
+      - point: MCA publication of best practice for safe working
+        match: [ "mca|best practice|guidance|code of safe working" ]
+      - point: Must be carried on UK ships
+        match: [ "carr|on board|copy" ]
+      - point: Risk assessment and permits to work
+        match: [ "risk assessment|permit" ]
+      - point: Safety officer and safety committee
+        match: [ "safety officer|safety committee|safety representative" ]
+      - point: Health and Safety at Work regulations link
+        match: [ "health and safety|regulation|law" ]
+    follow_ups:
+      - What are the duties of the ship's safety officer?
+    sources:
+      - { label: MCA, ref: Code of Safe Working Practices for Merchant Seafarers }
+
+  - id: uk-local-oral-mca-orals
+    type: oral
+    topic: examination
+    difficulty: 1
+    examiner_style: uk
+    question: Talk me through how you would take over as Chief Mate when joining a UK-flagged ship mid-voyage.
+    model_answer: |
+      Handover with the outgoing Chief Mate using the company checklist: cargo condition and plan, stability and loading computer status, ballast condition, tank soundings, hull stress, planned maintenance status and outstanding defects, safety equipment status (LSA, FFA, certificates and survey due dates), crew matters (hours of rest, training, appraisals), outstanding PSC or audit findings, permits in force, ship's documents, keys, and any company instructions. Familiarisation under the SMS and STCW (ship-specific familiarisation before taking up duties), meeting the Master, standing orders, and the emergency duties on the muster list. Walk round the deck. Sign the handover report and log it.
+    key_points:
+      - point: Formal handover with checklist
+        match: [ "handover|hand over|checklist" ]
+      - point: Cargo, stability, ballast, hull stress
+        match: [ "cargo|stabilit|ballast|stress" ]
+      - point: Safety equipment status and certificates
+        match: [ "lsa|ffa|safety equipment|certificat|survey" ]
+      - point: Maintenance, defects, outstanding findings
+        match: [ "maintenance|defect|finding|psc|audit" ]
+      - point: Familiarisation and Master's orders, muster duties
+        match: [ "familiar|standing order|muster|master" ]
+    follow_ups:
+      - What is ship-specific familiarisation under STCW?
+    sources:
+      - { label: STCW, ref: Reg. I/14 }
+
+  - id: uk-local-hmcg-001
+    type: mcq
+    topic: sar
+    difficulty: 1
+    stem: Search and rescue coordination around the UK coast is the responsibility of
+    options:
+      - HM Coastguard (part of the MCA)
+      - The Royal Navy only
+      - The MAIB
+      - Trinity House
+    correct_index: 0
+    explanation: HM Coastguard, part of the MCA, coordinates civil maritime SAR. The RNLI provides lifeboats, and Trinity House is the general lighthouse authority for England, Wales and the Channel Islands.
+    sources:
+      - { label: MCA, ref: HM Coastguard }
+
+  - id: uk-local-chirp-001
+    type: mcq
+    topic: accident-reporting
+    difficulty: 1
+    stem: CHIRP Maritime is
+    options:
+      - The UK flag's survey agency
+      - A confidential, independent near-miss and hazard reporting programme
+      - A cargo inspection society
+      - A mandatory accident reporting scheme run by the MCA
+    correct_index: 1
+    explanation: CHIRP Maritime is a confidential, independent, voluntary reporting programme for safety concerns and near misses. Lessons are published anonymously. Mandatory accident reports go to the MAIB.
+    sources:
+      - { label: CHIRP Maritime, ref: About }

@@ -131,7 +131,7 @@ export class AppDB extends Dexie {
       certs: "++id, expires_at",
       queue: "++id, kind",
       reports: "++id, item_id, status",
-      updates: "id, published_at",
+      updates: "id, published_at, read",
       reviews: "item_id",
       events: "++id, name, at",
     });

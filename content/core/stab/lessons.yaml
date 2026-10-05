@@ -1,0 +1,64 @@
+defaults:
+  competence: STAB
+  type: lesson
+items:
+  - id: stab-lesson-criteria-fse
+    topic: intact-stability-criteria
+    difficulty: 1
+    title: Intact stability criteria & free surface
+    related_item_ids: [stab-is-code-001, stab-is-code-002, stab-is-code-003, stab-fse-001, stab-fse-002, stab-fse-003]
+    body_md: |
+      ## 2008 IS Code: general criteria (memorise)
+      | Criterion | Minimum |
+      | --- | --- |
+      | Area 0–30° | **0.055 m·rad** |
+      | Area 0–40° (or θf) | **0.090 m·rad** |
+      | Area 30–40° | **0.030 m·rad** |
+      | GZ at ≥ 30° | **0.20 m** |
+      | Angle of max GZ | **≥ 25°** |
+      | GM0 (fluid) | **0.15 m** |
+
+      > Mnemonic: **"55-90-30, point-two at thirty, max at 25, GM fifteen"**
+
+      Plus the **weather criterion** (severe wind and rolling). Grain ships: GM ≥ **0.30 m**, heel ≤ **12°**, residual area ≥ **0.075 m·rad**.
+
+      ## Free surface
+      - **FSM = l·b³/12 × ρ** (t·m)
+      - **Virtual rise of G = ΣFSM / Δ**
+      - It doesn't depend on the depth of liquid or the tank's position.
+      - Divide a tank into *n* equal longitudinal parts: the effect falls to **1/n²**.
+
+      ## Loll vs list
+      | | List | Loll |
+      | --- | --- | --- |
+      | Cause | G off centreline | **Negative GM** |
+      | Behaviour | Stays on one side | Can **flop** to either side |
+      | Cure | Shift weight across | **Lower G**: fill low-side DB tank first |
+    sources:
+      - { label: IMO 2008 IS Code, ref: Part A, 2.2 }
+
+  - id: stab-lesson-drydock-strength
+    topic: drydocking
+    difficulty: 2
+    title: Drydocking and hull strength
+    related_item_ids: [stab-drydock-001, stab-drydock-002, stab-strength-001, stab-strength-002, stab-oral-drydock]
+    body_md: |
+      ## Drydock: the P force
+      - **P = MCTC × t / l**, where t = trim (cm) to be removed and l = distance from LCF to the after block (m)
+      - **Virtual loss of GM = P × KM / Δ**
+      - **Critical instant**: just before she takes the blocks fully fore and aft. P is at its maximum.
+      - **Max allowable P** = Δ × GM / KM (effective GM falls to zero)
+
+      **Before docking:** small stern trim, upright, no free surface, ample GM, docking plan sent.
+
+      ## Hog and sag
+      | Condition | Load | Deck | Bottom |
+      | --- | --- | --- | --- |
+      | **Hogging** | Heavy ends | Tension | Compression |
+      | **Sagging** | Heavy middle | Compression | Tension |
+
+      - Max **bending moment** is near amidships, where SF = 0.
+      - Max **shear force** is at about the quarter lengths.
+      - Check **every stage** of the loading sequence on the approved loading instrument.
+    sources:
+      - { label: Ship stability theory, ref: Drydocking; longitudinal strength }

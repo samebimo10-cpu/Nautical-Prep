@@ -6,6 +6,7 @@ import { db } from "../../lib/db";
 import { recordAttempt, trackEvent } from "../../lib/record";
 import { aiAvailable, gradeWritten, type GradeResult } from "../../lib/ai";
 import { selectQuiz } from "./select";
+import { optionOrder } from "../../lib/shuffle";
 import { DraftBadge, PageHeader, ProgressBar } from "../../components/ui";
 import { ReportButton } from "../../components/ReportButton";
 
@@ -116,7 +117,9 @@ export function McqCard({ item, onDone }: { item: McqItem; onDone: (score: numbe
   const [choice, setChoice] = useState<number | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const started = useRef(Date.now());
+  const order = useMemo(() => optionOrder(`${item.id}:${started.current}`), [item.id]);
   const correct = choice === item.correct_index;
+  const letter = (orig: number) => "ABCD"[order.indexOf(orig)];
 
   async function submit(confidence: Confidence) {
     setSubmitted(true);
@@ -130,7 +133,8 @@ export function McqCard({ item, onDone }: { item: McqItem; onDone: (score: numbe
         {item.stem}
       </p>
       <div role="radiogroup" aria-label="Answer options" className="grid gap-2">
-        {item.options.map((opt, i) => {
+        {order.map((i, pos) => {
+          const opt = item.options[i]!;
           const state = !submitted ? (choice === i ? "chosen" : "") : i === item.correct_index ? "right" : choice === i ? "wrong" : "";
           return (
             <button
@@ -139,12 +143,13 @@ export function McqCard({ item, onDone }: { item: McqItem; onDone: (score: numbe
               aria-checked={choice === i}
               disabled={submitted}
               onClick={() => setChoice(i)}
-              data-testid={`option-${i}`}
+              data-testid={`option-${pos}`}
+              data-correct={i === item.correct_index ? "true" : undefined}
               className={`min-h-[48px] rounded-xl border px-3 py-2 text-left ${
                 state === "chosen" ? "border-sea-500 bg-sea-400/10" : state === "right" ? "border-emerald-500 bg-emerald-50" : state === "wrong" ? "border-red-500 bg-red-50" : "border-slate-200"
               }`}
             >
-              <span className="mr-2 font-bold">{"ABCD"[i]}.</span>
+              <span className="mr-2 font-bold">{"ABCD"[pos]}.</span>
               {opt}
             </button>
           );
@@ -169,7 +174,7 @@ export function McqCard({ item, onDone }: { item: McqItem; onDone: (score: numbe
       {submitted && (
         <div className="mt-4" aria-live="polite">
           <p data-testid="feedback" className={`font-bold ${correct ? "text-emerald-700" : "text-red-700"}`}>
-            {correct ? "✓ Correct" : `✗ Incorrect — answer ${"ABCD"[item.correct_index]}`}
+            {correct ? "✓ Correct" : `✗ Incorrect — answer ${letter(item.correct_index)}: ${item.options[item.correct_index]}`}
           </p>
           <p className="mt-1 text-sm leading-relaxed">{item.explanation}</p>
           <Sources item={item} />

@@ -1,0 +1,410 @@
+defaults:
+  competence: LAW
+  type: mcq
+items:
+  - id: law-solas-001
+    topic: solas
+    difficulty: 1
+    stem: Which SOLAS chapter contains the International Safety Management (ISM) Code requirements?
+    options:
+      - Chapter V
+      - Chapter IX
+      - Chapter XI-2
+      - Chapter III
+    correct_index: 1
+    explanation: IX is Management for the Safe Operation of Ships (ISM), XI-2 is maritime security (ISPS), V is safety of navigation, and III is life-saving appliances.
+    sources:
+      - { label: SOLAS, ref: Ch. IX }
+
+  - id: law-solas-002
+    topic: solas-drills
+    difficulty: 1
+    stem: On a cargo ship, an abandon ship drill and a fire drill must take place within 24 hours of leaving port if
+    options:
+      - The ship has been in port more than 48 hours
+      - Any crew member has joined
+      - More than 25% of the crew have not participated in drills on board that ship in the previous month
+      - The master changes
+    correct_index: 2
+    explanation: Every crew member takes part in at least one abandon ship and one fire drill every month. If more than 25% haven't participated on board that ship in the previous month, both drills must be held within 24 hours of leaving port.
+    sources:
+      - { label: SOLAS, ref: Ch. III Reg. 19.3.2 }
+
+  - id: law-solas-003
+    topic: solas-drills
+    difficulty: 2
+    stem: Enclosed space entry and rescue drills shall be carried out at intervals not exceeding
+    options:
+      - One month
+      - Six months
+      - Three months
+      - Two months
+    correct_index: 3
+    explanation: SOLAS III/19.3.6 (since 2015) requires enclosed space entry and rescue drills at least every two months.
+    sources:
+      - { label: SOLAS, ref: Ch. III Reg. 19.3.6 }
+
+  - id: law-solas-004
+    topic: solas-drills
+    difficulty: 2
+    stem: Each lifeboat (other than free-fall) shall be launched with its assigned operating crew aboard and manoeuvred in the water at least once every
+    options:
+      - Three months
+      - Month
+      - Six months
+      - Twelve months
+    correct_index: 0
+    explanation: Under SOLAS III/19, conventional lifeboats are launched with crew and manoeuvred at least every 3 months. Free-fall lifeboats have their own provisions (including simulated launching).
+    sources:
+      - { label: SOLAS, ref: Ch. III Reg. 19.3.3 }
+
+  - id: law-solas-005
+    topic: solas
+    difficulty: 2
+    stem: Emergency steering drills shall take place at least
+    options:
+      - Weekly
+      - Once every three months
+      - Monthly
+      - Annually
+    correct_index: 1
+    explanation: SOLAS V/26 requires emergency steering drills at least every 3 months, including direct control from the steering gear compartment and the communications procedure. Steering gear must also be checked and tested within 12 hours before departure.
+    sources:
+      - { label: SOLAS, ref: Ch. V Reg. 26 }
+
+  - id: law-marpol-001
+    topic: marpol
+    difficulty: 1
+    stem: MARPOL Annex VI deals with
+    options:
+      - Garbage
+      - Sewage
+      - Prevention of air pollution from ships
+      - Noxious liquid substances
+    correct_index: 2
+    explanation: Annex I oil, II noxious liquid substances in bulk, III harmful substances in packaged form, IV sewage, V garbage, VI air pollution (SOx, NOx, ODS, VOCs, energy efficiency).
+    sources:
+      - { label: MARPOL 73/78, ref: Annexes I–VI }
+
+  - id: law-marpol-002
+    topic: marpol
+    difficulty: 1
+    stem: Outside special areas, a ship of 400 GT and above may discharge oily mixtures from machinery space bilges only if the oil content without dilution does not exceed
+    options:
+      - 5 ppm
+      - 15 ppm
+      - 30 ppm
+      - 100 ppm
+    correct_index: 1
+    explanation: The conditions are that the ship is en route, the mixture is processed through approved oil filtering equipment (with a 15 ppm alarm and automatic stopping), the oil content is no more than 15 ppm, and the mixture doesn't come from cargo pump-room bilges on tankers or contain cargo residues.
+    sources:
+      - { label: MARPOL, ref: Annex I Reg. 15 }
+
+  - id: law-marpol-003
+    topic: marpol
+    difficulty: 2
+    stem: An oil tanker discharging oily mixtures from cargo areas outside special areas must not exceed an instantaneous rate of discharge of
+    options:
+      - 15 litres per nautical mile
+      - 30 litres per nautical mile
+      - 60 litres per nautical mile
+      - 100 litres per hour
+    correct_index: 1
+    explanation: "The conditions are: not in a special area, more than 50 nm from the nearest land, en route, rate ≤ 30 l/nm, total quantity ≤ 1/30,000 of the last cargo (new tankers), and ODME and slop tank arrangements in operation."
+    sources:
+      - { label: MARPOL, ref: Annex I Reg. 34 }
+
+  - id: law-marpol-004
+    topic: marpol
+    difficulty: 1
+    stem: Since 1 January 2020, the global limit on sulphur content of fuel oil used on board ships outside Emission Control Areas is
+    options:
+      - 3.50% m/m
+      - 1.00% m/m
+      - 0.10% m/m
+      - 0.50% m/m
+    correct_index: 3
+    explanation: The global cap is 0.50% m/m. Inside SOx ECAs it is 0.10% m/m. An approved equivalent such as an exhaust gas cleaning system (scrubber) may be used. Carriage of non-compliant fuel for use is prohibited unless a scrubber is fitted.
+    sources:
+      - { label: MARPOL, ref: Annex VI Reg. 14 }
+
+  - id: law-marpol-005
+    topic: marpol
+    difficulty: 2
+    stem: Under MARPOL Annex V, the discharge of plastics into the sea is
+    options:
+      - Prohibited everywhere
+      - Permitted if shredded
+      - Permitted more than 12 nm from land
+      - Permitted outside special areas only
+    correct_index: 0
+    explanation: Discharging all plastics (including synthetic ropes, fishing nets, plastic garbage bags and incinerator ash from plastics) is prohibited everywhere. Food waste may be discharged outside special areas at least 3 nm from land if comminuted to 25 mm or less, otherwise at least 12 nm.
+    sources:
+      - { label: MARPOL, ref: Annex V Reg. 3 and 4 }
+
+  - id: law-marpol-006
+    topic: marpol
+    difficulty: 2
+    stem: How long must the Oil Record Book be retained on board after the last entry?
+    options:
+      - 1 year
+      - 2 years
+      - 3 years
+      - 5 years
+    correct_index: 2
+    explanation: The ORB must be kept readily available for inspection for 3 years after the last entry. Garbage Record Books are also kept for at least 2 years (Annex V). The bunker delivery note is kept 3 years and the MARPOL fuel sample 12 months (Annex VI).
+    sources:
+      - { label: MARPOL, ref: Annex I Reg. 17 and 36 }
+
+  - id: law-bwm-001
+    topic: ballast-water
+    difficulty: 2
+    stem: Under the Ballast Water Management Convention, ballast water exchange (D-1 standard) should, whenever possible, be conducted
+    options:
+      - At least 12 nm from land in 50 m depth
+      - At least 200 nm from the nearest land and in water at least 200 m deep
+      - Only in port
+      - Within 3 nm of the coast
+    correct_index: 1
+    explanation: Regulation B-4 says at least 200 nm from land in at least 200 m depth. If that's not possible, at least 50 nm from land in 200 m depth. The D-2 performance standard (treatment systems) is now the required standard for most ships.
+    sources:
+      - { label: BWM Convention, ref: Reg. B-4, D-1, D-2 }
+
+  - id: law-mlc-001
+    topic: mlc
+    difficulty: 1
+    stem: Under MLC 2006 and STCW, minimum hours of rest shall not be less than
+    options:
+      - 8 hours in any 24-hour period and 56 hours in any 7-day period
+      - 12 hours in any 24-hour period and 84 hours in any 7-day period
+      - 10 hours in any 24-hour period and 77 hours in any 7-day period
+      - 6 hours in any 24-hour period
+    correct_index: 2
+    explanation: The minimum is 10 h in any 24 h and 77 h in any 7 days. Rest may be divided into no more than two periods, one of which is at least 6 h, and the interval between consecutive rest periods must not exceed 14 h.
+    sources:
+      - { label: MLC 2006, ref: Reg. 2.3 / Standard A2.3 }
+      - { label: STCW Code, ref: Section A-VIII/1 }
+
+  - id: law-mlc-002
+    topic: mlc
+    difficulty: 2
+    stem: The Maritime Labour Certificate is required for ships of
+    options:
+      - Ships over 3000 GT only
+      - All ships regardless of size
+      - Only passenger ships
+      - 500 GT or over engaged in international voyages (and certain other ships as specified)
+    correct_index: 3
+    explanation: Ships of 500 GT or over on international voyages, or operating from a port or between ports in another country, must carry a Maritime Labour Certificate and a Declaration of Maritime Labour Compliance (Parts I and II). The certificate is valid up to 5 years with an intermediate inspection.
+    sources:
+      - { label: MLC 2006, ref: Reg. 5.1.3 }
+
+  - id: law-mlc-003
+    topic: mlc
+    difficulty: 1
+    stem: The minimum age for employment of a seafarer under MLC 2006 is
+    options:
+      - 15
+      - 16
+      - 18
+      - 21
+    correct_index: 1
+    explanation: The minimum age is 16. Night work for seafarers under 18 is prohibited except as permitted, and medical certificates for those under 18 are valid for a maximum of 1 year (otherwise 2 years).
+    sources:
+      - { label: MLC 2006, ref: Reg. 1.1 }
+
+  - id: law-stcw-001
+    topic: stcw
+    difficulty: 2
+    stem: STCW sets a limit for alcohol for masters, officers and other seafarers performing safety, security and marine environmental duties of not greater than
+    options:
+      - 0.05% blood alcohol content or 0.25 mg/l alcohol in breath
+      - 0.08% blood alcohol content
+      - 0.02% BAC
+      - No limit is set
+    correct_index: 0
+    explanation: STCW Section A-VIII/1 sets 0.05% BAC or 0.25 mg/l in breath (or a quantity leading to that concentration). Company drug and alcohol policies are often stricter, including zero tolerance.
+    sources:
+      - { label: STCW Code, ref: Section A-VIII/1 para 10 }
+
+  - id: law-ism-001
+    topic: ism
+    difficulty: 1
+    stem: The Designated Person Ashore (DPA) is required to have
+    options:
+      - A master mariner certificate in all cases
+      - Direct access to the highest level of management
+      - Authority to command the ship
+      - Responsibility for cargo bookings
+    correct_index: 1
+    explanation: ISM Code 4 requires the DPA to provide a link between the company and those on board and to have direct access to the highest level of management. The DPA monitors safety and pollution prevention aspects.
+    sources:
+      - { label: ISM Code, ref: Section 4 }
+
+  - id: law-ism-002
+    topic: ism
+    difficulty: 2
+    stem: The Safety Management Certificate is valid for not more than five years and requires
+    options:
+      - Annual verification
+      - No verification
+      - At least one intermediate verification between the second and third anniversary dates
+      - Monthly audits by PSC
+    correct_index: 2
+    explanation: The SMC (issued to the ship) needs an intermediate verification between the 2nd and 3rd anniversary dates. The DOC (issued to the company) needs annual verification within 3 months of each anniversary.
+    sources:
+      - { label: ISM Code, ref: Part B, 13 }
+
+  - id: law-ism-003
+    topic: ism
+    difficulty: 2
+    stem: Under the ISM Code, the master's overriding authority means
+    options:
+      - The master may ignore the SMS whenever convenient
+      - The master can change the flag
+      - The company can overrule the master at any time on safety
+      - The master has the authority and responsibility to make decisions with respect to safety and pollution prevention and to request the company's assistance as necessary
+    correct_index: 3
+    explanation: ISM Code 5.2 requires the company to state in the SMS that the master has overriding authority and responsibility for safety and pollution prevention decisions.
+    sources:
+      - { label: ISM Code, ref: Section 5.2 }
+
+  - id: law-isps-001
+    topic: isps
+    difficulty: 1
+    stem: Under the ISPS Code, Security Level 3 is the level
+    options:
+      - At which further specific protective measures shall be maintained for a limited period when a security incident is probable or imminent
+      - At which minimum appropriate protective measures are maintained at all times
+      - At which additional protective measures shall be maintained for a period as a result of heightened risk
+      - That applies only in port
+    correct_index: 0
+    explanation: Level 1 is normal, level 2 heightened risk, level 3 a probable or imminent incident (exceptional measures for a limited period). The ship's security level is set by the flag State. Port State levels also apply.
+    sources:
+      - { label: ISPS Code, ref: Part A, Section 2 }
+
+  - id: law-isps-002
+    topic: isps
+    difficulty: 2
+    stem: Records of the last port calls with security information that a ship should be able to provide to a port State under SOLAS XI-2 cover
+    options:
+      - The last 3 calls at port facilities
+      - The last 10 calls at port facilities
+      - The last 30 days only
+      - All calls in the past year
+    correct_index: 1
+    explanation: Under SOLAS XI-2/9, a ship must provide information including the security levels at the last 10 calls at port facilities and any special or additional measures taken.
+    sources:
+      - { label: SOLAS, ref: Ch. XI-2 Reg. 9 }
+
+  - id: law-psc-001
+    topic: psc
+    difficulty: 2
+    stem: Which regional Port State Control agreement covers the West and Central African region (including Nigeria and Ghana)?
+    options:
+      - Paris MoU
+      - Tokyo MoU
+      - Abuja MoU
+      - Viña del Mar Agreement
+    correct_index: 2
+    explanation: Abuja MoU covers West and Central Africa, Paris MoU Europe and the North Atlantic (UK), and Tokyo MoU the Asia-Pacific (Philippines, Singapore, Australia). The Mediterranean MoU includes Egypt.
+    sources:
+      - { label: Regional PSC agreements, ref: Membership lists }
+
+  - id: law-psc-002
+    topic: psc
+    difficulty: 2
+    stem: A PSC officer may carry out a more detailed inspection when there are
+    options:
+      - Delays in cargo operations
+      - Any minor paint defects
+      - Requests from the charterer
+      - Clear grounds to believe the ship, its equipment or crew do not substantially meet the requirements of the relevant convention
+    correct_index: 3
+    explanation: Under IMO PSC procedures, "clear grounds" (for example missing certificates, a crew unable to carry out drills, or evident serious deficiencies) justify a more detailed inspection. Deficiencies clearly hazardous to safety, health or the environment can lead to detention.
+    sources:
+      - { label: IMO Res. A.1155(32), ref: Procedures for Port State Control }
+
+  - id: law-bl-001
+    topic: bills-of-lading
+    difficulty: 1
+    stem: The three main functions of a bill of lading are
+    options:
+      - Receipt for goods, evidence of the contract of carriage, and document of title
+      - Invoice, insurance policy, and customs declaration
+      - Charter party, cargo manifest, and mate's receipt
+      - Stowage plan, receipt, and crew list
+    correct_index: 0
+    explanation: A B/L is a receipt (quantity and apparent condition), evidence of the contract of carriage, and (if negotiable) a document of title transferable by endorsement and delivery.
+    sources:
+      - { label: Maritime law, ref: Bills of lading }
+
+  - id: law-bl-002
+    topic: bills-of-lading
+    difficulty: 2
+    stem: Cargo is loaded with visible damage to the packaging. The mate's receipt and bill of lading should be
+    options:
+      - Signed clean to avoid delaying the ship
+      - Claused (remarked) to describe the apparent condition accurately
+      - Left unsigned
+      - Signed by the shipper only
+    correct_index: 1
+    explanation: The master or mate must accurately record the apparent order and condition. Issuing clean B/Ls against a letter of indemnity for damaged cargo exposes the owner to claims and may be fraud. P&I cover may be prejudiced.
+    sources:
+      - { label: Hague-Visby Rules, ref: Article III rule 3 }
+
+  - id: law-charter-001
+    topic: charter-parties
+    difficulty: 2
+    stem: Under which type of charter does the charterer take over the ship and appoint the master and crew?
+    options:
+      - Voyage charter
+      - Time charter
+      - Bareboat (demise) charter
+      - Slot charter
+    correct_index: 2
+    explanation: Under a bareboat (demise) charter the charterer takes possession and control, crews and operates the ship. Under a time charter the owner provides the crew and the charterer directs employment and pays fuel. Under a voyage charter the owner operates for a single voyage at freight.
+    sources:
+      - { label: Maritime commercial law, ref: Charter parties }
+
+  - id: law-charter-002
+    topic: charter-parties
+    difficulty: 2
+    stem: Demurrage is
+    options:
+      - Money paid by the owner to the charterer for finishing early
+      - Port dues
+      - The cost of bunkers
+      - Liquidated damages payable by the charterer for exceeding the agreed laytime
+    correct_index: 3
+    explanation: Demurrage compensates the owner when laytime is exceeded. Despatch is paid by the owner for time saved, if agreed. Laytime normally starts after a valid Notice of Readiness has been tendered and accepted per the charter party.
+    sources:
+      - { label: Maritime commercial law, ref: Laytime and demurrage }
+
+  - id: law-salvage-001
+    topic: salvage-ga
+    difficulty: 2
+    stem: General average is
+    options:
+      - A sacrifice or expenditure intentionally and reasonably made for the common safety of ship and cargo, shared by all interests in proportion to their values
+      - An insurance policy for the hull only
+      - A fine imposed by port state
+      - The average speed for the voyage
+    correct_index: 0
+    explanation: General average is governed by the York-Antwerp Rules (for example jettison, port of refuge expenses or salvage for the common benefit). Contributions are adjusted by an average adjuster and secured by GA bonds and guarantees before cargo is released.
+    sources:
+      - { label: York-Antwerp Rules, ref: Rule A }
+
+  - id: law-certs-001
+    topic: certificates
+    difficulty: 1
+    stem: Which certificate is issued under SOLAS to a cargo ship to show compliance with construction, machinery and fire safety requirements?
+    options:
+      - IOPP Certificate
+      - Cargo Ship Safety Construction Certificate
+      - International Tonnage Certificate
+      - ISSC
+    correct_index: 1
+    explanation: Under SOLAS a cargo ship holds a Safety Construction certificate (structure, machinery, fire protection), a Safety Equipment certificate (LSA, FFA, navigation equipment) and a Safety Radio certificate, or a combined Cargo Ship Safety Certificate. IOPP is MARPOL Annex I and ISSC is ISPS.
+    sources:
+      - { label: SOLAS, ref: Ch. I Reg. 12 }

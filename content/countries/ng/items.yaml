@@ -1,0 +1,189 @@
+defaults:
+  competence: LOCAL
+  countries: [ ng ]
+items:
+  - id: ng-local-nimasa-001
+    type: mcq
+    topic: administration
+    difficulty: 1
+    stem: Which agency is responsible for maritime safety administration, seafarer certification and pollution prevention in Nigeria?
+    options:
+      - Nigerian Shippers' Council
+      - Nigerian Ports Authority (NPA)
+      - Nigerian Navy only
+      - Nigerian Maritime Administration and Safety Agency (NIMASA)
+    correct_index: 3
+    explanation: NIMASA administers the Merchant Shipping Act 2007, maritime safety, seafarer standards and certification, pollution prevention and cabotage. NPA manages ports, and the Shippers' Council regulates shipping commerce matters.
+    sources:
+      - { label: Nigerian Maritime Administration and Safety Agency Act 2007, ref: Functions }
+
+  - id: ng-local-cabotage-001
+    type: mcq
+    topic: cabotage
+    difficulty: 2
+    stem: The Coastal and Inland Shipping (Cabotage) Act 2003 restricts domestic coastal trade in Nigeria to vessels that are
+    options:
+      - Wholly owned and manned by Nigerian citizens, built in Nigeria and registered in Nigeria (subject to waivers)
+      - Any foreign-flagged vessel
+      - Only tankers
+      - Only vessels over 10,000 GT
+    correct_index: 0
+    explanation: The Cabotage Act reserves domestic coastal and inland shipping to Nigerian-owned, Nigerian-crewed, Nigerian-built and Nigerian-registered vessels. Ministerial waivers are available where capacity is lacking. NIMASA administers it.
+    sources:
+      - { label: Coastal and Inland Shipping (Cabotage) Act 2003, ref: Sections 3–9 }
+
+  - id: ng-local-psc-001
+    type: mcq
+    topic: psc
+    difficulty: 1
+    stem: Nigeria participates in which regional PSC agreement?
+    options:
+      - Paris MoU
+      - Abuja MoU
+      - Tokyo MoU
+      - Riyadh MoU
+    correct_index: 1
+    explanation: Nigeria participates in the Abuja MoU (West and Central African region), which has its secretariat in Lagos.
+    sources:
+      - { label: Abuja MoU, ref: Member States }
+
+  - id: ng-local-gog-001
+    type: mcq
+    topic: maritime-security
+    difficulty: 2
+    stem: Ships operating in the Gulf of Guinea are encouraged to report to which voluntary reporting centre?
+    options:
+      - JRCC Stavanger
+      - UKMTO Dubai only
+      - MDAT-GoG (Maritime Domain Awareness for Trade – Gulf of Guinea)
+      - REEFREP
+    correct_index: 2
+    explanation: MDAT-GoG (run by the French and UK navies) is the voluntary reporting area centre for the Gulf of Guinea. BMP West Africa gives guidance on piracy and armed robbery prevention. Coordinate with the CSO and local navy as directed.
+    sources:
+      - { label: BMP West Africa, ref: Reporting }
+
+  - id: ng-local-region-001
+    type: mcq
+    topic: buoyage
+    difficulty: 1
+    stem: Nigerian waters use which IALA buoyage region?
+    options:
+      - None
+      - Region B
+      - Both
+      - Region A
+    correct_index: 3
+    explanation: Nigeria is in IALA Region A, where port-hand lateral marks are red.
+    sources:
+      - { label: IALA Maritime Buoyage System, ref: Regions }
+
+  - id: ng-local-oral-gog-security
+    type: oral
+    topic: maritime-security
+    difficulty: 2
+    examiner_style: ng
+    question: Your ship is bound for Lagos anchorage, and the area has a recent history of piracy and armed robbery. What security measures would you implement as Ship Security Officer?
+    model_answer: |
+      Review the threat assessment with the CSO and Master, follow BMP West Africa, and register and report to MDAT-GoG. Check the security level set by the flag and port. Update the SSP measures: restrict access (lock doors, control points), raise the gangway and accommodation ladder when not in use, keep anti-boarding measures (lighting, razor wire where appropriate, fire hoses rigged), maintain a 24-hour security watch and enhanced lookouts with radar, and prepare a citadel or safe muster point if company policy uses one. Hold drills and brief the crew. Keep communication plans and the SSAS ready. Minimise time at anchor or drifting, and keep the engine ready. Liaise with the Nigerian Navy or authorised security escort arrangements per company policy and local law. Keep a log of suspicious approaches and report incidents immediately.
+    key_points:
+      - point: Threat assessment with CSO; BMP West Africa
+        match: [ "cso|threat|risk assessment|bmp|best management" ]
+      - point: Report/register with MDAT-GoG
+        match: [ "mdat|report" ]
+      - point: Access control and raised ladders
+        match: [ "access|gangway|ladder|lock|door" ]
+      - point: Enhanced watch, lighting, lookouts
+        match: [ "lookout|watch|lighting|light|radar" ]
+      - point: Citadel / safe muster and drills
+        match: [ "citadel|safe muster|drill|brief" ]
+      - point: SSAS and communication ready; navy liaison
+        match: [ "ssas|communicat|navy|escort" ]
+    follow_ups:
+      - What would you do if armed robbers boarded at anchor?
+    critical: false
+    sources:
+      - { label: BMP West Africa, ref: Ship protection measures }
+      - { label: ISPS Code, ref: Part A }
+
+  - id: ng-local-oral-nimasa
+    type: oral
+    topic: administration
+    difficulty: 1
+    examiner_style: ng
+    question: Describe the role of NIMASA as it affects you as a Chief Mate on Nigerian ships.
+    model_answer: |
+      NIMASA is Nigeria's maritime administration under the NIMASA Act 2007 and the Merchant Shipping Act 2007. Its roles include seafarer standards, training approval and certification (STCW), flag State duties (registration, surveys and inspections), Port State Control, marine pollution prevention and response, maritime safety and security (ISPS implementation in Nigeria), search and rescue coordination with partners, and administering the Cabotage Act and Cabotage Vessel Financing Fund. As Chief Mate I'd meet NIMASA for my CoC, flag and PSC inspections, ISPS matters, and pollution reporting.
+    key_points:
+      - point: Maritime administration under NIMASA Act / Merchant Shipping Act 2007
+        match: [ "merchant shipping act|nimasa act|administration" ]
+      - point: Seafarer certification and training standards
+        match: [ "certificat|seafarer|training|stcw|coc" ]
+      - point: Flag State and Port State Control
+        match: [ "flag|port state|psc|inspection|survey" ]
+      - point: Pollution prevention
+        match: [ "pollution|marpol|environment" ]
+      - point: Cabotage administration
+        match: [ "cabotage" ]
+      - point: Maritime security / ISPS
+        match: [ "security|isps" ]
+    follow_ups:
+      - How does the Cabotage Act affect manning of coastal vessels?
+    sources:
+      - { label: NIMASA Act 2007, ref: Functions }
+
+  - id: ng-local-npa-001
+    type: mcq
+    topic: ports
+    difficulty: 1
+    stem: Pilotage and port management at Nigerian seaports such as Lagos and Onne are primarily under
+    options:
+      - Nigerian Ports Authority (NPA)
+      - NIMASA
+      - Nigerian Customs Service
+      - Nigerian Meteorological Agency
+    correct_index: 0
+    explanation: The NPA, under the Nigerian Ports Authority Act, manages the ports, including pilotage and harbour services, with terminal operations concessioned. NIMASA handles maritime safety administration.
+    sources:
+      - { label: Nigerian Ports Authority Act, ref: Functions }
+
+  - id: ng-local-msa-001
+    type: mcq
+    topic: administration
+    difficulty: 2
+    stem: The principal Nigerian statute governing registration of ships, seafarers, safety and pollution matters is the
+    options:
+      - Ports Act 1954 only
+      - Merchant Shipping Act 2007
+      - Customs and Excise Management Act
+      - Petroleum Act only
+    correct_index: 1
+    explanation: The Merchant Shipping Act 2007 domesticates many IMO conventions in Nigeria, and NIMASA administers it. The Cabotage Act 2003 and NIMASA Act 2007 are other key statutes.
+    sources:
+      - { label: Merchant Shipping Act 2007 (Nigeria), ref: Scope }
+
+  - id: ng-local-oral-armed-robbery
+    type: oral
+    topic: maritime-security
+    difficulty: 3
+    examiner_style: ng
+    question: Armed robbers have boarded your ship at anchor off Lagos at night. What actions do you take?
+    model_answer: |
+      Raise the alarm (security alarm per the SSP), inform the Master, and muster the crew in the citadel or safe muster point per company procedures. Don't confront armed intruders. Personal safety comes first. Activate the SSAS if appropriate. Report to port control/VTS, the Nigerian Navy and MDAT-GoG by the quickest means. Close and lock accommodation access. Account for all crew. After the robbers leave: check for injuries and give first aid, preserve evidence (don't touch areas the robbers used), record times and descriptions, and report to the CSO, flag, IMB/ReCAAP equivalent and authorities. Debrief and review the SSP.
+    key_points:
+      - point: Raise alarm and inform Master
+        match: [ "alarm|master" ]
+      - point: Muster crew in citadel/safe area; do not confront
+        match: [ "citadel|safe room|safe muster|not confront|don't confront|dont resist|not resist" ]
+      - point: Report to navy/port/MDAT-GoG; SSAS
+        match: [ "navy|port control|vts|mdat|ssas|report" ]
+      - point: Lock down accommodation access
+        match: [ "lock|close|secure" ]
+      - point: Headcount, first aid, preserve evidence
+        match: [ "headcount|account|first aid|evidence|injur" ]
+      - point: Report to CSO/flag; debrief and review SSP
+        match: [ "cso|flag|debrief|review" ]
+    follow_ups:
+      - What is the purpose of a citadel and when should it be used?
+    critical: true
+    sources:
+      - { label: BMP West Africa, ref: Incident response }

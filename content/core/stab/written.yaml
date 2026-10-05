@@ -1,0 +1,37 @@
+defaults:
+  competence: STAB
+  type: written
+items:
+  - id: stab-written-loll
+    topic: angle-of-loll
+    difficulty: 2
+    prompt: Explain with the aid of a description of the GZ curve why a ship with negative initial GM may float at an angle of loll, and describe the procedure for correcting it.
+    model_answer: |
+      With negative GM, G lies above the initial metacentre, so at small angles the ship has a capsizing lever. As she heels, the waterplane widens and B moves further out (increasing BM), until at some angle the new metacentre rises to G and GZ = 0: the ship comes to rest at the angle of loll (tan θ = √(−2GM/BM) for wall-sided ships). The GZ curve starts negative, crosses zero at the loll angle and becomes positive. The vessel can loll to either side.
+      Correction: confirm it's loll and not list (sound tanks, check GM and off-centre weights). Lower G by filling a subdivided double-bottom tank on the low side first, then the high side. Remove high weights and free surfaces. Don't transfer weight across.
+    marking_points:
+      - { point: G above M → negative GM at small angles, weight: 2 }
+      - { point: Waterplane widens, B moves out; GZ zero at loll angle, weight: 2 }
+      - { point: Description of GZ curve negative then positive, weight: 1 }
+      - { point: Can loll to either side, weight: 1 }
+      - { point: Lower G by ballasting low subdivided tanks, low side first, weight: 3 }
+      - { point: Never transfer weight across as for list, weight: 1 }
+    sources:
+      - { label: Ship stability theory, ref: Angle of loll }
+
+  - id: stab-written-drydock
+    topic: drydocking
+    difficulty: 3
+    prompt: Describe the stability problems that arise when a ship enters drydock, and state the measures the Chief Mate should take before and during docking.
+    model_answer: |
+      As the dock is pumped out, the stern touches the blocks first. An upthrust P develops at the after block, increasing as the water level falls (P = MCTC × trim change / distance LCF–block). P reduces the effective GM (virtual loss = P × KM / Δ or P × KG / (Δ − P)), and it is greatest at the critical instant just before the ship takes the blocks overall. If effective GM becomes negative, she can heel and slip off the blocks.
+      Measures: small trim by the stern as requested, upright, free surfaces eliminated, adequate GM, docking plan and tank condition sent to the dock, weights secured, soundings recorded, no movement of weights once on the blocks without the dock master's agreement, and side shores placed as soon as she takes the blocks.
+    marking_points:
+      - { point: Stern touches blocks first; upthrust P develops, weight: 2 }
+      - { point: P formula with MCTC and trim, weight: 2 }
+      - { point: Virtual loss of GM formula, weight: 2 }
+      - { point: Critical instant explained, weight: 2 }
+      - { point: Small trim, upright, minimum free surface, ample GM, weight: 2 }
+      - { point: Docking plan/soundings/no weight shifting, weight: 1 }
+    sources:
+      - { label: Ship stability theory, ref: Drydocking }

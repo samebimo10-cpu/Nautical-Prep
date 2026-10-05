@@ -1,0 +1,64 @@
+defaults:
+  competence: CARGO
+  type: lesson
+items:
+  - id: cargo-lesson-bulk
+    topic: imsbc-liquefaction
+    difficulty: 1
+    title: Solid bulk cargoes — IMSBC & grain essentials
+    related_item_ids: [cargo-imsbc-001, cargo-imsbc-002, cargo-imsbc-003, cargo-grain-001, cargo-grain-002, cargo-oral-liquefaction]
+    body_md: |
+      ## IMSBC groups
+      | Group | Hazard | Example |
+      | --- | --- | --- |
+      | **A** | May **liquefy** | Nickel ore, iron ore fines, bauxite fines |
+      | **B** | **Chemical** hazard | Coal (self-heating, methane), DRI |
+      | **C** | Neither | Many iron ore lumps, sand |
+
+      **Group A rule:** moisture content must be **below the TML**. TML is about 90% of the flow moisture point.
+
+      The **can test** is a ship-side check, *never* a substitute for the shipper's certificates.
+
+      ## Grain Code criteria
+      - Heel from the assumed grain shift: **≤ 12°** (or deck edge immersion if less)
+      - Residual area: **≥ 0.075 m·rad**
+      - Fluid GM: **≥ 0.30 m**
+      - Document of Authorization + grain loading booklet
+
+      **Heeling moment = Σ VHM / SF.** Approximate heel = (actual HM ÷ permissible HM) × 12°.
+
+      ## Coal
+      Surface ventilation only. Monitor **CH4, O2, CO** and temperature daily. Treat holds as enclosed spaces.
+    sources:
+      - { label: IMSBC Code, ref: General provisions }
+      - { label: International Grain Code, ref: Part A }
+
+  - id: cargo-lesson-tanker-dg
+    topic: tanker-inert-gas
+    difficulty: 2
+    title: Tankers, inert gas and dangerous goods
+    related_item_ids: [cargo-ig-001, cargo-ig-002, cargo-cow-001, cargo-imdg-001, cargo-imdg-002, cargo-oral-tanker-ig]
+    body_md: |
+      ## Inert gas: the numbers
+      | Value | Meaning |
+      | --- | --- |
+      | **≤ 5% O2** | IG as delivered |
+      | **≤ 8% O2** | Tank atmosphere, at **positive pressure** |
+      | **< 2% HC** | Purge to this *before* introducing air (stays out of the flammable range) |
+      | **21% O2, < 1% LFL** | Safe for entry (plus toxics below OEL) |
+
+      **COW only in inerted tanks.** IG failure means **stop discharge**.
+
+      ## IMDG classes
+      1 Explosives · 2 Gases · 3 Flammable liquids · 4 Flammable solids · 5 Oxidizers / organic peroxides · 6 Toxic / infectious · 7 Radioactive · 8 Corrosives · 9 Miscellaneous
+
+      ## Segregation (weakest to strongest)
+      1. Away from
+      2. Separated from
+      3. Separated by a complete compartment or hold from
+      4. Separated **longitudinally** by an intervening complete compartment or hold from
+
+      EmS = Emergency Schedules (F = fire, S = spillage). MFAG = medical.
+    sources:
+      - { label: ISGOTT, ref: Inert gas }
+      - { label: IMDG Code, ref: Parts 2 and 7 }

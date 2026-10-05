@@ -1,0 +1,180 @@
+defaults:
+  competence: COLREG
+  type: oral
+  sources:
+    - { label: COLREG 1972 (as amended), ref: Rules }
+items:
+  - id: colreg-oral-rule17
+    topic: stand-on
+    difficulty: 2
+    question: You are the stand-on vessel in a crossing situation. Talk me through your actions as the situation develops under Rule 17.
+    model_answer: |
+      17(a)(i): keep course and speed. Monitor with radar/ARPA and visual bearings and confirm risk of collision. 17(a)(ii): as soon as it becomes apparent that the give-way vessel isn't taking appropriate action, I MAY take action by my manoeuvre alone. First sound at least five short and rapid blasts (Rule 34(d)) and consider calling her on VHF, without relying on it. Call the Master. 17(b): when she is so close that collision can't be avoided by her action alone, I SHALL take the action that best aids avoiding collision. 17(c): as a power-driven vessel, if circumstances admit, I don't alter to port for a vessel on my own port side. A bold alteration to starboard (possibly a round turn) and/or reducing speed or stopping is usually best. 17(d): this doesn't relieve the give-way vessel of her obligation.
+    key_points:
+      - point: Keep course and speed initially
+        match: ["keep course|maintain course|course and speed"]
+      - point: May act when give-way vessel not acting (17(a)(ii))
+        match: ["may", "not taking|not acting|apparent|fail"]
+      - point: Shall act when collision can't be avoided by give-way alone (17(b))
+        match: ["shall|must|best aid|cannot be avoided|can't be avoided|close quarter"]
+      - point: Do not alter to port for vessel on own port side (17(c))
+        match: ["not alter to port|avoid alter to port|not turn to port|no alteration to port|never alter to port|not to port"]
+      - point: Sound five short blasts / call Master
+        match: ["five short|5 short|wake up|doubt|master"]
+      - point: Monitor bearings/ARPA
+        match: ["bearing|radar|arpa|monitor"]
+    follow_ups:
+      - Why should the stand-on vessel avoid an alteration to port in a crossing situation?
+    critical: true
+
+  - id: colreg-oral-rule19
+    topic: restricted-visibility
+    difficulty: 2
+    question: Explain Rule 19 and describe your actions in restricted visibility when you detect a vessel by radar alone, fine on the starboard bow and closing.
+    model_answer: |
+      Rule 19 applies to vessels not in sight of one another, in or near restricted visibility. Safe speed and engines ready. Determine by systematic radar plotting whether a close-quarters situation or risk of collision is developing. If so, take avoiding action in ample time. Avoid an alteration to port for a vessel forward of the beam (other than one being overtaken) and avoid altering towards a vessel abeam or abaft the beam. For a vessel fine on the starboard bow, a substantial alteration to starboard (so she ends up on the port side) and/or reducing speed. Check the result by continued plotting. If you hear a fog signal apparently forward of the beam, reduce to the minimum steerage speed, take all way off if necessary, and navigate with extreme caution. Sound fog signals (Rule 35). There is no stand-on or give-way vessel in Rule 19.
+    key_points:
+      - point: Applies when not in sight in/near restricted visibility; no stand-on/give-way
+        match: ["not in sight|no stand on|no give way|not in sight of one another|no privilege|restricted visibility"]
+      - point: Safe speed and engines ready
+        match: ["safe speed|engine|ready"]
+      - point: Systematic radar plotting to assess close-quarters
+        match: ["plot|arpa|radar|close quarter|cpa"]
+      - point: Avoid port alteration for vessel forward of beam
+        match: ["port", "forward of the beam|forward of beam|ahead"]
+      - point: Alter substantially to starboard and/or reduce speed
+        match: ["starboard|reduce speed|slow|stop"]
+      - point: Fog signal heard forward of beam — minimum speed, extreme caution
+        match: ["minimum|steerage|extreme caution|take all way off|way off"]
+    follow_ups:
+      - What fog signals would you sound and how often?
+    critical: true
+
+  - id: colreg-oral-lights-ram
+    topic: lights
+    difficulty: 1
+    question: Describe the lights and shapes of a dredger at work, and which side you would pass her.
+    model_answer: |
+      A dredger is a vessel restricted in her ability to manoeuvre (Rule 27(b) and (d)). Lights: all-round red-white-red in a vertical line; when making way, masthead light(s), sidelights and sternlight; plus two all-round red lights in a vertical line on the side where the obstruction exists, and two all-round green lights on the side where another vessel may pass. By day: ball-diamond-ball, plus two balls on the obstructed side and two diamonds on the passable side. At anchor, the side lights/shapes replace the anchor light/ball. Pass on the side showing the two greens/two diamonds, at reduced speed with a good margin.
+    key_points:
+      - point: RAM — red-white-red / ball-diamond-ball
+        match: ["red white red|ball diamond ball"]
+      - point: Two red / two balls on obstructed side
+        match: ["two red|2 red|two ball|2 ball", "obstruct|danger|foul|don't pass|do not pass"]
+      - point: Two green / two diamonds on the safe side
+        match: ["two green|2 green|two diamond|2 diamond"]
+      - point: Pass on the side with green/diamonds
+        match: ["pass", "green|diamond"]
+    follow_ups:
+      - What lights does a vessel engaged in diving operations show by day?
+
+  - id: colreg-oral-safe-speed
+    topic: safe-speed
+    difficulty: 1
+    question: What factors determine a safe speed under Rule 6?
+    model_answer: |
+      For all vessels: visibility; traffic density, including concentrations of fishing vessels; manoeuvrability, especially stopping distance and turning ability in the prevailing conditions; background light at night (shore lights, back-scatter of own lights); state of wind, sea and current and proximity of navigational hazards; draught in relation to available depth.
+      Additionally with operational radar: the radar's characteristics, efficiency and limitations; constraints of the range scale in use; effect of sea state, weather and other interference on detection; possibility that small vessels, ice and other floating objects won't be detected at adequate range; number, location and movement of vessels detected; more exact assessment of visibility using radar ranges.
+    key_points:
+      - point: Visibility
+        match: ["visibility"]
+      - point: Traffic density incl. fishing vessels
+        match: ["traffic|fishing"]
+      - point: Manoeuvrability — stopping distance and turning
+        match: ["stopping|turning|manoeuvr|maneuver"]
+      - point: Background light at night
+        match: ["background light|shore light|back scatter|backscatter"]
+      - point: Wind, sea, current, hazards
+        match: ["wind|sea state|current|hazard"]
+      - point: Draught vs depth
+        match: ["draught|draft|depth"]
+      - point: Radar limitations and range scale
+        match: ["radar", "limitation|range scale|small target|clutter|interference"]
+    follow_ups:
+      - Is there a single safe speed for a ship in fog?
+
+  - id: colreg-oral-tow
+    topic: lights
+    difficulty: 2
+    question: At night you see three white masthead lights in a vertical line, a green sidelight and a yellow light above a white light right aft as she passes. What is it and what are your actions?
+    model_answer: |
+      A power-driven vessel towing astern with the length of tow exceeding 200 m (three masthead lights in a vertical line, Rule 24(a)). We're seeing her starboard side, and as she passes we'd see the sternlight and the yellow towing light above it. By day she'd show a diamond where it can best be seen if the tow exceeds 200 m, and the tow also shows a diamond. Actions: determine risk of collision as normal. A towing vessel isn't automatically RAM unless she shows RAM signals, but she has limited manoeuvrability, so act early and give a wide berth. Never pass between the tug and her tow. Look out for the tow itself (sidelights and sternlight, or partly submerged objects).
+    key_points:
+      - point: Towing vessel, tow > 200 m (3 masthead lights)
+        match: ["tow|tug", "200|three masthead|3 masthead"]
+      - point: Seeing her starboard side (green)
+        match: ["starboard"]
+      - point: Yellow towing light above sternlight
+        match: ["yellow|towing light"]
+      - point: Never pass between tug and tow
+        match: ["between"]
+      - point: Give wide berth / act early
+        match: ["wide berth|early|ample|keep clear|keep out of the way"]
+    follow_ups:
+      - What day shape would she show?
+
+  - id: colreg-oral-narrow-channel
+    topic: narrow-channels
+    difficulty: 2
+    question: Explain your obligations under Rule 9 when navigating a narrow channel.
+    model_answer: |
+      Keep as near to the outer limit of the channel on your starboard side as is safe and practicable. Vessels under 20 m and sailing vessels shall not impede a vessel that can navigate only within the channel. Fishing vessels shall not impede any vessel navigating within the channel. Don't cross a narrow channel if that impedes a vessel which can navigate only within it, and sound five short blasts if in doubt about a crossing vessel's intentions. Overtaking in a narrow channel only when the vessel being overtaken has to act to permit safe passing: signal 2 prolonged + 1 short (starboard side) or 2 prolonged + 2 short (port side), and the agreement signal is prolonged-short-prolonged-short. Sound one prolonged blast when nearing a bend or area where vessels may be obscured. Avoid anchoring in a narrow channel.
+    key_points:
+      - point: Keep to starboard side of the channel
+        match: ["starboard"]
+      - point: Small (<20 m), sailing and fishing vessels shall not impede
+        match: ["20|sailing|fishing", "impede"]
+      - point: Do not cross if it impedes
+        match: ["cross"]
+      - point: Overtaking signals and agreement
+        match: ["two prolonged|2 prolonged|agreement|prolonged short prolonged short"]
+      - point: Prolonged blast at bends
+        match: ["bend|obscur"]
+      - point: Avoid anchoring in the channel
+        match: ["anchor"]
+    follow_ups:
+      - What signal does the vessel being overtaken sound if she doubts the overtaking is safe?
+
+  - id: colreg-oral-master-orders
+    topic: watchkeeping
+    difficulty: 2
+    question: As Chief Mate on watch, when would you call the Master?
+    model_answer: |
+      Per the Master's standing and night orders and STCW: if restricted visibility is encountered or expected; if traffic conditions or other ships' movements cause concern; on difficulty in keeping course; on failure to sight land, a navigation mark or obtain soundings by the expected time; if land or a mark is sighted, or depth changes, unexpectedly; on breakdown of engines, propulsion control, steering gear or any essential navigational equipment, alarm or indicator; if radio equipment malfunctions; in heavy weather if in doubt about the possibility of weather damage; if the ship meets any hazard to navigation such as ice or a derelict; and in any other emergency or if in any doubt. Calling the Master does not relieve the OOW of responsibility until the Master takes over.
+    key_points:
+      - point: Restricted visibility
+        match: ["visibility|fog"]
+      - point: Traffic or other vessels causing concern
+        match: ["traffic|concern|close quarter"]
+      - point: Failure to sight land/marks/soundings or unexpected sighting
+        match: ["land|mark|sounding|depth"]
+      - point: Equipment/engine/steering failure
+        match: ["engine|steering|equipment|breakdown|failure|alarm"]
+      - point: Heavy weather or hazards (ice, derelict)
+        match: ["weather|ice|derelict|hazard"]
+      - point: Any doubt / emergency
+        match: ["doubt|emergency"]
+      - point: OOW remains responsible until Master takes over
+        match: ["responsib|take over|takes over|relieve"]
+    follow_ups:
+      - What does "the Master has the con" mean in practice?
+    sources:
+      - { label: STCW Code, ref: Section A-VIII/2 Part 4-1 }
+
+  - id: colreg-oral-vhf
+    topic: action-to-avoid
+    difficulty: 2
+    question: What are the dangers of using VHF radio for collision avoidance?
+    model_answer: |
+      Uncertain identification (calling "ship on my port bow" may be answered by the wrong vessel, and AIS data may be wrong), misunderstanding and language problems, time wasted when action should be taken, and agreements that contradict the COLREGs (for example agreeing a red-to-red or green-to-green passing that creates confusion if a third vessel is involved). The Rules don't provide for VHF agreements. Action must still follow the Rules, and VHF should only be used with care, for example to confirm intentions where it clearly helps. Several collisions (MAIB reports) have involved VHF-assisted collisions.
+    key_points:
+      - point: Risk of misidentification
+        match: ["identif|wrong vessel|wrong ship|misidentif"]
+      - point: Misunderstanding / language
+        match: ["misunderstand|language|confus"]
+      - point: Time wasted instead of acting
+        match: ["time|delay"]
+      - point: Agreements contrary to the Rules
+        match: ["contrary|against the rule|not in accordance|agreement|rules don't|rule do not"]
+    follow_ups:
+      - When could VHF be useful?

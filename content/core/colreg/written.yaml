@@ -1,0 +1,24 @@
+defaults:
+  competence: COLREG
+  type: written
+  sources:
+    - { label: COLREG 1972 (as amended), ref: Rules 7, 8, 19 }
+items:
+  - id: colreg-written-rule19
+    topic: restricted-visibility
+    difficulty: 2
+    prompt: Your vessel is proceeding in dense fog in open waters. Explain how you would comply with Rules 6, 7, 8, 19 and 35, including the action you would take for a vessel detected by radar alone on each of the following relative bearings with risk of collision — fine on the port bow, on the starboard beam, and on the starboard quarter.
+    model_answer: |
+      Rule 6: safe speed with consideration of radar limitations; engines ready. Rule 35: one prolonged blast every 2 minutes (making way). Lookout increased, hand steering, Master called. Rule 7: systematic radar plotting, no assumptions on scanty information. Rule 8: early substantial action. Rule 19(d):
+      - Fine on port bow (forward of beam): avoid alteration to port; alter substantially to starboard and/or reduce speed.
+      - Starboard beam: avoid altering towards her (to starboard); alter to port, or reduce speed/stop.
+      - Starboard quarter (abaft the beam): avoid altering towards her; alter to port; maintaining or increasing speed may be appropriate if the vessel is closing from astern.
+      Check effectiveness until past and clear. Rule 19(e) if fog signal heard forward of beam.
+    marking_points:
+      - { point: Safe speed, engines ready, radar factors, weight: 2 }
+      - { point: Correct fog signal, weight: 1 }
+      - { point: Systematic plotting, no scanty information, weight: 2 }
+      - { point: Port bow — alter to starboard / reduce speed, weight: 2 }
+      - { point: Starboard beam — avoid altering towards; alter to port or reduce speed, weight: 2 }
+      - { point: Starboard quarter — avoid altering towards; alter to port, weight: 2 }
+      - { point: Check effectiveness; Rule 19(e), weight: 1 }

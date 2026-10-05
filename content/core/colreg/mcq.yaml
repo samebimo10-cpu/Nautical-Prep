@@ -1,0 +1,269 @@
+defaults:
+  competence: COLREG
+  type: mcq
+  sources:
+    - { label: COLREG 1972 (as amended), ref: Rules }
+items:
+  - id: colreg-risk-001
+    topic: risk-of-collision
+    difficulty: 1
+    stem: Under Rule 7, risk of collision shall be deemed to exist if
+    options:
+      - The other vessel is larger
+      - The compass bearing of an approaching vessel does not appreciably change
+      - The range is more than 6 miles
+      - The other vessel shows a green light
+    correct_index: 1
+    explanation: Rule 7(d)(i) says risk exists if the compass bearing doesn't appreciably change. Rule 7(d)(ii) adds that risk may sometimes exist even with an appreciable bearing change, particularly with a very large vessel, a tow, or at close range. Assumptions must not be made on scanty (especially radar) information.
+
+  - id: colreg-action-001
+    topic: action-to-avoid
+    difficulty: 1
+    stem: Rule 8 requires that any action taken to avoid collision shall, if the circumstances of the case admit, be
+    options:
+      - A series of small alterations of course
+      - Made only after VHF agreement
+      - Positive, made in ample time and with due regard to good seamanship, large enough to be readily apparent
+      - Made only by reducing speed
+    correct_index: 2
+    explanation: Rule 8 wants action that is positive, in ample time, and large enough to be readily apparent visually or by radar. A succession of small alterations should be avoided. The effectiveness of the action must be checked until the other vessel is finally past and clear.
+
+  - id: colreg-overtake-001
+    topic: overtaking
+    difficulty: 1
+    stem: A vessel is deemed to be overtaking when coming up with another vessel from a direction more than
+    options:
+      - 10° abaft her beam
+      - Directly astern only
+      - 45° abaft her beam
+      - 22.5° abaft her beam
+    correct_index: 3
+    explanation: Rule 13(b) says more than 22.5° abaft the beam, so that at night only the sternlight would be visible. When in doubt, assume you're overtaking. The overtaking vessel keeps out of the way until finally past and clear.
+
+  - id: colreg-headon-001
+    topic: head-on
+    difficulty: 1
+    stem: In a head-on situation between two power-driven vessels (Rule 14), each vessel shall
+    options:
+      - Alter course to starboard so that each passes on the port side of the other
+      - Alter course to port
+      - Stop engines
+      - Maintain course and speed
+    correct_index: 0
+    explanation: Reciprocal or nearly reciprocal courses with risk of collision means both alter to starboard. At night you'd see the masthead lights in line or nearly in line and/or both sidelights. If in doubt, assume it is head-on.
+
+  - id: colreg-crossing-001
+    topic: crossing
+    difficulty: 1
+    stem: Two power-driven vessels are crossing with risk of collision. Which vessel shall keep out of the way?
+    options:
+      - The vessel which has the other on her own port side
+      - The vessel which has the other on her own starboard side
+      - The larger vessel
+      - The faster vessel
+    correct_index: 1
+    explanation: Rule 15 says the vessel which has the other on her own starboard side keeps out of the way and, if circumstances admit, avoids crossing ahead of her.
+
+  - id: colreg-standon-001
+    topic: stand-on
+    difficulty: 2
+    stem: Under Rule 17, when may a stand-on vessel take action by her manoeuvre alone?
+    options:
+      - At any time she wishes
+      - Only after sounding one prolonged blast
+      - As soon as it becomes apparent that the give-way vessel is not taking appropriate action
+      - Never
+    correct_index: 2
+    explanation: 17(a)(ii) says she may act as soon as it is apparent the give-way vessel isn't taking appropriate action. 17(b) says she shall act when collision can't be avoided by the give-way vessel alone. 17(c) says a power-driven vessel crossing should, if circumstances admit, not alter to port for a vessel on her own port side.
+
+  - id: colreg-standon-002
+    topic: stand-on
+    difficulty: 3
+    stem: Your power-driven vessel is stand-on to a vessel crossing from your port side. She is not giving way and is now close. Which action is specifically discouraged by Rule 17(c)?
+    options:
+      - Reducing speed
+      - Sounding five short blasts
+      - Altering course to starboard
+      - Altering course to port
+    correct_index: 3
+    explanation: Turning to port towards a vessel on your port side risks both ships turning into each other as she eventually turns to starboard. A bold alteration to starboard (possibly a round turn), or reducing or taking off way, is preferred.
+
+  - id: colreg-resp-001
+    topic: responsibilities
+    difficulty: 1
+    stem: Under Rule 18, a power-driven vessel underway shall keep out of the way of all the following EXCEPT
+    options:
+      - A power-driven vessel crossing from her port side
+      - A vessel restricted in her ability to manoeuvre
+      - A vessel engaged in fishing
+      - A vessel not under command
+    correct_index: 0
+    explanation: Rule 18(a) says power-driven vessels keep out of the way of NUC, RAM, fishing and sailing vessels. A power-driven vessel crossing from your port side is the give-way vessel under Rule 15.
+
+  - id: colreg-resp-002
+    topic: responsibilities
+    difficulty: 2
+    stem: A vessel constrained by her draught
+    options:
+      - Is always the stand-on vessel
+      - Shall navigate with particular caution; other vessels (except NUC and RAM) shall, if circumstances admit, avoid impeding her safe passage
+      - Must give way to all sailing vessels
+      - Shows two all-round red lights
+    correct_index: 1
+    explanation: Rule 18(d). Her lights are three all-round red lights in a vertical line and her shape is a cylinder (Rule 28). "Not impeding" means acting early so that risk of collision doesn't develop.
+
+  - id: colreg-rv-001
+    topic: restricted-visibility
+    difficulty: 2
+    stem: In restricted visibility, a vessel detects by radar alone another vessel forward of the beam with risk of collision. Rule 19 says she should, so far as possible, avoid
+    options:
+      - An alteration of course to starboard
+      - Reducing speed
+      - An alteration of course to port for a vessel forward of the beam, other than for a vessel being overtaken
+      - Sounding fog signals
+    correct_index: 2
+    explanation: Rule 19(d) says avoid altering to port for a vessel forward of the beam (except one being overtaken), and avoid altering towards a vessel abeam or abaft the beam.
+
+  - id: colreg-rv-002
+    topic: restricted-visibility
+    difficulty: 2
+    stem: In restricted visibility you hear the fog signal of another vessel apparently forward of your beam and have not determined that risk of collision does not exist. You shall
+    options:
+      - Increase speed to clear quickly
+      - Continue at full speed and sound one short blast
+      - Alter course to port
+      - Reduce speed to the minimum at which you can keep your course, take all way off if necessary, and navigate with extreme caution until danger of collision is over
+    correct_index: 3
+    explanation: That is Rule 19(e). Sound signals give little reliable information on range or bearing.
+
+  - id: colreg-lights-001
+    topic: lights
+    difficulty: 1
+    stem: A masthead light shows an unbroken light over an arc of the horizon of
+    options:
+      - 112.5°
+      - 135°
+      - 225°
+      - 360°
+    correct_index: 2
+    explanation: Masthead 225° (from right ahead to 22.5° abaft the beam on each side), sidelights 112.5° each, sternlight 135°, towing light (yellow) 135°, all-round 360° (Rule 21).
+
+  - id: colreg-lights-002
+    topic: lights
+    difficulty: 1
+    stem: For a vessel of 50 m or more in length, the minimum visibility range of the masthead light is
+    options:
+      - 2 miles
+      - 3 miles
+      - 5 miles
+      - 6 miles
+    correct_index: 3
+    explanation: Annex/Rule 22, for vessels of 50 m or more, gives masthead 6 nm and sidelights, sternlight, towing and all-round lights 3 nm each.
+
+  - id: colreg-lights-003
+    topic: lights
+    difficulty: 1
+    stem: At night you see two all-round red lights in a vertical line and a green sidelight. This is
+    options:
+      - A vessel not under command, making way through the water, showing her starboard side
+      - A vessel aground
+      - A vessel constrained by her draught
+      - A pilot vessel
+    correct_index: 0
+    explanation: Two all-round reds means NUC (Rule 27(a)). When making way she also shows sidelights and a sternlight. Here you see her starboard side. A vessel aground shows two reds plus anchor lights.
+
+  - id: colreg-lights-004
+    topic: lights
+    difficulty: 2
+    stem: All-round lights red-white-red in a vertical line indicate
+    options:
+      - A vessel constrained by her draught
+      - A vessel restricted in her ability to manoeuvre
+      - A vessel engaged in trawling
+      - A pilot vessel on duty
+    correct_index: 1
+    explanation: Red-white-red all-round lights (and by day ball-diamond-ball shapes) mean RAM, Rule 27(b). Dredgers add two reds or two balls on the obstructed side and two greens or two diamonds on the side where another vessel may pass.
+
+  - id: colreg-lights-005
+    topic: lights
+    difficulty: 1
+    stem: All-round green over white lights in a vertical line indicate
+    options:
+      - A vessel engaged in fishing other than trawling
+      - A pilot vessel
+      - A vessel engaged in trawling
+      - A sailing vessel
+    correct_index: 2
+    explanation: Trawling is green over white ("green over white, trawling tonight"). Other fishing is red over white. Pilot vessels show white over red ("white over red, pilot ahead").
+
+  - id: colreg-shapes-001
+    topic: shapes
+    difficulty: 1
+    stem: By day you see a vessel exhibiting a cylinder. She is
+    options:
+      - At anchor
+      - Aground
+      - Not under command
+      - Constrained by her draught
+    correct_index: 3
+    explanation: Cylinder means CBD (Rule 28). One ball = at anchor, two balls = NUC, three balls = aground (or mine clearance, with balls at the masthead and yardarms).
+
+  - id: colreg-sound-001
+    topic: sound-signals
+    difficulty: 1
+    stem: In sight of one another, three short blasts on the whistle means
+    options:
+      - I am operating astern propulsion
+      - I am altering my course to port
+      - I am altering my course to starboard
+      - I doubt your intentions
+    correct_index: 0
+    explanation: Rule 34(a) gives one short = altering to starboard, two short = altering to port, three short = operating astern propulsion. Five or more short and rapid blasts = doubt or warning (Rule 34(d)).
+
+  - id: colreg-sound-002
+    topic: sound-signals
+    difficulty: 2
+    stem: In restricted visibility, a power-driven vessel underway but stopped and making no way through the water sounds
+    options:
+      - One prolonged blast at intervals of not more than 2 minutes
+      - Two prolonged blasts in succession with an interval of about 2 seconds, at intervals of not more than 2 minutes
+      - One prolonged followed by two short blasts every 2 minutes
+      - Rapid ringing of the bell for 5 seconds every minute
+    correct_index: 1
+    explanation: Rule 35(b). Making way through the water is one prolonged every 2 minutes. NUC, RAM, CBD, sailing, fishing and towing vessels sound one prolonged and two short. At anchor, ring the bell rapidly for about 5 seconds every minute.
+
+  - id: colreg-sound-003
+    topic: narrow-channels
+    difficulty: 2
+    stem: In a narrow channel, a vessel intending to overtake on the other vessel's port side signals
+    options:
+      - Two prolonged blasts followed by one short blast
+      - One prolonged, one short, one prolonged, one short
+      - Two prolonged blasts followed by two short blasts
+      - Five short blasts
+    correct_index: 2
+    explanation: Rule 34(c). Two prolonged and one short means overtaking on your starboard side. Two prolonged and two short means overtaking on your port side. The vessel being overtaken agrees with prolonged-short-prolonged-short, or sounds five short if in doubt.
+
+  - id: colreg-narrow-001
+    topic: narrow-channels
+    difficulty: 2
+    stem: Under Rule 9, a vessel of less than 20 m in length or a sailing vessel in a narrow channel
+    options:
+      - Has right of way over all other vessels
+      - May cross ahead at any time
+      - Must anchor when a large vessel approaches
+      - Shall not impede the passage of a vessel which can safely navigate only within the channel
+    correct_index: 3
+    explanation: Rule 9(b) covers small and sailing vessels, 9(c) fishing vessels, and 9(d) says a vessel shall not cross a narrow channel if that impedes a vessel that can navigate only within it.
+
+  - id: colreg-safe-speed-001
+    topic: safe-speed
+    difficulty: 2
+    stem: Which of the following is a factor that vessels WITH operational radar must additionally take into account when determining safe speed (Rule 6(b))?
+    options:
+      - The characteristics, efficiency and limitations of the radar equipment, and the range scale in use
+      - The state of visibility
+      - The traffic density
+      - The draught in relation to available depth
+    correct_index: 0
+    explanation: Rule 6(a) factors apply to all vessels (visibility, traffic, manoeuvrability, background lights, wind/sea/current, draught). Rule 6(b) adds radar factors (limitations, range scale, sea state and weather effects, small targets not detected, number and movement of targets, more exact visibility assessment).

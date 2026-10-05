@@ -1,0 +1,63 @@
+defaults:
+  competence: COLREG
+  type: lesson
+items:
+  - id: colreg-lesson-steering
+    topic: action-to-avoid
+    difficulty: 1
+    title: Steering & sailing rules — the core
+    related_item_ids: [colreg-risk-001, colreg-action-001, colreg-overtake-001, colreg-headon-001, colreg-crossing-001, colreg-standon-001, colreg-standon-002]
+    body_md: |
+      ## In sight of one another
+      | Rule | Situation | Action |
+      | --- | --- | --- |
+      | 13 | Overtaking (> 22.5° abaft the beam) | Overtaker keeps clear until **finally past and clear** |
+      | 14 | Head-on | **Both alter to starboard** |
+      | 15 | Crossing | Vessel with other on **her starboard** gives way; avoid crossing ahead |
+      | 16 | Give-way | Early, substantial action |
+      | 17 | Stand-on | Keep course & speed → **may** act → **shall** act; don't turn to port for a vessel on your port side |
+      | 18 | Responsibilities | Power gives way to **NUC, RAM, fishing, sail**; all avoid impeding **CBD** |
+
+      > Pecking order (Rule 18): **N**ot under command → **R**estricted → (**C**BD: don't impede) → **F**ishing → **S**ailing → **P**ower.
+      > Mnemonic: **"Never Run Contrary, Fish Sail Power"**
+
+      ## Rule 8: good action is
+      **Positive · ample time · large enough to be readily apparent · not a series of small alterations · checked until past and clear.**
+
+      ## Rule 19: restricted visibility (not in sight)
+      - There is no stand-on or give-way vessel.
+      - Avoid turning **to port** for a vessel **forward of the beam** (unless you're overtaking it).
+      - Avoid turning **towards** a vessel **abeam or abaft the beam**.
+      - Hear a fog signal forward of the beam: **minimum steerage speed**, take way off if necessary.
+  - id: colreg-lesson-lights
+    topic: lights
+    difficulty: 1
+    title: Lights, shapes and sound signals
+    related_item_ids: [colreg-lights-001, colreg-lights-002, colreg-lights-003, colreg-lights-004, colreg-lights-005, colreg-shapes-001, colreg-sound-001, colreg-sound-002]
+    body_md: |
+      ## Arcs
+      Masthead **225°** · sidelights **112.5°** each · stern **135°** · towing (yellow) **135°** · all-round **360°**
+
+      ## Status lights (all-round) and day shapes
+      | Status | Lights | Shape | Memory |
+      | --- | --- | --- | --- |
+      | NUC | Red / Red | ● ● | "Red over red, the captain is dead" |
+      | RAM | Red / White / Red | ● ◆ ● | |
+      | CBD | Red / Red / Red | Cylinder | |
+      | Trawling | Green / White | ▲▼ (cones apexes together) | "Green over white, trawling tonight" |
+      | Fishing (other) | Red / White | ▲▼ | "Red over white, fishing tonight" |
+      | Pilot | White / Red | — | "White over red, pilot ahead" |
+      | Aground | Anchor lights + Red / Red | ● ● ● | |
+      | Anchored | White(s) | ● | |
+      | Tow > 200 m | 3 masthead | ◆ | |
+
+      ## Sound signals (in sight)
+      ● = short, ▬ = prolonged
+      - ● starboard · ●● port · ●●● astern propulsion · ●●●●● doubt
+      - Narrow channel overtaking: ▬▬● (your starboard side) / ▬▬●● (your port side) · agree ▬●▬●
+
+      ## Fog (Rule 35), every 2 minutes or less
+      - Power making way: ▬
+      - Power stopped: ▬ ▬
+      - NUC, RAM, CBD, sail, fishing, towing: ▬●●
+      - At anchor: bell 5 s every minute (≥ 100 m: gong aft too)

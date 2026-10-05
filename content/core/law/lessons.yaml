@@ -1,0 +1,58 @@
+defaults:
+  competence: LAW
+  type: lesson
+items:
+  - id: law-lesson-conventions
+    topic: solas
+    difficulty: 1
+    title: The conventions on one page
+    related_item_ids: [law-solas-001, law-marpol-001, law-mlc-001, law-ism-001, law-isps-001, law-marpol-002, law-marpol-004]
+    body_md: |
+      ## SOLAS chapters
+      I General · II-1 Construction · II-2 Fire · III LSA · IV Radio · V Navigation · VI Cargoes · VII Dangerous goods · VIII Nuclear · **IX ISM** · X HSC · XI-1 Special measures · **XI-2 ISPS** · XII Bulk carriers · XIII Audit scheme · XIV Polar
+
+      ## MARPOL annexes
+      I Oil · II NLS · III Packaged HS · IV Sewage · V Garbage · VI Air
+      > Mnemonic: **"Oily Noxious Packages Sink Garbage Airborne"**
+
+      ## Numbers examiners ask
+      | Rule | Number |
+      | --- | --- |
+      | Bilge discharge (Annex I) | **≤ 15 ppm**, en route, OWS + alarm + auto-stop |
+      | Tanker cargo-area discharge | > 50 nm, en route, **≤ 30 l/nm**, ≤ 1/30,000 of cargo |
+      | ORB retention | **3 years** |
+      | Sulphur cap | **0.50%** global, **0.10%** in ECA |
+      | Food waste (Annex V) | ≥ 3 nm comminuted, ≥ 12 nm otherwise; plastics never |
+      | Hours of rest | **10 in 24 h, 77 in 7 days**; ≤ 2 periods, one ≥ 6 h; gap ≤ 14 h |
+      | Ballast exchange | ≥ 200 nm & 200 m (fallback ≥ 50 nm & 200 m) |
+      | SMC | 5 yrs, intermediate verification between 2nd–3rd anniversary |
+      | DOC | annual verification |
+      | Drills | Fire + abandon ship monthly; within 24 h if > 25% crew new; enclosed space every **2 months**; lifeboat launch every **3 months** |
+      | Emergency steering drill | every **3 months**; steering test within 12 h before departure |
+      | ISPS records | last **10** port calls |
+  - id: law-lesson-commercial
+    topic: charter-parties
+    difficulty: 2
+    title: Commercial — charter parties, B/L, GA, salvage
+    related_item_ids: [law-bl-001, law-bl-002, law-charter-001, law-charter-002, law-salvage-001, law-oral-bl-loi]
+    body_md: |
+      ## Charter types
+      | Type | Owner provides | Charterer provides | Paid as |
+      | --- | --- | --- | --- |
+      | Voyage | Ship, crew, fuel | Cargo | Freight; **laytime / demurrage** |
+      | Time | Ship, crew | Fuel, port costs, orders | Hire; **off-hire** clause |
+      | Bareboat | Ship only | Crew, everything | Hire |
+
+      ## Bill of lading: 3 functions
+      1. **Receipt** for goods (quantity and apparent condition)
+      2. **Evidence** of the contract of carriage
+      3. **Document of title** (negotiable "to order" B/L)
+
+      Clause it for any visible damage. **Never** deliver without the original B/L unless the owner instructs it in writing (P&I risk).
+
+      ## General average vs salvage
+      - **GA** (York-Antwerp Rules): intentional, reasonable sacrifice or expense for the **common safety**, shared pro rata.
+      - **Salvage**: voluntary service to a vessel in danger. **LOF** is "no cure – no pay", and **SCOPIC** covers environmental efforts.
+
+      ## Note of protest
+      Before a notary or consul, within 24 h of arrival, before breaking bulk. Supported by log entries.

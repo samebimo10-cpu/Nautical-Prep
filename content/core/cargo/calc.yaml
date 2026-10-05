@@ -1,0 +1,38 @@
+defaults:
+  competence: CARGO
+  type: calc
+items:
+  - id: cargo-calc-space
+    topic: stowage
+    difficulty: 1
+    template: "How much space (m³) is needed to stow {{w}} t of cargo with stowage factor {{sf}} m³/t, allowing {{bs}}% broken stowage?"
+    variables:
+      w: { min: 200, max: 5000, step: 50 }
+      sf: { min: 0.5, max: 3.0, step: 0.05 }
+      bs: { min: 0, max: 20, step: 1 }
+    calc_fn: cargo.space
+    units: m³
+    tolerance: 1
+    worked_solution_template: |
+      1. Net space = W × SF = {{net:1}} m³
+      2. Space with broken stowage = net / (1 − BS) = {{space:1}} m³
+    sources:
+      - { label: Cargo work, ref: Stowage factor and broken stowage }
+
+  - id: cargo-calc-grain-heel
+    topic: grain
+    difficulty: 2
+    template: "Total volumetric heeling moments for all grain compartments are {{vhm}} m⁴. Grain stowage factor {{sf}} m³/t. The maximum permissible heeling moment from the booklet is {{allowable}} t·m. Find the approximate angle of heel (degrees)."
+    variables:
+      vhm: { min: 2000, max: 12000, step: 100 }
+      sf: { min: 1.2, max: 1.8, step: 0.02 }
+      allowable: { min: 3000, max: 9000, step: 100 }
+    calc_fn: cargo.grainHeel
+    units: "°"
+    tolerance: 0.1
+    worked_solution_template: |
+      1. Actual heeling moment = VHM / SF = {{actualHM:1}} t·m
+      2. Approx heel = (actual / permissible) × 12° = {{heel:2}}°
+      3. Satisfactory? {{ok}} (1 = yes, 0 = no: must not exceed 12°)
+    sources:
+      - { label: International Grain Code, ref: Part A }

@@ -1,0 +1,74 @@
+defaults:
+  competence: LOCAL
+  countries: [ sg ]
+items:
+  - id: sg-local-straitrep-001
+    type: mcq
+    topic: ship-reporting
+    difficulty: 1
+    stem: The mandatory ship reporting system in the Straits of Malacca and Singapore is
+    options:
+      - CALDOVREP
+      - STRAITREP
+      - REEFREP
+      - AUSREP
+    correct_index: 1
+    explanation: STRAITREP is IMO-adopted and operated by Malaysia and Singapore VTS. Reporting points are defined along the straits. Singapore VTIS provides traffic information.
+    sources:
+      - { label: IMO, ref: STRAITREP (Res. MSC.73(69) as amended) }
+
+  - id: sg-local-ukc-001
+    type: mcq
+    topic: navigation
+    difficulty: 2
+    stem: IMO-adopted rules for vessels navigating through the Straits of Malacca and Singapore advise deep-draught vessels to maintain an under-keel clearance of at least
+    options:
+      - 1.0 m
+      - 2.0 m
+      - 3.5 m
+      - 5.0 m
+    correct_index: 2
+    explanation: Deep-draught vessels and VLCCs should allow for an under-keel clearance of at least 3.5 m at all times during the transit and take all safety precautions, especially in TSS areas.
+    sources:
+      - { label: IMO, ref: Rules for vessels navigating through the Straits of Malacca and Singapore }
+
+  - id: sg-local-mpa-001
+    type: mcq
+    topic: administration
+    difficulty: 1
+    stem: The Singapore maritime administration that issues Port Marine Circulars and certifies seafarers is
+    options:
+      - PSA Corporation
+      - Singapore Civil Defence Force
+      - Maritime and Port Authority of Singapore (MPA)
+      - Jurong Port
+    correct_index: 2
+    explanation: MPA is the port and maritime authority. PSA and Jurong Port are terminal operators. MPA issues Shipping Circulars and Port Marine Circulars.
+    sources:
+      - { label: Maritime and Port Authority of Singapore Act, ref: Functions }
+
+  - id: sg-local-oral-transit
+    type: oral
+    topic: navigation
+    difficulty: 2
+    examiner_style: sg
+    question: Brief your bridge team for a laden VLCC transit of the Singapore Strait.
+    model_answer: |
+      Passage plan with the latest ENCs, notices and Port Marine Circulars. STRAITREP reporting points and VTIS channels. UKC of at least 3.5 m for deep-draught vessels, with squat and tide calculated and a speed plan. Traffic density (crossing ferries, small craft, anchorages), TSS rules (Rule 10), and areas of shallow water (Phillip Channel, Buffalo Rock). Full bridge manning, engines on standby, anchors ready, hand steering. Lookouts. Weather and visibility (haze or rain squalls). Security awareness (sea robbery incidents in the Strait; report to the VTS/ReCAAP as advised). Contingency plans and abort points.
+    key_points:
+      - point: STRAITREP reporting and VTIS
+        match: [ "straitrep|vtis|vts|report" ]
+      - point: UKC ≥ 3.5 m, squat, tide, speed
+        match: [ "3.5|ukc|under keel|squat" ]
+      - point: TSS rules and traffic density
+        match: [ "tss|traffic|rule 10|crossing|ferr" ]
+      - point: Full bridge team, engines and anchors ready
+        match: [ "bridge team|manning|engine|anchor|hand steer" ]
+      - point: Security awareness (sea robbery)
+        match: [ "security|robbery|piracy|recaap" ]
+      - point: Contingencies / abort points
+        match: [ "contingenc|abort|emergency" ]
+    follow_ups:
+      - What is the Deep Water Route and who may use it?
+    sources:
+      - { label: IMO, ref: Rules for vessels navigating through the Straits of Malacca and Singapore }

@@ -1,0 +1,219 @@
+defaults:
+  competence: CARGO
+  type: oral
+items:
+  - id: cargo-oral-liquefaction
+    topic: imsbc-liquefaction
+    difficulty: 2
+    question: You are to load nickel ore (a Group A cargo). What documents and checks would you require before and during loading?
+    model_answer: |
+      Before loading the shipper must provide the cargo information declaration with the IMSBC schedule details, the certificate of TML (test within 6 months) and the moisture content certificate (sampled and tested as close as practicable to loading, within 7 days), signed by an authorised party. Check that moisture content is below the TML and that the cargo is properly identified (BCSN), and refer to the IMSBC schedule. Consult P&I/company and consider an independent surveyor.
+      During loading: watch for wet cargo or heavy rain (stop loading and close hatches in rain), carry out can tests periodically as a ship-side check, monitor stockpiles, trim the cargo, and stop and reject if there's free water or a failed can test. Inform the Master. Never sail if liquefaction is suspected.
+    key_points:
+      - point: Certificate of TML and moisture content from shipper
+        match: ["tml|transportable moisture", "certificat|declar|document"]
+      - point: Moisture content must be below TML
+        match: ["below|less than|lower than|under"]
+      - point: Test validity (TML ≤ 6 months, MC ≤ 7 days)
+        match: ["6 month|six month|7 day|seven day"]
+      - point: Can test as ship-side check
+        match: ["can test"]
+      - point: Rain precautions — stop loading, close hatches
+        match: ["rain|wet|close hatch|stop load"]
+      - point: Stop and reject if doubtful; inform Master/P&I
+        match: ["reject|refuse|stop|p and i|p&i|surveyor|master"]
+    follow_ups:
+      - What happens on board if the cargo liquefies at sea?
+    critical: true
+    sources:
+      - { label: IMSBC Code, ref: Sections 4, 7, 8 }
+
+  - id: cargo-oral-hold-prep
+    topic: bulk-carriers
+    difficulty: 1
+    question: How would you prepare the holds of a bulk carrier for a grain cargo?
+    model_answer: |
+      Holds must be clean, dry, free of residues from previous cargo, rust scale, loose paint, odours and insects, ready to pass a surveyor's or grain inspector's inspection. Sweep and wash (fresh-water rinse after salt water if needed) and dry. Check and clean bilge wells, test bilge suctions and non-return valves, and cover bilge strums with burlap so cargo can't enter while water can drain. Check hatch covers for weathertightness (ultrasonic or hose test), seals and cleats. Check hold lighting off and isolated, ventilation and CO2 lines (fire detection), and any fittings. Make sure the grain stability calculations and Document of Authorization are in order, plan trimming of the ends, and check grain feeders/shifting boards if needed.
+    key_points:
+      - point: Clean, dry, odour-free, no previous residues or loose rust
+        match: ["clean|sweep|wash", "dry|odour|odor|residue|rust|scale"]
+      - point: Bilge wells cleaned, tested, burlap covered
+        match: ["bilge", "burlap|test|clean|cover"]
+      - point: Hatch covers weathertight test
+        match: ["hatch", "weathertight|watertight|hose test|ultrasonic|seal"]
+      - point: Surveyor / grain inspector inspection
+        match: ["surveyor|inspect|certificate|pass"]
+      - point: Grain stability / Document of Authorization
+        match: ["document of authori|grain stability|heeling moment|grain code"]
+    follow_ups:
+      - How do you secure the surface of a partly filled compartment of grain?
+    sources:
+      - { label: International Grain Code, ref: Part A }
+
+  - id: cargo-oral-grain-stability
+    topic: grain
+    difficulty: 3
+    question: Explain how you would check that the ship complies with the Grain Code before sailing.
+    model_answer: |
+      Use the approved grain loading booklet. For each compartment take the volumetric heeling moment (VHM) for filled (trimmed or untrimmed) or partly filled condition. Total VHM ÷ stowage factor = actual grain heeling moment (t·m). Compare with the maximum permissible heeling moment from the booklet tables for the ship's displacement and KG, or calculate heeling arms λ0 = HM/Δ and λ40 = 0.8 λ0 and plot them on the GZ curve. Criteria: angle of heel ≤ 12° (or deck edge immersion if less), residual area ≥ 0.075 m·rad, and fluid GM ≥ 0.30 m. If not satisfied: fill compartments, trim, use saucers/bundling/overstowing, or adjust ballast to lower G.
+    key_points:
+      - point: Approved grain loading booklet / Document of Authorization
+        match: ["booklet|document of authori|grain stability information"]
+      - point: Volumetric heeling moment ÷ SF = heeling moment
+        match: ["volumetric", "stowage factor|sf|divide"]
+      - point: Compare with maximum permissible heeling moment or plot heeling arms
+        match: ["permissible|allowable|maximum|heeling arm|lambda|λ"]
+      - point: Heel ≤ 12°
+        match: ["12"]
+      - point: Residual area ≥ 0.075 m·rad
+        match: ["0.075|residual"]
+      - point: GM ≥ 0.30 m
+        match: ["0.3|0.30|30 cm"]
+    follow_ups:
+      - What can you do if the heeling moment exceeds the permissible value?
+    sources:
+      - { label: International Grain Code, ref: Part A, A 7 and Part B }
+
+  - id: cargo-oral-tanker-ig
+    topic: tanker-inert-gas
+    difficulty: 2
+    question: Explain the purpose of an inert gas system on a tanker and the precautions if the IG system fails during discharge.
+    model_answer: |
+      Purpose: keep cargo tank atmospheres non-flammable (O2 ≤ 8% by volume) and at positive pressure, preventing ingress of air during discharge, ballasting and COW. IG is supplied at ≤ 5% O2. The deck seal, non-return valves and P/V breakers/valves protect the system.
+      On IG failure during discharge: stop discharge (and COW) immediately, close the IG main deck isolating valve, keep the tanks under positive pressure, and do not let air in. Inform the terminal and Master. Investigate and repair. Resume only when IG is restored, or under ISGOTT's provisions for an alternative inert gas supply. If a tank's O2 rises above 8%, re-inert it before resuming.
+    key_points:
+      - point: Keeps atmosphere non-flammable (O2 ≤ 8%)
+        match: ["8|oxygen|flammable|non flammable"]
+      - point: Positive pressure prevents air ingress
+        match: ["positive pressure|pressure|air ingress|prevent air"]
+      - point: IG supplied ≤ 5% O2
+        match: ["5"]
+      - point: Stop discharge/COW on failure
+        match: ["stop"]
+      - point: Inform terminal and Master; re-inert before resuming
+        match: ["terminal|master|re inert|reinert|restor"]
+    follow_ups:
+      - What is the purpose of the deck water seal?
+    critical: true
+    sources:
+      - { label: SOLAS, ref: Ch. II-2 Reg. 4.5.5 }
+      - { label: ISGOTT, ref: Inert gas system failure }
+
+  - id: cargo-oral-dg-loading
+    topic: imdg
+    difficulty: 2
+    question: Dangerous goods containers are being loaded on your container ship. What are your duties as Chief Mate?
+    model_answer: |
+      Get the dangerous goods manifest and dangerous goods declarations (proper shipping name, UN number, class, packing group, marine pollutant, flashpoint, EmS) and check stowage and segregation against the IMDG Code and the ship's Document of Compliance for DG (SOLAS II-2/19), stowage category, "on/under deck" and "away from living quarters" requirements. Check placards and marks on the units, look for damage or leaks, keep EmS and MFAG available, make sure fire-fighting equipment is ready, and prepare the stowage plan showing DG positions for the Master and crew. Brief the crew. Refuse leaking or damaged units or ones lacking documentation. Report as required (port authority, and on departure).
+    key_points:
+      - point: DG manifest / declaration (UN no, class, PSN, PG)
+        match: ["manifest|declaration|dgd|un number|un no|proper shipping"]
+      - point: Segregation and stowage per IMDG
+        match: ["segregat|stowage"]
+      - point: Document of Compliance for DG
+        match: ["document of compliance|doc|ii 2 19|reg 19"]
+      - point: Placards/labels and damage/leak checks
+        match: ["placard|label|mark|leak|damage"]
+      - point: EmS and MFAG available; fire precautions
+        match: ["ems|mfag|emergency schedule|fire"]
+      - point: DG stowage plan for Master/crew
+        match: ["plan|crew|master|brief"]
+    follow_ups:
+      - What does "separated from" mean for containers on deck?
+    sources:
+      - { label: IMDG Code, ref: Ch. 5.4 and 7.2 }
+      - { label: SOLAS, ref: Ch. VII Part A; Ch. II-2 Reg. 19 }
+
+  - id: cargo-oral-container-lashing
+    topic: containers
+    difficulty: 2
+    question: How would you check that container stowage and lashing are safe before departure?
+    model_answer: |
+      Check the stowage plan against the Cargo Securing Manual and the lashing computer, including stack weights and heights, tier limits, VGM declared, heavy units on top, GM (too much GM means high accelerations), wind and visibility line, and bay/stack limits. Physically inspect the lashings: twistlocks locked, rods tightened, turnbuckles locked, bridge fittings, no missing or damaged gear, and lashing platforms clear. Check reefer connections and DG positions. Consider the forecast weather and route, the risk of parametric rolling, and secure loose items. Record checks and re-tension lashings at sea when safe.
+    key_points:
+      - point: Cargo Securing Manual / lashing software
+        match: ["cargo securing manual|csm|lashing computer|lashing software|lashing program"]
+      - point: Stack weights/heights and VGM
+        match: ["stack weight|stack height|tier|vgm|verified gross mass|weight"]
+      - point: Physical inspection of twistlocks, rods, turnbuckles
+        match: ["twistlock|twist lock|rod|turnbuckle|bridge fitting"]
+      - point: GM considered (accelerations) and weather/route
+        match: ["gm|acceleration|weather|forecast|route"]
+      - point: Re-check lashings at sea
+        match: ["recheck|re check|re tension|retighten|at sea|during voyage"]
+    follow_ups:
+      - Why can a very large GM be dangerous for containers?
+    sources:
+      - { label: SOLAS, ref: Ch. VI Reg. 5; Ch. VI Reg. 2 }
+      - { label: IMO CSS Code, ref: Annex 14 }
+
+  - id: cargo-oral-coal
+    topic: coal
+    difficulty: 2
+    question: What hazards does coal present and what precautions do you take during the voyage?
+    model_answer: |
+      Hazards: methane emission (flammable or explosive mixtures, especially at the top of holds and in adjacent spaces), self-heating and spontaneous combustion, oxygen depletion and CO in the holds and adjacent enclosed spaces, corrosion (some coals are acidic), and liquefaction for some coals with small particles (Group A and B).
+      Precautions: shipper's declaration (IMSBC schedule, self-heating or methane-emitting), cargo temperature checked before loading (reject if above 55°C or if hot spots), trim reasonably level, surface ventilation only (unless self-heating, in which case close ventilation), measure CH4, O2 and CO daily through sampling points, no smoking or naked lights and intrinsically safe equipment, treat holds and adjacent spaces as enclosed spaces, and keep records. If CO rises steadily (self-heating), close ventilation and seek expert advice. Don't use water.
+    key_points:
+      - point: Methane — flammable/explosive
+        match: ["methane|ch4|flammable|explos"]
+      - point: Self-heating / spontaneous combustion; CO
+        match: ["self heat|spontaneous|combustion|carbon monoxide|co"]
+      - point: Surface ventilation only
+        match: ["surface ventilation|surface ventilat"]
+      - point: Daily gas monitoring CH4, O2, CO and temperature
+        match: ["monitor|measure|sample|record|daily", "gas|temperature|oxygen|co|ch4"]
+      - point: Enclosed space precautions; no naked lights
+        match: ["enclosed space|no smoking|naked light|intrinsically safe"]
+    follow_ups:
+      - What does a steadily rising CO reading indicate and what do you do?
+    sources:
+      - { label: IMSBC Code, ref: Schedule for Coal; Appendix 1 }
+
+  - id: cargo-oral-ventilation
+    topic: ventilation
+    difficulty: 2
+    question: Explain the dew point rule and the three-degree rule for ventilating cargo holds.
+    model_answer: |
+      Dew point rule: ventilate when the dew point of the outside air is lower than the dew point of the air in the hold, so incoming air won't condense on cold steel or cargo and can remove moisture. Stop ventilating when the outside dew point is higher.
+      Three-degree rule (when dew points can't be measured, for hygroscopic cargo): ventilate if the outside air temperature is at least 3°C lower than the cargo temperature at loading. Don't ventilate if the outside air is warmer than the cargo temperature minus 3°C.
+      Also: ship's sweat on warm-to-cold voyages and cargo sweat on cold-to-warm voyages. Keep ventilation records (protection against claims), and consider weather and spray.
+    key_points:
+      - point: Ventilate when outside dew point lower than hold dew point
+        match: ["dew point", "lower|less|below"]
+      - point: Three-degree rule (outside air ≥ 3°C cooler than cargo)
+        match: ["3 degree|three degree|3 c|3°|three"]
+      - point: Ship's sweat vs cargo sweat
+        match: ["ship sweat|ship's sweat|cargo sweat|sweat|condensation"]
+      - point: Keep ventilation records
+        match: ["record|log"]
+    follow_ups:
+      - Which cargoes are hygroscopic?
+    sources:
+      - { label: Cargo care practice, ref: Ventilation rules }
+
+  - id: cargo-oral-tank-entry
+    topic: tanker-operations
+    difficulty: 2
+    question: A cargo tank needs to be entered for inspection after discharge. Describe the procedure.
+    model_answer: |
+      Risk assessment and an enclosed space entry permit under the SMS. Gas free the tank (purge with IG to below 2% HC by volume before introducing air, then ventilate with fresh air). Isolate the tank (lines blanked or valves locked, IG isolated). Test the atmosphere at different levels with calibrated instruments: O2 21%, HC < 1% LFL, H2S and benzene and other toxics below OEL. Keep ventilation running and test continuously. Standby person at the entrance with communications, rescue equipment (BA, harness, stretcher) ready, lighting, and a recognised entry and exit procedure. Inform the OOW. Re-test after any break.
+    key_points:
+      - point: Risk assessment and permit to work
+        match: ["permit|risk assessment"]
+      - point: Purge then gas free and ventilate
+        match: ["purg|gas free|ventilat"]
+      - point: Test O2 21%, HC < 1% LFL, toxics below OEL
+        match: ["21|oxygen", "1%|lfl|lel|hydrocarbon|toxic|h2s|benzene"]
+      - point: Isolation of the tank
+        match: ["isolat|blank|lock"]
+      - point: Standby person, communication, rescue equipment
+        match: ["standby|attendant|rescue|breathing apparatus|ba|communication"]
+      - point: Continuous monitoring/re-test
+        match: ["continuous|re test|retest|monitor"]
+    follow_ups:
+      - Why purge to below 2% hydrocarbon before introducing air?
+    critical: true
+    sources:
+      - { label: ISGOTT, ref: Enclosed space entry; gas freeing }
+      - { label: IMO Res. A.1050(27), ref: Entering enclosed spaces }

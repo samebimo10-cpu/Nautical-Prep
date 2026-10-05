@@ -1,0 +1,368 @@
+defaults:
+  competence: STAB
+  type: mcq
+items:
+  - id: stab-is-code-001
+    topic: intact-stability-criteria
+    difficulty: 2
+    stem: Under the IMO 2008 Intact Stability Code general criteria, the minimum initial metacentric height (GM0), corrected for free surface, is
+    options:
+      - 0.05 m
+      - 0.15 m
+      - 0.30 m
+      - 0.50 m
+    correct_index: 1
+    explanation: The general criterion is GM0 of at least 0.15 m. Grain ships need at least 0.30 m under the Grain Code, and timber deck cargo ships at least 0.10 m. Always use fluid GM, corrected for free surface.
+    sources:
+      - { label: IMO 2008 IS Code, ref: Part A, 2.2.4 }
+
+  - id: stab-is-code-002
+    topic: intact-stability-criteria
+    difficulty: 2
+    stem: Under the 2008 IS Code, the area under the righting lever (GZ) curve up to 30° must be not less than
+    options:
+      - 0.030 m·rad
+      - 0.055 m·rad
+      - 0.090 m·rad
+      - 0.200 m·rad
+    correct_index: 1
+    explanation: 0–30° ≥ 0.055 m·rad; 0–40° (or angle of flooding if less) ≥ 0.090 m·rad; 30–40° ≥ 0.030 m·rad; GZ ≥ 0.20 m at an angle ≥ 30°; maximum GZ at ≥ 25°; GM0 ≥ 0.15 m.
+    sources:
+      - { label: IMO 2008 IS Code, ref: Part A, 2.2 }
+
+  - id: stab-is-code-003
+    topic: intact-stability-criteria
+    difficulty: 2
+    stem: Under the IS Code general criteria, the righting lever GZ shall be at least 0.20 m at an angle of heel equal to or greater than
+    options:
+      - 15°
+      - 25°
+      - 30°
+      - 40°
+    correct_index: 2
+    explanation: GZ must be at least 0.20 m at an angle of heel of 30° or more, and the maximum GZ should occur at an angle of at least 25°.
+    sources:
+      - { label: IMO 2008 IS Code, ref: Part A, 2.2.2 }
+
+  - id: stab-fse-001
+    topic: free-surface
+    difficulty: 1
+    stem: The free surface moment of a rectangular tank depends mainly on
+    options:
+      - The depth of liquid in the tank
+      - The length of the tank and the cube of its breadth
+      - The height of the tank above the keel
+      - The tank's distance from the centreline
+    correct_index: 1
+    explanation: FSM = (l × b³ / 12) × ρ. For small angles it is independent of the amount of liquid (provided the tank is slack) and of the tank's position in the ship. Breadth is the critical factor.
+    sources:
+      - { label: Ship stability theory, ref: Free surface moment }
+
+  - id: stab-fse-002
+    topic: free-surface
+    difficulty: 2
+    stem: A slack rectangular tank is divided into two equal tanks by a centreline longitudinal bulkhead. The free surface effect is reduced to
+    options:
+      - One half of the original
+      - One eighth of the original
+      - One quarter of the original
+      - Unchanged
+    correct_index: 2
+    explanation: Each tank has breadth b/2. FSM per tank = l(b/2)³/12 = 1/8 of the original, and two tanks give 2/8 = 1/4. With n equal longitudinal divisions the effect falls to 1/n².
+    sources:
+      - { label: Ship stability theory, ref: Longitudinal subdivision }
+
+  - id: stab-fse-003
+    topic: free-surface
+    difficulty: 2
+    stem: The effect of free surface on the GZ curve is to
+    options:
+      - Increase GZ at large angles only
+      - Increase the range of stability
+      - Have no effect beyond 10° heel
+      - Reduce GZ at all angles of heel, as if G had risen
+    correct_index: 3
+    explanation: Free surface acts as a virtual rise of G (GGv = FSM/Δ), reducing GZ by GGv × sin θ at every angle. This lowers the curve, reduces maximum GZ and reduces the range of stability.
+    sources:
+      - { label: Ship stability theory, ref: Free surface effect }
+
+  - id: stab-loll-001
+    topic: angle-of-loll
+    difficulty: 2
+    stem: Which observation best distinguishes an angle of loll from an angle of list?
+    options:
+      - With loll, the ship may flop over to the other side and lie at a similar angle; the rolling period is long and sluggish about the lolled angle
+      - The ship lolls only to starboard
+      - A list is always larger than a loll
+      - A loll is caused by an off-centre weight
+    correct_index: 0
+    explanation: Loll is caused by negative initial GM (G above M). The ship finds stable equilibrium at an angle on either side and can flop from one side to the other. A list is caused by G being off the centreline with positive GM.
+    sources:
+      - { label: Ship stability theory, ref: Angle of loll }
+
+  - id: stab-loll-002
+    topic: angle-of-loll
+    difficulty: 3
+    stem: A vessel lolls 8° to port. Which is the correct first corrective action?
+    options:
+      - Transfer fuel from a port tank to a starboard tank
+      - Fill a divided double-bottom tank on the low (port) side first, then the other side, to lower G
+      - Pump out double-bottom ballast
+      - Fill a wide, undivided double-bottom tank on the high side
+    correct_index: 1
+    explanation: The cure is to lower G. Ballast low, using a subdivided tank with small free surface, starting on the LOW side. Filling the high side first could make her flop over violently. Never transfer weight across as for a list. Removing low weight or adding free surface makes things worse.
+    sources:
+      - { label: Ship stability theory, ref: Correcting an angle of loll }
+
+  - id: stab-gm-001
+    topic: gm-rolling
+    difficulty: 1
+    stem: A "stiff" ship is characterised by
+    options:
+      - Small GM, long rolling period
+      - Negative GM
+      - Large GM, short rolling period, and violent rolling
+      - Large free surface
+    correct_index: 2
+    explanation: Large GM gives a strong righting moment, a short quick roll period and violent motion. That puts stress on cargo lashings and the structure and is uncomfortable for crew. A tender ship (small GM) rolls slowly and lazily.
+    sources:
+      - { label: Ship stability theory, ref: Rolling period }
+
+  - id: stab-gm-002
+    topic: gm-rolling
+    difficulty: 3
+    stem: Parametric rolling is most likely when
+    options:
+      - GM is very small and the sea is calm
+      - The ship is beam on to a short swell
+      - The ship is at anchor in calm water
+      - The wave encounter period is about half the ship's natural roll period, in head or following seas, with wavelength similar to ship length
+    correct_index: 3
+    explanation: Parametric rolling happens when stability varies as wave crests and troughs pass along the hull. It peaks at about twice the encounter frequency of the roll, with wavelength close to ship length. Container ships and car carriers with flared bows are most prone. Change course and/or speed to break the condition.
+    sources:
+      - { label: IMO MSC.1/Circ.1228, ref: Revised guidance to the master for avoiding dangerous situations in adverse weather }
+
+  - id: stab-gm-003
+    topic: gm-rolling
+    difficulty: 2
+    stem: Synchronous rolling occurs when
+    options:
+      - The ship's natural rolling period equals the apparent period of the waves
+      - The ship is trimmed by the head
+      - GM is exactly zero
+      - The propeller pitch matches the roll
+    correct_index: 0
+    explanation: When the natural roll period matches the wave encounter period, the roll amplitude builds up dangerously. Alter course and/or speed to change the encounter period.
+    sources:
+      - { label: Ship stability theory, ref: Synchronism }
+
+  - id: stab-drydock-001
+    topic: drydocking
+    difficulty: 2
+    stem: During drydocking, the critical period is
+    options:
+      - When the dock gate is closed
+      - From the moment the stern touches the blocks until the ship takes the blocks fully fore and aft
+      - When the dock is fully pumped dry
+      - When the ship is floated out
+    correct_index: 1
+    explanation: Once the stern touches the blocks, an upthrust P acts at the keel and causes a virtual loss of GM (P × KM / Δ). The loss is greatest just before she settles fully on the blocks (the critical instant). GM must stay positive throughout.
+    sources:
+      - { label: Ship stability theory, ref: Drydocking stability }
+
+  - id: stab-drydock-002
+    topic: drydocking
+    difficulty: 2
+    stem: To keep the virtual loss of GM small during drydocking, the Chief Mate should arrange the ship
+    options:
+      - Heavily trimmed by the stern
+      - With a large list to one side
+      - With a small trim by the stern, minimum free surface, adequate positive GM and no list
+      - Trimmed by the head
+    correct_index: 2
+    explanation: The P force is proportional to trim (P = MCTC × trim / distance LCF to blocks), so keep trim small. Eliminate free surface (press up or empty tanks), make sure GM is ample, have her upright, and follow the dock master's docking plan.
+    sources:
+      - { label: Ship stability theory, ref: Drydocking stability }
+
+  - id: stab-strength-001
+    topic: hull-stress
+    difficulty: 1
+    stem: A ship loaded with heavy weights concentrated in the end holds and the midship holds empty will tend to
+    options:
+      - Sag
+      - Pant
+      - Rack
+      - Hog
+    correct_index: 3
+    explanation: Excess weight at the ends and excess buoyancy amidships make the ends droop, which is hogging. That puts the deck in tension and the bottom in compression. Heavy midships loading causes sagging.
+    sources:
+      - { label: Ship construction, ref: Longitudinal stresses }
+
+  - id: stab-strength-002
+    topic: hull-stress
+    difficulty: 2
+    stem: On a typical loaded ship, the maximum still-water bending moment usually occurs
+    options:
+      - Near amidships
+      - Near the bow
+      - At the forward and after quarter lengths
+      - At the stern frame
+    correct_index: 0
+    explanation: Maximum bending moment usually occurs near amidships, where shear force passes through zero. Maximum shear force usually occurs at about the quarter lengths, near transverse bulkheads.
+    sources:
+      - { label: Ship construction, ref: Shear force and bending moment curves }
+
+  - id: stab-strength-003
+    topic: hull-stress
+    difficulty: 2
+    stem: Panting stresses are most severe
+    options:
+      - Amidships at the bilge
+      - In the forward part of the ship (roughly the forward 15–20% of length) as water pressure varies when the ship pitches
+      - At the bottom aft under the engine room
+      - In the deckhouse
+    correct_index: 1
+    explanation: Panting is the in-and-out movement of the shell plating at the bow (and to a lesser extent the stern) as pressure varies with pitching. Panting beams, stringers and closer frame spacing are fitted forward. Pounding (slamming) hits the forward flat bottom.
+    sources:
+      - { label: Ship construction, ref: Local stresses }
+
+  - id: stab-loadline-001
+    topic: load-lines
+    difficulty: 1
+    stem: The Fresh Water Allowance (FWA) in millimetres is given by
+    options:
+      - Δ / (4 × TPC)
+      - TPC / (4 × Δ)
+      - 4 × TPC / Δ
+      - Δ × TPC / 40
+    correct_index: 0
+    explanation: FWA (mm) = summer displacement / (4 × TPC in salt water). It is the amount the summer load line may be submerged when loading in fresh water (density 1.000 t/m³).
+    sources:
+      - { label: International Convention on Load Lines 1966, ref: Annex I, Ch. II (fresh water allowance) }
+
+  - id: stab-loadline-002
+    topic: load-lines
+    difficulty: 2
+    stem: The Winter North Atlantic (WNA) load line is marked only on ships of length
+    options:
+      - Not exceeding 24 m
+      - Exceeding 100 m
+      - Not exceeding 100 m
+      - Exceeding 150 m only
+    correct_index: 2
+    explanation: The WNA mark is required only for ships not exceeding 100 m in length. It is 50 mm below the Winter mark.
+    sources:
+      - { label: International Convention on Load Lines 1966, ref: Annex I, Ch. II (marks and freeboards) }
+
+  - id: stab-loadline-003
+    topic: load-lines
+    difficulty: 2
+    stem: The International Load Line Certificate is normally valid for
+    options:
+      - 1 year
+      - 2.5 years
+      - 5 years, subject to annual surveys
+      - 10 years
+    correct_index: 2
+    explanation: Validity is up to 5 years, with annual surveys within 3 months either side of each anniversary date. The annual survey checks that conditions of assignment (hatches, vents, freeing ports, doors) are maintained.
+    sources:
+      - { label: International Convention on Load Lines 1966, ref: Articles 14 and 19 }
+
+  - id: stab-damage-001
+    topic: damage-stability
+    difficulty: 2
+    stem: Permeability of a compartment is
+    options:
+      - The rate at which water enters through a hole
+      - The strength of the compartment's bulkheads
+      - The percentage of the compartment's volume that can be occupied by water
+      - The ratio of the waterplane area to the compartment area
+    correct_index: 2
+    explanation: Permeability (μ) is the proportion of a space that floodwater can occupy. Empty spaces are near 0.95–0.97, machinery spaces about 0.85, and cargo spaces vary with the cargo (for example about 0.60 for general cargo).
+    sources:
+      - { label: SOLAS, ref: Ch. II-1 Reg. 7-3 }
+
+  - id: stab-damage-002
+    topic: damage-stability
+    difficulty: 3
+    stem: When a box-shaped amidships compartment is bilged, the lost buoyancy method assumes that
+    options:
+      - GM always increases
+      - The flood water is an added weight with a new KG
+      - Displacement increases by the weight of flood water
+      - Displacement and KG remain unchanged; the damaged compartment no longer contributes to buoyancy or waterplane area
+    correct_index: 3
+    explanation: With lost buoyancy (constant displacement), Δ and KG stay the same. The waterplane area and buoyancy of the flooded space are lost, so sinkage = lost volume / intact waterplane area. KB, BM and KM change. The added-weight method instead treats floodwater as cargo.
+    sources:
+      - { label: Ship stability theory, ref: Bilging }
+
+  - id: stab-inclining-001
+    topic: inclining-experiment
+    difficulty: 2
+    stem: The purpose of the inclining experiment is to determine
+    options:
+      - The lightship displacement and position of the centre of gravity (KG) of the light ship
+      - The ship's maximum speed
+      - The deadweight
+      - The bending moment at sea
+    correct_index: 0
+    explanation: It establishes lightship KG and LCG, which underpin every stability calculation. It's done on completion and after alterations that significantly affect lightship particulars (the IS Code sets thresholds; for example a deviation of more than 2% in lightship displacement calls for a new inclining).
+    sources:
+      - { label: IMO 2008 IS Code, ref: Part B, Ch. 8 and Annex 1 }
+
+  - id: stab-inclining-002
+    topic: inclining-experiment
+    difficulty: 2
+    stem: Which condition is required for a reliable inclining experiment?
+    options:
+      - Ship moored securely with taut mooring lines
+      - Calm weather, moorings slack, free surfaces minimised, all loose weights secured and non-essential persons ashore
+      - Main engine running at full ahead
+      - Ballast tanks half full
+    correct_index: 1
+    explanation: Moorings must not restrain heel. Tanks should be empty or pressed up (minimum free surface), weights accounted for and secured, the water calm with no wind, and people ashore or at fixed positions. Pendulums or inclinometers measure the heel.
+    sources:
+      - { label: IMO 2008 IS Code, ref: Annex 1 }
+
+  - id: stab-gz-001
+    topic: gz-curve
+    difficulty: 2
+    stem: On a GZ curve, the point of inflection near the angle of deck edge immersion indicates
+    options:
+      - The angle of vanishing stability
+      - The angle of list
+      - Where the rate of increase of GZ begins to decrease as the deck edge immerses
+      - The angle of loll
+    correct_index: 2
+    explanation: Up to deck edge immersion, the waterplane widens and GZ rises steeply. Once the deck edge immerses, the rate of increase slows (point of inflection), and GZ reaches a maximum then falls to zero at the angle of vanishing stability.
+    sources:
+      - { label: Ship stability theory, ref: GZ curve }
+
+  - id: stab-firefighting-001
+    topic: free-surface
+    difficulty: 2
+    stem: Large quantities of water used in fire-fighting on upper decks are dangerous to stability mainly because
+    options:
+      - They lower the centre of gravity
+      - They increase the freeboard
+      - They reduce displacement
+      - They add high weight and large free surface, reducing GM and possibly causing capsize
+    correct_index: 3
+    explanation: Fire-fighting water adds weight high up and creates large free surfaces. Monitor stability, drain or pump out (SOLAS II-2 requires drainage arrangements), and use water judiciously.
+    sources:
+      - { label: SOLAS, ref: Ch. II-2 Reg. 20 }
+
+  - id: stab-timber-001
+    topic: intact-stability-criteria
+    difficulty: 3
+    stem: When calculating stability for a ship carrying a timber deck cargo, an allowance should be made for
+    options:
+      - Water absorption by the timber and ice accretion where applicable, and keep GM positive throughout the voyage
+      - Reduced wind area
+      - A higher pass mark
+      - Fresh water allowance only
+    correct_index: 0
+    explanation: Timber deck cargo absorbs water, which adds weight high up, and may accumulate ice. Account for both, use timber load lines only when the Code's stowage conditions are met, keep GM positive (IS Code GM ≥ 0.10 m), and avoid excessive GM that would strain the lashings.
+    sources:
+      - { label: IMO 2008 IS Code, ref: Part A, 3.3 }
+      - { label: IMO Code of Safe Practice for Ships Carrying Timber Deck Cargoes 2011, ref: Stability }

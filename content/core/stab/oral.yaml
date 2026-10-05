@@ -1,0 +1,250 @@
+defaults:
+  competence: STAB
+  type: oral
+items:
+  - id: stab-oral-free-surface
+    topic: free-surface
+    difficulty: 1
+    question: What is free surface effect, what does it depend on, and how do you minimise it on board?
+    model_answer: |
+      When a tank is slack, the liquid moves to the low side as the ship heels, shifting the centre of gravity of the liquid and so of the ship. The effect is a virtual rise of G (GGv = FSM / Δ) and a loss of GM. FSM depends on the length and the cube of the breadth of the free surface (l·b³/12) and on the liquid's density. It does not depend on how much liquid is in the tank (while slack) or on where the tank is.
+      Minimise it: keep tanks pressed up or empty, keep the number of slack tanks to a minimum (normally one pair at a time when ballasting or transferring), use tanks with longitudinal subdivision (two equal divisions reduce FSE to ¼), plan bunkering and ballast operations to avoid many slack tanks, and always use fluid GM in calculations.
+    key_points:
+      - point: Virtual rise of G / loss of GM
+        match: ["virtual|apparent|loss of gm|reduc gm|reduction in gm|rise of g|rise in g|gm reduc|lose gm|losing gm"]
+      - point: Caused by liquid moving in slack tanks
+        match: ["slack|partially fill|partly fill|part fill"]
+      - point: Depends on breadth cubed (l·b³/12) and density
+        match: ["breadth|width|b cubed|cube"]
+      - point: Independent of quantity in tank and tank position
+        match: ["independent|does not depend|regardless|irrespective|not depend"]
+      - point: Press up or empty tanks; minimise slack tanks
+        match: ["press up|pressed up|full|empty|minimum number|minimise|minimize"]
+      - point: Longitudinal subdivision reduces FSE
+        match: ["subdivi|divided|bulkhead|centreline|centerline|wash plate|quarter"]
+    follow_ups:
+      - How much is FSE reduced if a tank is divided into three equal longitudinal compartments?
+    sources:
+      - { label: IMO 2008 IS Code, ref: Part B, 3.1 (free surface) }
+
+  - id: stab-oral-loll
+    topic: angle-of-loll
+    difficulty: 2
+    question: Your ship develops a list during the voyage. How do you determine whether it is a list or an angle of loll, and how would you correct an angle of loll?
+    model_answer: |
+      Check: has fuel/water been consumed from double bottoms (raising G)? Are there slack tanks, or ice or water accumulating on deck? Is she rolling sluggishly about the heeled position, and does she flop to the other side? Sound all tanks, check for off-centre weights and calculate GM. Loll = negative GM. List = G off the centreline with positive GM.
+      Correct loll by lowering G: first make sure no off-centre weights are causing a list. Then ballast a low, subdivided double-bottom tank (small free surface) on the LOW side first, then the corresponding tank on the high side. Remove high weights (jettison deck ice or cargo if necessary) and remove free surfaces. Never correct loll by transferring weight across like a list, because she may flop to the other side with a larger angle. Inform the Master and keep monitoring.
+    key_points:
+      - point: Loll is caused by negative GM; list by off-centre G with positive GM
+        match: ["negative gm|gm negative|g above m|unstable"]
+      - point: Signs — sluggish roll, flops to other side
+        match: ["flop|other side|sluggish|lazy|either side|roll"]
+      - point: Sound tanks / check consumption, free surface and off-centre weights
+        match: ["sound|consum|free surface|slack|check tank|off centre|off center"]
+      - point: Lower G by ballasting low subdivided DB tanks
+        match: ["double bottom|db tank|lower g|lowering g|ballast low|low tank"]
+      - point: Fill low side first
+        match: ["low side|lower side"]
+      - point: Do not transfer weight across as for a list
+        match: ["not transfer|never transfer|don't transfer|dont transfer|not shift|do not move weight|not move weight"]
+    follow_ups:
+      - Why fill the low side first rather than the high side?
+    critical: true
+    sources:
+      - { label: Ship stability theory, ref: Angle of loll }
+
+  - id: stab-oral-drydock
+    topic: drydocking
+    difficulty: 2
+    question: As Chief Mate, how do you prepare the ship for drydocking from a stability point of view, and what is the critical period?
+    model_answer: |
+      Send the docking plan and tank condition to the dock master. Arrange a small trim by the stern (as requested by the dock), the ship upright with no list, and minimum free surface (tanks pressed up or empty). Make sure GM is ample to cover the virtual loss during the critical period, and that all weights are secured and known. Record a tank sounding report.
+      The critical period runs from the moment the stern touches the blocks until the ship takes the blocks fully fore and aft. The upthrust P = MCTC × trim / distance (LCF to after block) increases as the water level falls, causing a virtual loss of GM = P × KM / Δ. It is greatest at the critical instant. If GM becomes negative, the ship may slip off the blocks. Once she's on the blocks, no weight should be moved without the dock master's agreement, and soundings are taken before and after.
+    key_points:
+      - point: Small trim by stern, no list
+        match: ["trim", "stern|small|slight"]
+      - point: Minimum free surface (press up / empty tanks)
+        match: ["free surface|press up|pressed up|slack"]
+      - point: Adequate positive GM for the loss during docking
+        match: ["gm|metacentric"]
+      - point: Critical period from stern touching blocks to fully on blocks
+        match: ["stern|aft", "block"]
+      - point: Upthrust P causes virtual loss of GM (P·KM/Δ)
+        match: ["upthrust|p force|reaction|thrust"]
+      - point: Docking plan and liaison with dock master; no weight shifts
+        match: ["dock master|docking plan|dockmaster|shipyard|no weight|not move"]
+    follow_ups:
+      - How do you calculate the P force at the critical instant?
+    sources:
+      - { label: Ship stability theory, ref: Drydocking }
+
+  - id: stab-oral-is-criteria
+    topic: intact-stability-criteria
+    difficulty: 2
+    question: State the general intact stability criteria from the IMO 2008 IS Code.
+    model_answer: |
+      Area under the GZ curve: at least 0.055 m·rad up to 30°; at least 0.090 m·rad up to 40° (or the angle of flooding if less); at least 0.030 m·rad between 30° and 40° (or flooding angle). GZ at least 0.20 m at an angle of heel of 30° or more. Maximum GZ at an angle of at least 25° (preferably more than 30°). Initial GM0 at least 0.15 m. All values corrected for free surface. The severe wind and rolling (weather) criterion must also be met.
+    key_points:
+      - point: 0.055 m·rad to 30°
+        match: ["0.055"]
+      - point: 0.090 m·rad to 40° or flooding angle
+        match: ["0.09|0.090"]
+      - point: 0.030 m·rad between 30° and 40°
+        match: ["0.03|0.030"]
+      - point: GZ ≥ 0.20 m at ≥ 30°
+        match: ["0.2|0.20|20 cm|200 mm"]
+      - point: Maximum GZ at ≥ 25°
+        match: ["25"]
+      - point: GM ≥ 0.15 m (free surface corrected)
+        match: ["0.15|15 cm|150 mm"]
+      - point: Weather criterion
+        match: ["weather criterion|severe wind|wind and rolling|weather criteria"]
+    follow_ups:
+      - What are the additional criteria for grain cargoes?
+    sources:
+      - { label: IMO 2008 IS Code, ref: Part A, 2.2–2.3 }
+
+  - id: stab-oral-stiff-tender
+    topic: gm-rolling
+    difficulty: 1
+    question: What are the dangers of a ship being too stiff or too tender, and how would you recognise each condition at sea?
+    model_answer: |
+      Stiff (large GM): short, quick, violent rolling. It puts high accelerations on cargo and lashings (cargo shift, container losses), racking stresses on the structure, damage to equipment, and crew injury and discomfort.
+      Tender (small GM): long, slow roll and large heel angles from wind or turning, with risk of capsize if GM is reduced further (free surface, ice, water on deck, consumption from DB tanks), and slow recovery.
+      Recognise by the rolling period (T ≈ 2πk/√(g·GM), or the rule of thumb GM ≈ (C·B/T)²) and by the heel when turning. Adjust GM by ballasting or deballasting, or by changing the loading plan.
+    key_points:
+      - point: Stiff = large GM, short violent roll
+        match: ["stiff", "large gm|high gm|big gm|short|quick|violent"]
+      - point: Stiff dangers — cargo shift, lashing and structural stress
+        match: ["lashing|cargo shift|container|racking|structur|stress"]
+      - point: Tender = small GM, long slow roll, large heel
+        match: ["tender", "small gm|low gm|long|slow|lazy"]
+      - point: Tender dangers — capsize, large heel in wind or turns
+        match: ["capsiz|large angle|heel|list"]
+      - point: Roll period as indicator
+        match: ["roll period|rolling period|period of roll|time the roll"]
+    follow_ups:
+      - Give the rule-of-thumb formula relating roll period to GM.
+    sources:
+      - { label: Ship stability theory, ref: Rolling }
+
+  - id: stab-oral-sf-bm
+    topic: hull-stress
+    difficulty: 2
+    question: How do you ensure the ship's longitudinal strength is not exceeded during loading and discharging?
+    model_answer: |
+      Use the approved loading manual and loading instrument (class-approved software) to check shear forces and bending moments at the reading points against the permissible seagoing and harbour limits for every stage of the sequence, not only the final condition. Agree a loading/discharge plan and sequence with the terminal (especially bulk carriers under the BLU Code, and pour sizes), coordinate ballast with cargo operations, monitor drafts (including midships drafts for hog/sag) and compare them with the plan. Stop operations if limits are approached or the terminal deviates from the plan. Test the loading computer periodically with the approved test conditions.
+    key_points:
+      - point: Approved loading manual / loading instrument
+        match: ["loading manual|loading instrument|loading computer|loadicator|stability software"]
+      - point: Check SF and BM against seagoing and harbour limits
+        match: ["shear|bending|sf|bm", "limit|permissible|allowable"]
+      - point: Check every stage of the sequence, not just final condition
+        match: ["stage|sequence|intermediate|step|each pour|pour"]
+      - point: Agreed plan with terminal; ballast coordination
+        match: ["terminal|plan|ballast"]
+      - point: Monitor drafts (incl. midships) for hog/sag
+        match: ["draft|draught|hog|sag|deflection"]
+      - point: Stop if deviating / limits approached
+        match: ["stop|suspend|halt"]
+    follow_ups:
+      - What is the BLU Code and when does it apply?
+    sources:
+      - { label: SOLAS, ref: Ch. XII Reg. 11 (loading instrument, bulk carriers) }
+      - { label: IMO BLU Code, ref: Loading and unloading plan }
+
+  - id: stab-oral-damage
+    topic: damage-stability
+    difficulty: 3
+    question: Your ship is holed and a compartment is flooding. What are the immediate stability considerations and actions?
+    model_answer: |
+      Raise the alarm and inform the Master, sound all tanks and bilges to find the extent of flooding, and close watertight doors and openings. Consider the effects: loss of buoyancy and sinkage, possible trim and list, free surface in the flooded space, and reduced freeboard. Use the damage control plan/booklet and the onboard loading computer (damage module) or shore-based emergency response service (class ERS) to calculate the damaged condition. Counter-flood or transfer only after assessing the effect on stability (correct a list due to an off-centre flooded space only if GM is positive). Pump out using bilge/ballast pumps, consider beaching or reducing speed to cut ingress, prepare for abandonment if needed, and send urgency/distress as appropriate.
+    key_points:
+      - point: Alarm, Master, close watertight doors
+        match: ["alarm|master|watertight|wtd"]
+      - point: Sound tanks to establish extent
+        match: ["sound|extent|bilge"]
+      - point: Loss of buoyancy, sinkage, trim/list, free surface
+        match: ["buoyancy|sinkage|trim|list|free surface|freeboard"]
+      - point: Use damage control booklet / loading computer / ERS
+        match: ["damage control|booklet|loading computer|ers|emergency response|class"]
+      - point: Pump out / counter-flood after assessing stability
+        match: ["pump|counter flood|counterflood|ballast"]
+      - point: Consider beaching, distress/urgency, abandon ship readiness
+        match: ["beach|distress|urgency|mayday|pan pan|abandon"]
+    follow_ups:
+      - What is permeability and why does it matter here?
+    critical: true
+    sources:
+      - { label: SOLAS, ref: Ch. II-1 Reg. 19 (damage control information) }
+
+  - id: stab-oral-load-line
+    topic: load-lines
+    difficulty: 1
+    question: Describe the load line marks and explain the conditions of assignment checked at an annual load line survey.
+    model_answer: |
+      Marks: deck line; load line disc (Plimsoll mark, 300 mm diameter) with a horizontal line through the centre at summer draft; load lines T (tropical), S (summer), W (winter), WNA (ships ≤ 100 m), F (fresh) and TF (tropical fresh); the assigning authority's initials beside the disc; timber load lines where assigned (LT, LS, LW, LWNA, LF, LTF).
+      Conditions of assignment (annual survey ±3 months of anniversary): no alterations affecting freeboard, and the following in good condition: hatch covers and securing, coamings, ventilators and air pipes with closures, doors and sills, side scuttles and deadlights, freeing ports, guard rails and bulwarks, scuppers and discharges, means of protecting the crew (lifelines, walkways), and marks correctly painted.
+    key_points:
+      - point: Deck line and Plimsoll disc
+        match: ["deck line|plimsoll|disc|disk"]
+      - point: Seasonal marks T, S, W, WNA, F, TF
+        match: ["tropical|summer|winter|fresh|wna|north atlantic"]
+      - point: Annual survey within ±3 months of anniversary
+        match: ["annual|anniversary|3 month|three month"]
+      - point: Hatches, vents, air pipes, doors weathertight
+        match: ["hatch|vent|air pipe|door|weathertight|closing"]
+      - point: Freeing ports, guard rails, crew protection
+        match: ["freeing port|guard rail|bulwark|lifeline|walkway|protection of crew"]
+    follow_ups:
+      - Why is the WNA mark only on ships up to 100 m?
+    sources:
+      - { label: International Convention on Load Lines 1966, ref: Annex I, Ch. II–III }
+
+  - id: stab-oral-inclining
+    topic: inclining-experiment
+    difficulty: 2
+    question: Why and when is an inclining experiment carried out, and what preparations are needed?
+    model_answer: |
+      To determine the lightship displacement and centre of gravity (KG and LCG). It's done on completion of a new ship and after alterations that significantly change the lightship particulars (passenger ships also need periodic lightweight surveys).
+      Preparation: the ship upright and in calm, sheltered water with no wind, and moorings slack. Tanks empty or pressed up (minimum free surface), with soundings recorded. All weights on board accounted for and secured, the ship clean, and people ashore except the inclining team. Known test weights are shifted transversely and the resulting heel is measured by pendulums or inclinometers. Density of the water, drafts and freeboards are recorded. GM = (w × d) / (Δ × tan θ), and KG is derived from KM.
+    key_points:
+      - point: Determines lightship displacement and KG
+        match: ["lightship|light ship|light weight|lightweight", "kg|centre of gravity|center of gravity"]
+      - point: New ship / after major alterations
+        match: ["new|complet|alteration|modif|conversion"]
+      - point: Calm water, slack moorings
+        match: ["calm|wind|slack|moor"]
+      - point: Minimum free surface (tanks empty or full)
+        match: ["free surface|empty|press up|pressed up|full"]
+      - point: Weights shifted, heel measured by pendulums
+        match: ["pendulum|inclinometer|weight|shift"]
+      - point: GM = w·d / (Δ·tanθ)
+        match: ["tan|w d|wd|moment"]
+    follow_ups:
+      - What corrections are applied to obtain the true lightship condition?
+    sources:
+      - { label: IMO 2008 IS Code, ref: Annex 1 }
+
+  - id: stab-oral-parametric
+    topic: gm-rolling
+    difficulty: 3
+    question: You're Chief Mate of a large container ship in heavy head seas and the ship suddenly starts rolling heavily. What could be happening and what would you advise the Master?
+    model_answer: |
+      Probably parametric rolling: in head or following seas with a wavelength similar to the ship's length, the waterplane changes as crests pass amidships and the ends. When the encounter period is about half the natural roll period, stability varies cyclically and the roll builds quickly. It can cause container losses and structural damage. Synchronous rolling is the other possibility.
+      Advise: change course and/or speed to alter the encounter period (often reduce speed and alter heading), refer to the ship's operational guidance (IMO MSC.1/Circ.1228 / polar diagrams / anti-roll guidance), check lashings when safe, avoid large GM changes during the voyage, and use anti-rolling tanks if fitted.
+    key_points:
+      - point: Parametric rolling (or synchronous)
+        match: ["parametric|synchronous|synchronism"]
+      - point: Encounter period ~ half roll period / wavelength ~ ship length
+        match: ["half|wave length|wavelength|ship length|encounter"]
+      - point: Head or following seas, container/fine-form ships prone
+        match: ["head sea|following sea|head|following|container|flare"]
+      - point: Alter course and/or speed
+        match: ["alter course|change course|course", "speed"]
+      - point: Refer to guidance MSC.1/Circ.1228
+        match: ["1228|guidance|polar diagram|msc"]
+    follow_ups:
+      - How does synchronous rolling differ?
+    sources:
+      - { label: IMO MSC.1/Circ.1228, ref: Revised guidance to the master for avoiding dangerous situations in adverse weather and sea conditions }

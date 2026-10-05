@@ -1,0 +1,316 @@
+defaults:
+  competence: CARGO
+  type: mcq
+items:
+  - id: cargo-imsbc-001
+    topic: imsbc-liquefaction
+    difficulty: 1
+    stem: Under the IMSBC Code, cargoes that may liquefy if shipped at a moisture content in excess of their Transportable Moisture Limit are classified as
+    options:
+      - Group A
+      - Group B
+      - Group C
+      - Group D
+    correct_index: 0
+    explanation: Group A cargoes may liquefy, Group B have chemical hazards, and Group C are neither. Some cargoes are both A and B (for example certain coals).
+    sources:
+      - { label: IMSBC Code, ref: Section 1.7 (definitions) }
+
+  - id: cargo-imsbc-002
+    topic: imsbc-liquefaction
+    difficulty: 2
+    stem: For a Group A cargo, the moisture content declared by the shipper must be
+    options:
+      - Above the TML
+      - Less than the TML
+      - Equal to the flow moisture point
+      - Not declared
+    correct_index: 1
+    explanation: The actual moisture content must be below the TML, with certificates provided before loading. The TML is derived from the flow moisture point (typically 90% of FMP). The can test is a ship-side check only, never a substitute for the shipper's certificates.
+    sources:
+      - { label: IMSBC Code, ref: Section 4.3 and 7.3 }
+
+  - id: cargo-imsbc-003
+    topic: imsbc-liquefaction
+    difficulty: 2
+    stem: During loading of nickel ore, a can test produces free moisture on the surface and the sample flows. The Chief Mate should
+    options:
+      - Continue loading but increase trimming
+      - Add more cargo on top to compress it
+      - Stop loading, inform the Master, and require re-testing / reject the cargo; the declared moisture content may be inaccurate
+      - Ventilate the hold
+    correct_index: 2
+    explanation: A failed can test suggests moisture content may exceed the TML. Stop loading, notify the Master, company and P&I, and request independent sampling and testing. Never sail with cargo that may liquefy, because liquefaction can cause sudden loss of stability and capsize.
+    sources:
+      - { label: IMSBC Code, ref: Section 8 (can test) }
+
+  - id: cargo-coal-001
+    topic: coal
+    difficulty: 2
+    stem: Coal cargoes should normally be ventilated by
+    options:
+      - Through ventilation forcing air down into the cargo
+      - Opening hatches at sea in heavy weather
+      - No ventilation at any time
+      - Surface ventilation only, to remove methane from above the cargo surface without feeding oxygen into the coal
+    correct_index: 3
+    explanation: Coal may emit methane (flammable) and may self-heat. Surface ventilation removes methane, but forcing air through the cargo would feed self-heating. Monitor CH4, O2 and CO and cargo temperature regularly as per the IMSBC schedule.
+    sources:
+      - { label: IMSBC Code, ref: Schedule for Coal }
+
+  - id: cargo-grain-001
+    topic: grain
+    difficulty: 2
+    stem: Under the International Grain Code, the angle of heel due to the assumed shift of grain shall not be greater than
+    options:
+      - 12° (or the angle of deck edge immersion if less, for ships built on or after 1 January 1994)
+      - 8°
+      - 5°
+      - 20°
+    correct_index: 0
+    explanation: "Grain Code criteria: heel from the grain shift ≤ 12° (or deck edge immersion angle if less, for ships built on or after 1 Jan 1994); residual area between the heeling arm and GZ curves ≥ 0.075 m·rad; initial GM (fluid) ≥ 0.30 m."
+    sources:
+      - { label: International Grain Code, ref: Part A, A 7 }
+
+  - id: cargo-grain-002
+    topic: grain
+    difficulty: 1
+    stem: A ship loading bulk grain must carry
+    options:
+      - A Certificate of Fitness for Dangerous Chemicals
+      - A Document of Authorization issued by or on behalf of the Administration, and grain loading stability information
+      - An International Oil Pollution Prevention Certificate only
+      - A Gas Carrier certificate
+    correct_index: 1
+    explanation: The Document of Authorization shows the ship can load grain in accordance with the Grain Code. The approved grain loading booklet contains volumetric heeling moments and maximum permissible heeling moments.
+    sources:
+      - { label: SOLAS, ref: Ch. VI Reg. 9 }
+      - { label: International Grain Code, ref: Part A, A 3 }
+
+  - id: cargo-ig-001
+    topic: tanker-inert-gas
+    difficulty: 2
+    stem: On an oil tanker with an inert gas system, cargo tank atmosphere oxygen content should be maintained at
+    options:
+      - 21% by volume
+      - Exactly 11%
+      - Not more than 8% by volume, with the tanks kept at positive pressure
+      - Below 1% at all times during gas freeing
+    correct_index: 2
+    explanation: SOLAS and the FSS Code require oxygen not exceeding 8% by volume in cargo tanks, with positive pressure maintained. The inert gas supplied should be 5% O2 or less. This keeps the atmosphere out of the flammable range.
+    sources:
+      - { label: SOLAS, ref: Ch. II-2 Reg. 4.5.5 }
+      - { label: FSS Code, ref: Ch. 15 }
+
+  - id: cargo-ig-002
+    topic: tanker-inert-gas
+    difficulty: 2
+    stem: Before personnel enter a cargo tank that has been gas freed, the atmosphere should show
+    options:
+      - Any reading as long as BA is worn
+      - Oxygen 8% by volume
+      - Hydrocarbon up to 10% LFL
+      - Oxygen 21% by volume, hydrocarbon less than 1% LFL, toxic gases below occupational exposure limits
+    correct_index: 3
+    explanation: ISGOTT guidance is 21% O2, HC below 1% LFL, and toxic gases (H2S, benzene and others) below the OEL, verified by calibrated instruments. Enclosed space entry procedures and a permit are also required.
+    sources:
+      - { label: ISGOTT, ref: Enclosed space entry }
+      - { label: IMO Res. A.1050(27), ref: Revised recommendations for entering enclosed spaces }
+
+  - id: cargo-cow-001
+    topic: tanker-operations
+    difficulty: 2
+    stem: Crude oil washing (COW) must only be carried out
+    options:
+      - When the inert gas system is in operation and tanks are inerted (O2 ≤ 8%)
+      - With tanks open to atmosphere
+      - With sea water only
+      - In port only
+    correct_index: 0
+    explanation: COW creates static and mist in the tank, so it must only be done in an inerted atmosphere. COW is required for crude carriers above certain sizes under MARPOL Annex I and needs an approved COW Operations and Equipment Manual.
+    sources:
+      - { label: MARPOL, ref: Annex I Reg. 33 and 35 }
+
+  - id: cargo-static-001
+    topic: tanker-operations
+    difficulty: 3
+    stem: At the start of loading a static-accumulator cargo into a non-inerted tank, the flow velocity into the tank should be restricted (commonly to about 1 m/s) until
+    options:
+      - The tank is half full
+      - The tank inlet is covered sufficiently to avoid splashing/surface turbulence
+      - Ullage reaches 1 m
+      - The tank is 98% full
+    correct_index: 1
+    explanation: Low initial velocity reduces static generation from splashing and turbulence until the inlet is well submerged. ISGOTT also requires waiting periods before using metallic dipping or sampling equipment in non-inerted tanks.
+    sources:
+      - { label: ISGOTT, ref: Static electricity precautions }
+
+  - id: cargo-imdg-001
+    topic: imdg
+    difficulty: 1
+    stem: In the IMDG Code, Class 3 dangerous goods are
+    options:
+      - Gases
+      - Toxic substances
+      - Flammable liquids
+      - Corrosives
+    correct_index: 2
+    explanation: Class 1 explosives, 2 gases, 3 flammable liquids, 4 flammable solids, 5 oxidizers/organic peroxides, 6 toxic/infectious, 7 radioactive, 8 corrosive, 9 miscellaneous.
+    sources:
+      - { label: IMDG Code, ref: Part 2 }
+
+  - id: cargo-imdg-002
+    topic: imdg
+    difficulty: 2
+    stem: Which IMDG segregation term is the MOST stringent?
+    options:
+      - Away from
+      - Separated from
+      - Separated by a complete compartment or hold from
+      - Separated longitudinally by an intervening complete compartment or hold from
+    correct_index: 3
+    explanation: "Segregation levels 1–4: (1) away from, (2) separated from, (3) separated by a complete compartment or hold from, (4) separated longitudinally by an intervening complete compartment or hold from."
+    sources:
+      - { label: IMDG Code, ref: Ch. 7.2 }
+
+  - id: cargo-imdg-003
+    topic: imdg
+    difficulty: 2
+    stem: Emergency response procedures for fire or spillage of specific dangerous goods are found in
+    options:
+      - The EmS Guide (Emergency Schedules) referenced by the EmS number in the Dangerous Goods List
+      - MARPOL Annex V
+      - The Load Line Convention
+      - The Cargo Securing Manual only
+    correct_index: 0
+    explanation: The EmS Guide gives fire (F-x) and spillage (S-x) schedules. The Medical First Aid Guide (MFAG) covers medical treatment.
+    sources:
+      - { label: IMDG Code Supplement, ref: EmS Guide }
+
+  - id: cargo-vgm-001
+    topic: containers
+    difficulty: 1
+    stem: Under SOLAS, a packed container must not be loaded unless
+    options:
+      - It has been fumigated
+      - The master has obtained its Verified Gross Mass (VGM)
+      - It is empty
+      - The container is less than 5 years old
+    correct_index: 1
+    explanation: SOLAS VI/2 (in force 2016) requires the shipper to provide the VGM, obtained by weighing (Method 1) or calculation (Method 2). Containers without a VGM must not be loaded.
+    sources:
+      - { label: SOLAS, ref: Ch. VI Reg. 2 }
+
+  - id: cargo-css-001
+    topic: lashing
+    difficulty: 2
+    stem: Which document, approved by the Administration, describes the securing arrangements and equipment for cargo units?
+    options:
+      - The SOPEP
+      - The Garbage Management Plan
+      - The Cargo Securing Manual
+      - The Safety Management Certificate
+    correct_index: 2
+    explanation: SOLAS VI/5 and VII/5 require cargo units and containers to be loaded, stowed and secured according to an approved Cargo Securing Manual drawn up to at least the standard of the IMO guidelines.
+    sources:
+      - { label: SOLAS, ref: Ch. VI Reg. 5 }
+      - { label: IMO CSS Code, ref: Cargo Securing Manual }
+
+  - id: cargo-css-002
+    topic: lashing
+    difficulty: 2
+    stem: Using the CSS Code rule of thumb, the total Maximum Securing Load (MSL) of lashings on each side of a 30 t unit should be at least
+    options:
+      - 10 t
+      - 15 t
+      - 30 t
+      - 60 t
+    correct_index: 2
+    explanation: The rule of thumb says the sum of the MSLs on each side (port and starboard) should equal the weight of the unit, so 30 t here. The Annex 13 calculated method uses CS = MSL / 1.5.
+    sources:
+      - { label: IMO CSS Code, ref: Annex 13 }
+
+  - id: cargo-vent-001
+    topic: ventilation
+    difficulty: 2
+    stem: For a hygroscopic cargo, ventilation will be beneficial when the dew point of the outside air is
+    options:
+      - Higher than the dew point of the air in the hold
+      - Above 30°C
+      - Equal to the sea temperature
+      - Lower than the dew point of the air in the hold
+    correct_index: 3
+    explanation: Ventilate when the outside air's dew point is below the hold air's dew point, because the incoming air can then absorb moisture rather than deposit it. The "3-degree rule" is an alternative when dew points can't be measured.
+    sources:
+      - { label: Cargo care practice, ref: Dew point rule }
+
+  - id: cargo-vent-002
+    topic: ventilation
+    difficulty: 3
+    stem: Ship's sweat (condensation on the steelwork in the hold) is most likely when
+    options:
+      - A ship sails from a warm to a cold climate with warm moist air in the hold
+      - A ship sails from a cold to a warm climate
+      - The hold is empty and dry
+      - The cargo is frozen
+    correct_index: 0
+    explanation: Going from warm to cold, the hull cools below the dew point of the warm, moist hold air, so ship's sweat forms on the steel. Going from cold to warm, cold cargo meets warm moist ventilation air, so cargo sweat forms on the cargo.
+    sources:
+      - { label: Cargo care practice, ref: Sweat }
+
+  - id: cargo-bulk-001
+    topic: bulk-carriers
+    difficulty: 2
+    stem: The BLU Code requires that before loading or unloading a solid bulk cargo
+    options:
+      - Only the shipper signs the plan
+      - The master and terminal representative agree a loading/unloading plan, including sequence, pours, ballast and checks of hull stress
+      - No plan is necessary if the loading computer is working
+      - The plan is agreed after loading
+    correct_index: 1
+    explanation: The BLU Code (SOLAS VI/7) requires an agreed written plan, a ship/shore safety checklist, communications and stop procedures, with the master able to stop operations if limits are exceeded.
+    sources:
+      - { label: SOLAS, ref: Ch. VI Reg. 7 }
+      - { label: IMO BLU Code, ref: Section 4–5 }
+
+  - id: cargo-bulk-002
+    topic: bulk-carriers
+    difficulty: 2
+    stem: SOLAS requires bulk carriers to be fitted with
+    options:
+      - An inert gas system in all holds
+      - A crude oil washing system
+      - Water level detectors in cargo holds, ballast tanks and dry spaces forward of the collision bulkhead
+      - Refrigeration plants
+    correct_index: 2
+    explanation: SOLAS XII/12 requires hold, ballast and dry space water ingress alarms (pre-alarm and main alarm levels) on bulk carriers, to give early warning of flooding.
+    sources:
+      - { label: SOLAS, ref: Ch. XII Reg. 12 }
+
+  - id: cargo-hatch-001
+    topic: hatch-covers
+    difficulty: 1
+    stem: The preferred method for testing hatch cover weathertightness with cargo already in the hold is
+    options:
+      - Hose test
+      - Visual check from the deck
+      - Chalk test only
+      - Ultrasonic test
+    correct_index: 3
+    explanation: Ultrasonic testing can be done with cargo loaded and gives quantified leak results. A hose test wets the cargo, and the chalk test only checks compression contact.
+    sources:
+      - { label: Industry practice (P&I / class guidance), ref: Hatch cover testing }
+
+  - id: cargo-reefer-001
+    topic: refrigerated-cargo
+    difficulty: 1
+    stem: Before loading chilled fruit into refrigerated holds, the holds should be
+    options:
+      - Pre-cooled to the carriage temperature and inspected/certified clean by a surveyor
+      - Left at ambient temperature
+      - Fumigated with CO2
+      - Heated
+    correct_index: 0
+    explanation: Holds are cleaned, odour-free, pre-cooled to the carrying temperature and usually surveyed. Cargo temperature is checked at loading (reject warm cargo), and temperature and CO2/ventilation records are maintained.
+    sources:
+      - { label: Cargo care practice, ref: Refrigerated cargo }

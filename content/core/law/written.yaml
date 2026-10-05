@@ -1,0 +1,22 @@
+defaults:
+  competence: LAW
+  type: written
+items:
+  - id: law-written-psc-prep
+    topic: psc
+    difficulty: 2
+    prompt: Describe how a Chief Mate would prepare the vessel for a Port State Control inspection, listing the documents to be checked and the main deck department items commonly inspected.
+    model_answer: |
+      Documents: statutory certificates and survey status (SOLAS, Load Line, MARPOL IOPP/ISPP/IAPP/IEE, BWM, Tonnage, Class), ISM DOC copy and SMC, ISSC, MLC certificate and DMLC, safe manning document, crew CoCs, endorsements and medical certificates, Oil Record Book, Garbage Record Book and management plan, ballast water record book, records of hours of rest, official and deck logs, drills records, GMDSS radio log, charts or ENC update records.
+      Deck items: LSA (lifeboats and davits, on-load release gear, liferafts, HRUs, lifebuoys, lifejackets, immersion suits, pyrotechnics, EPIRB/SART), FFA (fire mains, hydrants and hoses, extinguishers, fixed systems, fireman's outfits, EEBDs, fire doors and dampers), watertight and weathertight closures, navigation lights and equipment, emergency lighting and alarms, pilot ladder arrangements, accommodation hygiene and food stores (MLC), mooring equipment.
+      Preparation: internal pre-PSC checklist, rectify deficiencies, drill the crew, check current CICs, and brief the crew.
+    marking_points:
+      - { point: Statutory certificates and survey status, weight: 2 }
+      - { point: MLC, ISM, ISPS documents, weight: 1 }
+      - { point: Record books (ORB, GRB, BWRB, hours of rest), weight: 2 }
+      - { point: LSA items, weight: 2 }
+      - { point: FFA items incl. fire doors and dampers, weight: 2 }
+      - { point: Pilot ladder, nav equipment, watertight integrity, weight: 1 }
+      - { point: Crew drills and CIC awareness, weight: 1 }
+    sources:
+      - { label: IMO Res. A.1155(32), ref: Procedures for Port State Control }

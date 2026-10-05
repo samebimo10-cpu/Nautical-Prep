@@ -1,0 +1,217 @@
+defaults:
+  competence: STAB
+  type: calc
+items:
+  - id: stab-calc-final-kg
+    topic: kg-calculation
+    difficulty: 1
+    template: "A ship displaces {{disp}} t with KG {{kg}} m. She loads {{w}} t of cargo at Kg {{wkg}} m. Find the final KG (m)."
+    variables:
+      disp: { min: 8000, max: 20000, step: 500 }
+      kg: { min: 6.5, max: 8.5, step: 0.1 }
+      w: { min: 200, max: 2500, step: 50 }
+      wkg: { min: 2, max: 14, step: 0.5 }
+    calc_fn: stability.finalKG
+    units: m
+    tolerance: 0.01
+    worked_solution_template: |
+      1. Initial moment = Δ × KG = {{moment0:1}} t·m
+      2. Moment of load = w × Kg = {{momentW:1}} t·m
+      3. Final displacement = {{finalDisp:0}} t
+      4. Final KG = total moment / final Δ = {{finalKG:3}} m
+    sources:
+      - { label: Ship stability theory, ref: Moments about the keel }
+
+  - id: stab-calc-free-surface
+    topic: free-surface
+    difficulty: 2
+    template: "A ship of displacement {{disp}} t has KM {{km}} m and solid KG {{kg}} m. A rectangular double-bottom tank {{l}} m long and {{b}} m wide is slack with liquid of density {{rho}} t/m³. Find the fluid GM (m)."
+    variables:
+      disp: { min: 6000, max: 18000, step: 500 }
+      km: { min: 7.5, max: 9.5, step: 0.1 }
+      kg: { min: 6.0, max: 8.0, step: 0.1 }
+      l: { min: 10, max: 25, step: 1 }
+      b: { min: 6, max: 14, step: 1 }
+      rho: { min: 0.85, max: 1.025, step: 0.025 }
+    calc_fn: stability.freeSurfaceGM
+    units: m
+    tolerance: 0.01
+    worked_solution_template: |
+      1. FSM = l × b³ / 12 × ρ = {{fsm:1}} t·m
+      2. FSC (virtual rise of G) = FSM / Δ = {{fsc:3}} m
+      3. Solid GM = KM − KG = {{gmSolid:3}} m
+      4. Fluid GM = solid GM − FSC = {{gmFluid:3}} m
+    sources:
+      - { label: Ship stability theory, ref: Free surface correction }
+
+  - id: stab-calc-gz-kn
+    topic: gz-curve
+    difficulty: 1
+    template: "From the KN tables, KN at {{heel}}° heel is {{kn}} m. The ship's fluid KG is {{kg}} m. Find GZ (m)."
+    variables:
+      heel: { min: 10, max: 60, step: 5 }
+      kn: { min: 1.0, max: 6.5, step: 0.05 }
+      kg: { min: 5.5, max: 8.5, step: 0.1 }
+    calc_fn: stability.gzFromKN
+    units: m
+    tolerance: 0.01
+    worked_solution_template: |
+      1. sin {{heel}}° = {{sinHeel:4}}
+      2. KG sin θ = {{kgSin:3}} m
+      3. GZ = KN − KG sin θ = {{gz:3}} m
+    sources:
+      - { label: Ship stability theory, ref: Cross curves (KN) }
+
+  - id: stab-calc-list
+    topic: list
+    difficulty: 2
+    template: "A ship of displacement {{disp}} t with fluid GM {{gm}} m loads {{w}} t at {{d}} m to starboard of the centreline (assume KG unchanged). Find the resulting list (degrees)."
+    variables:
+      disp: { min: 5000, max: 20000, step: 500 }
+      gm: { min: 0.3, max: 1.5, step: 0.05 }
+      w: { min: 20, max: 300, step: 10 }
+      d: { min: 3, max: 12, step: 0.5 }
+    calc_fn: stability.list
+    units: "°"
+    tolerance: 0.1
+    worked_solution_template: |
+      1. Listing moment = w × d = {{tm:1}} t·m
+      2. GG₁ = moment / Δ = {{gg1:4}} m
+      3. tan θ = GG₁ / GM = {{tanList:4}}
+      4. List = {{list:2}}° to starboard
+    sources:
+      - { label: Ship stability theory, ref: List }
+
+  - id: stab-calc-loll
+    topic: angle-of-loll
+    difficulty: 2
+    template: "A wall-sided vessel has an initial GM of {{gm}} m (negative) and BM of {{bm}} m. Find the angle of loll (degrees)."
+    variables:
+      gm: { min: -0.25, max: -0.02, step: 0.01 }
+      bm: { min: 2.5, max: 6.0, step: 0.1 }
+    calc_fn: stability.loll
+    units: "°"
+    tolerance: 0.2
+    worked_solution_template: |
+      1. tan² θ = −2GM / BM = {{ratio:4}}
+      2. tan θ = {{tanLoll:4}}
+      3. Angle of loll = {{loll:2}}°
+    sources:
+      - { label: Ship stability theory, ref: Wall-sided formula }
+
+  - id: stab-calc-drydock
+    topic: drydocking
+    difficulty: 3
+    template: "A ship enters drydock with {{trim}} cm trim by the stern. MCTC {{mctc}} t·m/cm, LCF {{l}} m forward of the after keel block, KM {{km}} m, displacement {{disp}} t, fluid GM {{gm}} m. Find the effective GM at the critical instant (m)."
+    variables:
+      trim: { min: 40, max: 160, step: 10 }
+      mctc: { min: 120, max: 260, step: 10 }
+      l: { min: 60, max: 90, step: 1 }
+      km: { min: 8, max: 10, step: 0.1 }
+      disp: { min: 8000, max: 20000, step: 500 }
+      gm: { min: 0.6, max: 1.5, step: 0.05 }
+    calc_fn: stability.drydock
+    units: m
+    tolerance: 0.01
+    worked_solution_template: |
+      1. P = MCTC × t / l = {{p:1}} t
+      2. Virtual loss of GM = P × KM / Δ = {{loss:3}} m
+      3. Effective GM = GM − loss = {{effGM:3}} m (must stay positive)
+    sources:
+      - { label: Ship stability theory, ref: Drydocking }
+
+  - id: stab-calc-draft-aft
+    topic: trim
+    difficulty: 3
+    template: |
+      LBP {{lbp}} m. Drafts F {{fwd}} m, A {{aft}} m. LCF {{lcf}} m forward of AP. TPC {{tpc}}, MCTC {{mctc}} t·m/cm.
+      Load {{w}} t at {{lcg}} m forward of AP. Find the final AFT draft (m).
+    variables:
+      lbp: { min: 120, max: 180, step: 5 }
+      fwd: { min: 6.0, max: 8.0, step: 0.1 }
+      aft: { min: 7.0, max: 9.0, step: 0.1 }
+      lcf: { min: 55, max: 85, step: 1 }
+      tpc: { min: 18, max: 30, step: 0.5 }
+      mctc: { min: 150, max: 300, step: 5 }
+      w: { min: 100, max: 800, step: 25 }
+      lcg: { min: 10, max: 150, step: 5 }
+    calc_fn: trim.finalDraftAft
+    units: m
+    tolerance: 0.01
+    worked_solution_template: |
+      1. Bodily sinkage = w / TPC = {{sinkageCm:1}} cm
+      2. Lever about LCF = LCF − lcg = {{lever:1}} m
+      3. Change of trim = w × lever / MCTC = {{changeOfTrimCm:1}} cm (+ by stern)
+      4. Change aft = COT × LCF / LBP = {{changeAftCm:1}} cm
+      5. Final aft draft = {{draftAft:3}} m (final fwd {{draftFwd:3}} m)
+    sources:
+      - { label: Ship stability theory, ref: Trim using MCTC and LCF }
+
+  - id: stab-calc-draft-fwd
+    topic: trim
+    difficulty: 3
+    template: |
+      LBP {{lbp}} m. Drafts F {{fwd}} m, A {{aft}} m. LCF {{lcf}} m forward of AP. TPC {{tpc}}, MCTC {{mctc}} t·m/cm.
+      Load {{w}} t at {{lcg}} m forward of AP. Find the final FORWARD draft (m).
+    variables:
+      lbp: { min: 120, max: 180, step: 5 }
+      fwd: { min: 6.0, max: 8.0, step: 0.1 }
+      aft: { min: 7.0, max: 9.0, step: 0.1 }
+      lcf: { min: 55, max: 85, step: 1 }
+      tpc: { min: 18, max: 30, step: 0.5 }
+      mctc: { min: 150, max: 300, step: 5 }
+      w: { min: 100, max: 800, step: 25 }
+      lcg: { min: 10, max: 150, step: 5 }
+    calc_fn: trim.finalDraftFwd
+    units: m
+    tolerance: 0.01
+    worked_solution_template: |
+      1. Bodily sinkage = w / TPC = {{sinkageCm:1}} cm
+      2. Lever about LCF = LCF − lcg = {{lever:1}} m
+      3. Change of trim = w × lever / MCTC = {{changeOfTrimCm:1}} cm (+ by stern)
+      4. Change forward = COT − change aft = {{changeFwdCm:1}} cm (forward draft decreases when trimming by stern)
+      5. Final forward draft = {{draftFwd:3}} m (final aft {{draftAft:3}} m)
+    sources:
+      - { label: Ship stability theory, ref: Trim using MCTC and LCF }
+
+  - id: stab-calc-dwa
+    topic: load-lines
+    difficulty: 1
+    template: "Summer displacement {{disp}} t, TPC {{tpc}}. The ship loads in a dock of density {{rho}} kg/m³. Find the dock water allowance (mm)."
+    variables:
+      disp: { min: 10000, max: 60000, step: 1000 }
+      tpc: { min: 18, max: 60, step: 0.5 }
+      rho: { min: 1000, max: 1024, step: 1 }
+    calc_fn: trim.dwa
+    units: mm
+    tolerance: 1
+    worked_solution_template: |
+      1. FWA = Δ / (4 × TPC) = {{fwa:1}} mm
+      2. DWA = FWA × (1025 − ρ) / 25 = {{dwa:1}} mm
+    sources:
+      - { label: International Convention on Load Lines 1966, ref: Fresh water allowance }
+
+  - id: stab-calc-bending
+    topic: hull-stress
+    difficulty: 3
+    template: |
+      A box-shaped vessel is divided into three compartments from aft: {{L1}} m containing {{w1}} t, {{L2}} m containing {{w2}} t, {{L3}} m containing {{w3}} t (weights uniformly spread; buoyancy uniform along the length). Find the still-water bending moment {{x}} m from the after end (t·m; + hogging, − sagging).
+    variables:
+      L1: { min: 20, max: 40, step: 5 }
+      w1: { min: 800, max: 3000, step: 100 }
+      L2: { min: 30, max: 50, step: 5 }
+      w2: { min: 800, max: 4000, step: 100 }
+      L3: { min: 20, max: 40, step: 5 }
+      w3: { min: 800, max: 3000, step: 100 }
+      x: { min: 30, max: 60, step: 5 }
+    calc_fn: strength.bm3
+    units: t·m
+    tolerance: 5
+    worked_solution_template: |
+      1. Length L = {{L:0}} m, displacement = {{disp:0}} t
+      2. Buoyancy per metre = Δ / L = {{b:2}} t/m
+      3. For each compartment portion aft of the section: net load = (weight per m − buoyancy per m) × length
+      4. Shear force at section = Σ net loads aft = {{sf:1}} t
+      5. Bending moment = Σ net load × lever about the section = {{bm:0}} t·m
+    sources:
+      - { label: Ship construction, ref: Shear force and bending moment }

@@ -48,7 +48,7 @@ const Base = z.object({
 export const McqItem = Base.extend({
   type: z.literal("mcq"),
   stem: z.string().min(5),
-  options: z.array(z.string().min(1)).length(4),
+  options: z.array(z.coerce.string().min(1)).length(4),
   correct_index: z.number().int().min(0).max(3),
   explanation: z.string().min(5),
 });

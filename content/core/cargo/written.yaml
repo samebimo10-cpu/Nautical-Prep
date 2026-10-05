@@ -1,0 +1,35 @@
+defaults:
+  competence: CARGO
+  type: written
+items:
+  - id: cargo-written-liquefaction
+    topic: imsbc-liquefaction
+    difficulty: 3
+    prompt: Explain the phenomenon of liquefaction of bulk cargoes, its effect on ship stability, and the duties of the master and Chief Mate under the IMSBC Code to prevent it.
+    model_answer: |
+      Liquefaction: Group A cargoes (fine particles with moisture) can behave as a fluid when vibration and ship motion compact the cargo, reducing the space between particles. Pore water pressure rises and the cargo loses shear strength. The cargo can flow to one side and not return, giving a large sudden list and possibly capsize. Free surface-like behaviour also reduces GM.
+      Prevention: shipper's declaration and certificates of TML and moisture content (MC < TML, test validity limits), ship-side can tests, no loading in rain (close hatches), reject wet or doubtful cargo, independent sampling when in doubt, proper trimming, and specially constructed or fitted ships as per IMSBC for cargoes above TML. Inform the company and P&I.
+    marking_points:
+      - { point: Mechanism — moisture, compaction, pore pressure, loss of shear strength, weight: 3 }
+      - { point: Effect — cargo shift, sudden list, capsize, weight: 2 }
+      - { point: Shipper certificates TML and moisture content, weight: 2 }
+      - { point: MC must be below TML, weight: 1 }
+      - { point: Can test, rain precautions, rejection, weight: 2 }
+    sources:
+      - { label: IMSBC Code, ref: Sections 4, 7, 8 }
+
+  - id: cargo-written-ig
+    topic: tanker-inert-gas
+    difficulty: 2
+    prompt: Describe the main components of a flue-gas inert gas system on an oil tanker and the function of each.
+    model_answer: |
+      Flue gas uptake valve (from the boiler uptake); scrubber (cools the gas and removes soot and SO2 with sea water); demister (removes water droplets); blowers (deliver the gas); gas pressure regulating valve and recirculation; deck water seal (prevents hydrocarbon gas backflow to the machinery spaces); deck non-return valve and deck isolating valve; P/V breaker (protects against over- and under-pressure); mast riser and P/V valves on tanks; O2 analyser and pressure recorders with alarms (high O2 > 5% delivery, low pressure, high temperature, low water to scrubber/seal).
+    marking_points:
+      - { point: Scrubber — cooling and cleaning, weight: 2 }
+      - { point: Blowers, weight: 1 }
+      - { point: Deck water seal — prevents backflow, weight: 2 }
+      - { point: Non-return and isolating valves, weight: 1 }
+      - { point: P/V breaker — pressure protection, weight: 2 }
+      - { point: O2 analyser and alarms (5% delivery, 8% tanks), weight: 2 }
+    sources:
+      - { label: FSS Code, ref: Ch. 15 }

@@ -1,0 +1,184 @@
+defaults:
+  competence: LOCAL
+  countries: [ ph ]
+items:
+  - id: ph-local-marina-001
+    type: mcq
+    topic: administration
+    difficulty: 1
+    stem: Which agency is the single maritime administration responsible for implementing STCW in the Philippines?
+    options:
+      - Philippine Coast Guard (PCG)
+      - Philippine Ports Authority (PPA)
+      - Maritime Industry Authority (MARINA)
+      - Department of Migrant Workers
+    correct_index: 2
+    explanation: Republic Act No. 10635 (2014) made MARINA the single maritime administration for implementing and enforcing STCW, including the examination and certification of seafarers.
+    sources:
+      - { label: Republic Act No. 10635, ref: MARINA as single maritime administration }
+
+  - id: ph-local-pcg-001
+    type: mcq
+    topic: administration
+    difficulty: 1
+    stem: In Philippine waters, the primary agency for maritime search and rescue and marine environmental protection enforcement is
+    options:
+      - MARINA
+      - PAGASA
+      - Bureau of Customs
+      - Philippine Coast Guard
+    correct_index: 3
+    explanation: The Philippine Coast Guard handles maritime SAR, maritime safety enforcement, marine environmental protection and maritime security. PAGASA is the weather service and issues tropical cyclone bulletins.
+    sources:
+      - { label: Republic Act No. 9993, ref: Philippine Coast Guard Law of 2009 }
+
+  - id: ph-local-buoyage-001
+    type: mcq
+    topic: buoyage
+    difficulty: 1
+    stem: The Philippines uses which IALA buoyage region?
+    options:
+      - Region B
+      - Region A
+      - Neither
+      - Region A in Luzon, Region B in Mindanao
+    correct_index: 0
+    explanation: The Philippines is in IALA Region B, where port-hand marks are green and starboard-hand marks are red when entering ("red right returning").
+    sources:
+      - { label: IALA Maritime Buoyage System, ref: Regions }
+
+  - id: ph-local-psc-001
+    type: mcq
+    topic: psc
+    difficulty: 1
+    stem: The Philippines is a member of which regional Port State Control agreement?
+    options:
+      - Paris MoU
+      - Tokyo MoU
+      - Abuja MoU
+      - Black Sea MoU
+    correct_index: 1
+    explanation: The Philippines is a member Authority of the Tokyo MoU (Asia-Pacific region).
+    sources:
+      - { label: Tokyo MoU, ref: Member Authorities }
+
+  - id: ph-local-typhoon-001
+    type: mcq
+    topic: weather
+    difficulty: 2
+    stem: In the Philippine Area of Responsibility, tropical cyclone warnings and signals are issued by
+    options:
+      - MARINA
+      - Japan Coast Guard only
+      - PAGASA
+      - The ship's charterer
+    correct_index: 2
+    explanation: PAGASA (Philippine Atmospheric, Geophysical and Astronomical Services Administration) issues tropical cyclone bulletins and wind signals for the Philippine Area of Responsibility. Ships also receive warnings via NAVTEX and SafetyNET.
+    sources:
+      - { label: PAGASA, ref: Tropical cyclone warnings }
+
+  - id: ph-local-oral-typhoon
+    type: oral
+    topic: weather
+    difficulty: 2
+    examiner_style: ph
+    question: Your ship is at anchor in Manila Bay when a typhoon warning is issued and the storm is forecast to pass close. What actions would you take as Chief Mate?
+    model_answer: |
+      Inform the Master. Monitor PAGASA bulletins, NAVTEX and weather fax, and plot the forecast track. Follow port and Coast Guard instructions. Consider with the Master whether to heave up and proceed to sea to gain sea room, or move to a sheltered anchorage. Remaining at anchor in a crowded anchorage is risky because of dragging and collision. If staying: second anchor ready, more cable, engines on immediate notice, anchor watch with frequent position checks, and bridge fully manned. Secure the ship for heavy weather (lashings, closures, lifelines). Check stability and ballast to reduce windage and improve holding. Keep communications with VTS and the agent. Keep good log records.
+    key_points:
+      - point: Monitor PAGASA / NAVTEX warnings and plot track
+        match: [ "pagasa|navtex|warning|bulletin|track|forecast" ]
+      - point: Consider proceeding to sea for sea room
+        match: [ "sea room|proceed to sea|heave up|leave the anchorage|go to sea" ]
+      - point: Engines ready, second anchor, more cable if staying
+        match: [ "engine|second anchor|more cable|pay out" ]
+      - point: Anchor watch / dragging checks
+        match: [ "anchor watch|drag|position" ]
+      - point: Secure ship for heavy weather; stability/ballast
+        match: [ "secur|lashing|ballast|stabilit" ]
+      - point: Follow port/Coast Guard instructions
+        match: [ "coast guard|pcg|port|vts|authorit" ]
+    follow_ups:
+      - How would you determine the safe semicircle of the typhoon?
+    sources:
+      - { label: The Mariner's Handbook (NP100), ref: Tropical revolving storms }
+
+  - id: ph-local-oral-marina-cert
+    type: oral
+    topic: administration
+    difficulty: 1
+    examiner_style: ph
+    question: What is MARINA's role for Filipino seafarers, and why must you keep your STCW certificates valid?
+    model_answer: |
+      MARINA, under RA 10635, is the single maritime administration for STCW in the Philippines. It examines candidates, issues and revalidates certificates of competency and proficiency, and approves and monitors maritime training institutions and assessments. Certificates must be valid (revalidated every 5 years under STCW I/11 by meeting sea service or other requirements) because PSC checks crew certificates, and invalid or fraudulent certificates can lead to detention and penalties. The Philippines must keep its place on the IMO "White List" through STCW compliance, which is vital for Filipino seafarers' employability.
+    key_points:
+      - point: Single maritime administration under RA 10635
+        match: [ "single maritime administration|ra 10635|10635|marina" ]
+      - point: Examines and issues/revalidates certificates
+        match: [ "exam|issue|revalidat|certificat" ]
+      - point: Approves/monitors training institutions
+        match: [ "training|school|institution|mti|course" ]
+      - point: Revalidation every 5 years (STCW I/11)
+        match: [ "5 year|five year|revalidat" ]
+      - point: PSC checks / White List importance
+        match: [ "psc|port state|white list|whitelist" ]
+    follow_ups:
+      - What is the IMO "White List"?
+    sources:
+      - { label: Republic Act No. 10635, ref: MARINA }
+      - { label: STCW, ref: Reg. I/11 and I/7 }
+
+  - id: ph-local-ppa-001
+    type: mcq
+    topic: ports
+    difficulty: 1
+    stem: Which government body manages most public ports in the Philippines (excluding certain special economic zones)?
+    options:
+      - Department of Tourism
+      - MARINA
+      - Philippine Navy
+      - Philippine Ports Authority (PPA)
+    correct_index: 3
+    explanation: The PPA manages and operates most public ports. Some ports (for example in special economic zones such as Subic or Cebu port areas) have their own authorities.
+    sources:
+      - { label: Presidential Decree No. 857, ref: Philippine Ports Authority }
+
+  - id: ph-local-domestic-001
+    type: mcq
+    topic: administration
+    difficulty: 2
+    stem: Under RA 10635, which body is responsible for issuing and revalidating STCW certificates of Filipino seafarers?
+    options:
+      - MARINA
+      - Philippine Coast Guard
+      - Philippine Ports Authority
+      - Commission on Higher Education alone
+    correct_index: 0
+    explanation: MARINA issues and revalidates STCW certificates. CHED retains a role over maritime higher education programmes in coordination with MARINA. PCG handles safety enforcement and SAR.
+    sources:
+      - { label: Republic Act No. 10635, ref: Section 3 }
+
+  - id: ph-local-oral-pcg-report
+    type: oral
+    topic: pollution-response
+    difficulty: 2
+    examiner_style: ph
+    question: An oil spill occurs from your ship while at berth in a Philippine port. To whom do you report and what do you do?
+    model_answer: |
+      Stop the operation and activate the SOPEP: contain the spill (scupper plugs, absorbents), stop the source, and take fire precautions. Report immediately to the Philippine Coast Guard (marine environmental protection), the port authority (PPA or the relevant port), and the terminal, as listed in the SOPEP. Inform the company, DPA, P&I correspondent and agent. Record it in the Oil Record Book and logbook. Cooperate with PCG response and investigation, preserve evidence, and investigate the root cause under the SMS.
+    key_points:
+      - point: Stop operation and activate SOPEP
+        match: [ "stop|sopep" ]
+      - point: Contain spill — scupper plugs, absorbents
+        match: [ "contain|scupper|absorb|boom" ]
+      - point: Report to Philippine Coast Guard
+        match: [ "coast guard|pcg" ]
+      - point: Inform port authority/terminal, company, P&I
+        match: [ "port|terminal|company|dpa|p and i|p&i|agent" ]
+      - point: Record in Oil Record Book / log
+        match: [ "oil record book|orb|log|record" ]
+    follow_ups:
+      - What penalties may apply under Philippine law for marine pollution?
+    critical: true
+    sources:
+      - { label: Republic Act No. 9993, ref: PCG functions (marine environmental protection) }

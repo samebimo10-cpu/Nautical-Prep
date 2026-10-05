@@ -1,0 +1,313 @@
+defaults:
+  competence: MGMT
+  type: mcq
+items:
+  - id: mgmt-iamsar-001
+    topic: iamsar
+    difficulty: 1
+    stem: Which IAMSAR Manual volume is required to be carried on board ships?
+    options:
+      - Volume I — Organization and Management
+      - Volume II — Mission Co-ordination
+      - Volume III — Mobile Facilities
+      - All three volumes
+    correct_index: 2
+    explanation: SOLAS V/21 requires ships to carry an up-to-date copy of IAMSAR Volume III (Mobile Facilities). Volumes I and II are for SAR administrations and RCCs.
+    sources:
+      - { label: SOLAS, ref: Ch. V Reg. 21 }
+
+  - id: mgmt-iamsar-002
+    topic: iamsar
+    difficulty: 2
+    stem: A single ship searching for a person in the water, where the datum is known with reasonable accuracy and the search area is small, should normally use
+    options:
+      - Parallel track search
+      - Creeping line search
+      - Contour search
+      - Sector search or expanding square search
+    correct_index: 3
+    explanation: Sector search is very effective close to an accurately known datum (for example MOB) and expanding square suits a small area with a reasonably known datum. Parallel track and creeping line suit large areas and multiple units.
+    sources:
+      - { label: IAMSAR Manual Vol. III, ref: Search patterns }
+
+  - id: mgmt-iamsar-003
+    topic: iamsar
+    difficulty: 2
+    stem: At the scene of a SAR operation with several ships and no SAR units present, the vessel designated to coordinate is called the
+    options:
+      - On-Scene Co-ordinator (OSC)
+      - RCC
+      - Aircraft Co-ordinator
+      - SAR Mission Co-ordinator
+    correct_index: 0
+    explanation: The OSC coordinates SAR facilities at the scene, normally designated by the SMC at the RCC. Without a designation, the first vessel on scene usually assumes the role until relieved.
+    sources:
+      - { label: IAMSAR Manual Vol. III, ref: Section 2 }
+
+  - id: mgmt-mob-001
+    topic: man-overboard
+    difficulty: 2
+    stem: Which man overboard manoeuvre is most suitable when the person is still in sight and immediate action is possible, giving the quickest return?
+    options:
+      - Scharnow turn
+      - Anderson (single) turn
+      - Williamson turn
+      - Parallel track
+    correct_index: 1
+    explanation: The Anderson turn is fastest for immediate action with the person in sight, but needs good manoeuvrability. The Williamson turn brings the ship back onto her reciprocal track, which is good at night, in reduced visibility, or when the time of falling is uncertain. The Scharnow turn suits a delayed action and isn't good for immediate action.
+    sources:
+      - { label: IAMSAR Manual Vol. III, ref: Man overboard manoeuvres }
+
+  - id: mgmt-mob-002
+    topic: man-overboard
+    difficulty: 1
+    stem: Immediately on seeing a person fall overboard from the starboard side, the OOW should
+    options:
+      - Put the rudder hard to port
+      - Stop engines and wait for the Master
+      - Put the rudder hard to starboard, release a lifebuoy with light and smoke, raise the alarm and mark the position
+      - Increase speed
+    correct_index: 2
+    explanation: Turning towards the side the person fell from swings the stern and propeller away. Release the lifebuoy (light and smoke signal), sound three prolonged blasts or the alarm, press the MOB button on GPS/ECDIS, keep a lookout pointing at the person, call the Master, engine on standby, and prepare the rescue boat.
+    sources:
+      - { label: IAMSAR Manual Vol. III, ref: Man overboard }
+
+  - id: mgmt-fire-001
+    topic: fire-fighting
+    difficulty: 1
+    stem: Before releasing a fixed CO2 total-flooding system into an engine room, which action is essential?
+    options:
+      - Open the skylights to let smoke out
+      - Spray water into the space first
+      - Start the main engine
+      - Ensure all personnel are evacuated and accounted for, and all openings and ventilation are closed and fuel supplies stopped
+    correct_index: 3
+    explanation: CO2 at extinguishing concentration is lethal. Do a headcount, close ventilation, fire dampers and doors, and use the quick-closing valves to stop fuel. Keep the space closed long enough after release for it to cool, to prevent re-ignition.
+    sources:
+      - { label: FSS Code, ref: Ch. 5 }
+      - { label: SOLAS, ref: Ch. II-2 Reg. 10 }
+
+  - id: mgmt-fire-002
+    topic: fire-fighting
+    difficulty: 1
+    stem: Boundary cooling during a fire is carried out to
+    options:
+      - Prevent the spread of fire by conduction to adjacent compartments
+      - Extinguish the fire directly
+      - Ventilate the space
+      - Reduce free surface
+    correct_index: 0
+    explanation: Steel conducts heat, so a fire can spread through bulkheads and decks. Cool the boundaries (all six sides where possible) while watching the stability effect of the water used.
+    sources:
+      - { label: Fire-fighting practice, ref: Boundary cooling }
+
+  - id: mgmt-pilot-001
+    topic: pilot-transfer
+    difficulty: 2
+    stem: SOLAS requires that a pilot ladder alone is used where the climb is not less than 1.5 m and not more than
+    options:
+      - 5 m
+      - 7 m
+      - 9 m
+      - 12 m
+    correct_index: 2
+    explanation: Above 9 m, an accommodation ladder used together with the pilot ladder (combination arrangement), or another equally safe and convenient means, must be provided. A responsible officer supervises rigging and boarding.
+    sources:
+      - { label: SOLAS, ref: Ch. V Reg. 23 }
+
+  - id: mgmt-pilot-002
+    topic: pilot-transfer
+    difficulty: 1
+    stem: Which item must be immediately available at the pilot boarding station?
+    options:
+      - A fire extinguisher only
+      - A lifebuoy equipped with a self-igniting light, and a heaving line
+      - An EPIRB
+      - A rescue boat in the water
+    correct_index: 1
+    explanation: Under SOLAS V/23 and IMO guidance, a lifebuoy with self-igniting light and a heaving line must be at hand, along with adequate lighting at night and communication with the bridge.
+    sources:
+      - { label: SOLAS, ref: Ch. V Reg. 23 }
+
+  - id: mgmt-brm-001
+    topic: brm
+    difficulty: 1
+    stem: In Bridge Resource Management, "closed-loop communication" means
+    options:
+      - Communicating only by VHF
+      - Only the master gives orders
+      - The receiver repeats back the instruction and the sender confirms it was correctly understood
+      - Communication in the local language only
+    correct_index: 2
+    explanation: Repeating back (for example helm orders) catches errors before they cause harm. Other BRM elements are a shared mental model, challenge and response, situational awareness, workload management and avoiding single-person errors.
+    sources:
+      - { label: STCW Code, ref: Section A-II/2 (BRM); Section B-VIII/2 }
+
+  - id: mgmt-brm-002
+    topic: brm
+    difficulty: 2
+    stem: Which is an early sign of lost situational awareness on the bridge?
+    options:
+      - Regular position fixing and cross-checking
+      - A watch handover with a checklist
+      - A planned briefing before pilotage
+      - Ambiguity or discrepancy between information sources left unresolved, fixation on one task, and confusion about the plan
+    correct_index: 3
+    explanation: Error-chain indicators include ambiguity, distraction, fixation, overload or complacency, poor communication, departure from the plan or procedures, and unresolved discrepancies. Break the chain by speaking up and re-establishing the picture.
+    sources:
+      - { label: BRM principles, ref: Error chain }
+
+  - id: mgmt-enclosed-001
+    topic: enclosed-space
+    difficulty: 1
+    stem: A crew member is found collapsed inside a cargo hold that has been closed for some days. The correct immediate action is to
+    options:
+      - Raise the alarm and NOT enter without breathing apparatus and an organised rescue team
+      - Enter immediately to bring them out
+      - Open the hatch and wait an hour
+      - Lower water to them
+    correct_index: 0
+    explanation: Many deaths are would-be rescuers. Raise the alarm and start the enclosed space rescue plan. Rescuers enter only with SCBA and a lifeline under a standby person, while ventilating and testing the atmosphere.
+    sources:
+      - { label: IMO Res. A.1050(27), ref: Revised recommendations for entering enclosed spaces }
+      - { label: SOLAS, ref: Ch. XI-1 Reg. 7 (atmosphere testing instruments) }
+
+  - id: mgmt-enclosed-002
+    topic: enclosed-space
+    difficulty: 2
+    stem: SOLAS requires ships to carry appropriate portable atmosphere testing instruments capable of measuring at least
+    options:
+      - Oxygen only
+      - Oxygen, flammable gases or vapours, hydrogen sulphide and carbon monoxide
+      - Carbon dioxide only
+      - Humidity and temperature
+    correct_index: 1
+    explanation: SOLAS XI-1/7 requires instruments measuring at least O2, flammable gases or vapours, H2S and CO (calibrated per the manufacturer), before anyone enters an enclosed space.
+    sources:
+      - { label: SOLAS, ref: Ch. XI-1 Reg. 7 }
+
+  - id: mgmt-alarm-001
+    topic: emergency-response
+    difficulty: 1
+    stem: The general emergency alarm signal on board is
+    options:
+      - Continuous ringing of the bell
+      - Three prolonged blasts
+      - Seven or more short blasts followed by one long blast on the ship's whistle and alarm bells
+      - One long blast
+    correct_index: 2
+    explanation: The general emergency alarm is seven or more short blasts followed by one long blast (LSA Code / SOLAS III/6). The muster list says what each person does.
+    sources:
+      - { label: SOLAS, ref: Ch. III Reg. 6.4.2 and Reg. 37 }
+
+  - id: mgmt-collision-001
+    topic: emergency-response
+    difficulty: 2
+    stem: Your ship's bow has penetrated another vessel's side in a collision. Generally, the best immediate action is to
+    options:
+      - Go full astern immediately to separate
+      - Turn hard to port
+      - Leave the scene
+      - Keep the bow in the breach, using minimal engine power to hold position if needed, while assessing damage to both ships
+    correct_index: 3
+    explanation: Backing out may cause rapid flooding of the other ship (or your own) and possible sinking. Hold position, assess damage and stability on both ships, close watertight doors, sound tanks, and exchange information. Separate only when it is safe and agreed.
+    sources:
+      - { label: Emergency response practice, ref: Collision }
+
+  - id: mgmt-grounding-001
+    topic: emergency-response
+    difficulty: 2
+    stem: After an unintentional grounding, which is the most appropriate early action?
+    options:
+      - Stop engines, sound the alarm, close watertight doors, sound all tanks and around the hull, assess damage and stability before any attempt to refloat
+      - Go full astern immediately to refloat
+      - Pump out all ballast at once
+      - Transfer fuel forward
+    correct_index: 0
+    explanation: Refloating without an assessment can make damage worse or cause loss of stability or sinking in deeper water. Check tides, the nature of the seabed, damage, pollution (SOPEP) and stability. Report to the company, DPA and coastal State, and record everything.
+    sources:
+      - { label: Emergency response practice, ref: Grounding }
+
+  - id: mgmt-sopep-001
+    topic: pollution-response
+    difficulty: 1
+    stem: The Shipboard Oil Pollution Emergency Plan (SOPEP) is required for oil tankers of 150 GT and above and other ships of
+    options:
+      - 100 GT and above
+      - 400 GT and above
+      - 1000 GT and above
+      - 3000 GT and above
+    correct_index: 1
+    explanation: MARPOL Annex I Reg. 37 requires SOPEP for tankers of 150 GT and above and other ships of 400 GT and above. It covers the reporting procedure, list of contacts, actions to control discharge, and coordination with national and local authorities.
+    sources:
+      - { label: MARPOL, ref: Annex I Reg. 37 }
+
+  - id: mgmt-medical-001
+    topic: medical
+    difficulty: 1
+    stem: Adult CPR by a single rescuer is performed with a compression-to-breath ratio of
+    options:
+      - 15:2
+      - 30:2
+      - 5:1
+      - 10:1
+    correct_index: 1
+    explanation: Current resuscitation guidelines for adults use 30 compressions then 2 rescue breaths, at a rate of about 100–120 per minute and depth of 5–6 cm. Get radio medical advice (TMAS) as soon as possible.
+    sources:
+      - { label: International Medical Guide for Ships, ref: Resuscitation }
+
+  - id: mgmt-mooring-001
+    topic: mooring
+    difficulty: 1
+    stem: A "snap-back zone" on a mooring deck is
+    options:
+      - The area under the gangway
+      - The bollard area only
+      - The area where a mooring line under tension could recoil if it parts
+      - The place to store mooring ropes
+    correct_index: 2
+    explanation: Parting lines, especially synthetic ones, recoil violently. Industry guidance (OCIMF MEG4) emphasises that the whole mooring area can be hazardous, so minimise exposure, stand clear, and maintain and inspect lines.
+    sources:
+      - { label: OCIMF, ref: Mooring Equipment Guidelines (MEG4) }
+
+  - id: mgmt-ptw-001
+    topic: safe-working
+    difficulty: 1
+    stem: Which activity typically requires a permit to work under the ship's SMS?
+    options:
+      - Reading the daily orders
+      - Routine bridge watch
+      - Taking a meal
+      - Hot work outside the engine-room workshop
+    correct_index: 3
+    explanation: Permits control high-risk work such as hot work, enclosed space entry, working aloft or overside, electrical isolation, and work on pressurised systems. They follow a risk assessment, with isolations, precautions, validity time and sign-off.
+    sources:
+      - { label: Code of Safe Working Practices (UK) / company SMS, ref: Permit to work }
+
+  - id: mgmt-lsa-001
+    topic: lsa-maintenance
+    difficulty: 2
+    stem: How often must lifeboats, rescue boats and launching appliances be visually inspected to ensure they are ready for use?
+    options:
+      - Weekly
+      - Daily
+      - Monthly
+      - Annually
+    correct_index: 0
+    explanation: SOLAS III/20 requires weekly inspection (survival craft, rescue boats, launching appliances), lifeboat engines run weekly, and the general alarm tested weekly. Monthly inspections use the checklist, with a report in the log.
+    sources:
+      - { label: SOLAS, ref: Ch. III Reg. 20.6–20.7 }
+
+  - id: mgmt-fatigue-001
+    topic: human-factors
+    difficulty: 2
+    stem: Which is the most effective management control to reduce fatigue on board?
+    options:
+      - Providing more coffee
+      - Planning work and watch schedules to comply with hours of rest, adequate manning, and protecting rest periods
+      - Allowing seafarers to skip drills
+      - Increasing overtime pay
+    correct_index: 1
+    explanation: IMO fatigue guidelines (MSC.1/Circ.1598) stress work planning, rest-hour compliance, adequate manning, a good sleep environment and reporting fatigue without blame.
+    sources:
+      - { label: IMO MSC.1/Circ.1598, ref: Guidelines on fatigue }

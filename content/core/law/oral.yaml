@@ -1,0 +1,201 @@
+defaults:
+  competence: LAW
+  type: oral
+items:
+  - id: law-oral-marpol-annex-i
+    topic: marpol
+    difficulty: 2
+    question: What are the MARPOL Annex I requirements for discharging oily bilge water from the machinery space, and what records must be kept?
+    model_answer: |
+      For ships of 400 GT and above, outside special areas: the ship en route, the mixture processed through approved oil filtering equipment (15 ppm bilge separator) with a 15 ppm bilge alarm and automatic stopping device, oil content without dilution ≤ 15 ppm, and the mixture not from cargo pump-room bilges and not mixed with cargo residues (tankers). In special areas the same conditions apply (Antarctic: no discharge). Otherwise retain on board and discharge to reception facilities.
+      Records: Oil Record Book Part I, with entries for each operation (code letters, date, position, quantity, signed by the officer in charge and each page by the Master), retained 3 years. Keep receipts from reception facilities. The IOPP Certificate and supplement, SOPEP, and the oil filtering equipment type-approval are inspected by PSC, who also check the integrity of the system (no bypass, the "magic pipe").
+    key_points:
+      - point: Ship en route
+        match: ["en route|underway|proceeding"]
+      - point: Through approved 15 ppm oily water separator / filtering equipment
+        match: ["separator|ows|filtering|filter equipment"]
+      - point: 15 ppm limit with alarm and automatic stop
+        match: ["15 ppm|15ppm|15 part"]
+      - point: Alarm and automatic stopping device
+        match: ["alarm|automatic stop|auto stop|stopping device"]
+      - point: Oil Record Book Part I entries, retained 3 years
+        match: ["oil record book|orb", "3 year|three year|record|entr"]
+      - point: Reception facility receipts / no bypass
+        match: ["reception|receipt|bypass|magic pipe"]
+    follow_ups:
+      - What would you do if you found evidence of a bypass pipe on board?
+    critical: true
+    sources:
+      - { label: MARPOL, ref: Annex I Reg. 14, 15, 17 }
+
+  - id: law-oral-garbage
+    topic: marpol
+    difficulty: 1
+    question: Outline the MARPOL Annex V requirements for garbage management on board.
+    model_answer: |
+      General prohibition on discharging garbage except as expressly permitted. All plastics are prohibited everywhere. Outside special areas: food waste ≥ 3 nm from land if comminuted to 25 mm or less, otherwise ≥ 12 nm. Cargo residues not harmful to the marine environment ≥ 12 nm. Animal carcasses as far from land as possible. Cleaning agents in wash water if not harmful. Special areas have stricter rules (food waste ≥ 12 nm, comminuted).
+      Documentation: Garbage Management Plan (ships ≥ 100 GT and ships certified for 15 or more persons), Garbage Record Book (≥ 400 GT and ships certified for 15 or more persons) with categories, quantities and positions, retained 2 years. Placards (ships ≥ 12 m). Segregate garbage by category (plastics, food waste, domestic, cooking oil, incinerator ash, operational waste, cargo residues, animal carcasses, fishing gear, e-waste) and land it to reception facilities with receipts. Discharges are recorded in the GRB.
+    key_points:
+      - point: Plastics prohibited everywhere
+        match: ["plastic", "prohibit|not allow|never|ban|no discharge"]
+      - point: Food waste 3 nm comminuted / 12 nm otherwise
+        match: ["3 nm|3 mile|three mile|three nautical|12 nm|12 mile|twelve"]
+      - point: Garbage Management Plan
+        match: ["garbage management plan|management plan"]
+      - point: Garbage Record Book (2 years)
+        match: ["record book|grb"]
+      - point: Placards
+        match: ["placard|poster|notice"]
+      - point: Segregation and reception facilities
+        match: ["segregat|separat|categor|reception"]
+    follow_ups:
+      - What are the special areas under Annex V?
+    sources:
+      - { label: MARPOL, ref: Annex V Reg. 3–10 }
+
+  - id: law-oral-hours-of-rest
+    topic: mlc
+    difficulty: 1
+    question: State the hours of rest requirements and how they are recorded and monitored on board.
+    model_answer: |
+      Minimum 10 hours rest in any 24-hour period and 77 hours in any 7-day period (MLC A2.3 / STCW A-VIII/1). Rest can be divided into no more than two periods, one of at least 6 hours, and the interval between consecutive periods of rest must not exceed 14 hours. Musters, fire and lifeboat drills and drills prescribed by national laws should be conducted to minimise disturbance. If a seafarer on call has their rest disturbed by a call-out, they get adequate compensatory rest. Exceptions are only allowed by the flag State under conditions, or by the master in an emergency affecting the safety of the ship, persons or cargo, or to assist others in distress, with compensatory rest afterwards.
+      Records: a table of shipboard working arrangements posted in an accessible place in the working language and English, and individual records of daily hours of rest kept in the approved format, signed by the master (or authorised person) and the seafarer, with a copy given to the seafarer. They are inspected by PSC and the flag State, and non-conformities are handled through the SMS.
+    key_points:
+      - point: 10 hours in 24 hours
+        match: ["10 hour|ten hour|10 hrs|10hrs"]
+      - point: 77 hours in 7 days
+        match: ["77"]
+      - point: Max two periods, one at least 6 hours
+        match: ["two period|2 period|6 hour|six hour"]
+      - point: Interval not exceeding 14 hours
+        match: ["14 hour|fourteen"]
+      - point: Records signed, posted table of working arrangements
+        match: ["record|table|sign|post"]
+      - point: Master's emergency exception with compensatory rest
+        match: ["emergency|compensat|exception|suspend"]
+    follow_ups:
+      - What are the maximum hours of work under MLC?
+    sources:
+      - { label: MLC 2006, ref: Standard A2.3 }
+      - { label: STCW Code, ref: Section A-VIII/1 }
+
+  - id: law-oral-ism
+    topic: ism
+    difficulty: 2
+    question: What are the objectives of the ISM Code and the main elements of a Safety Management System?
+    model_answer: |
+      Objectives: ensure safety at sea, prevent human injury or loss of life, and avoid damage to the environment and to property. The company should provide safe practices and a safe working environment, assess all identified risks and establish safeguards, and continuously improve the safety management skills of personnel, including emergency preparedness.
+      SMS functional requirements: a safety and environmental protection policy; instructions and procedures for safe operation and environmental protection; defined levels of authority and lines of communication; procedures for reporting accidents and non-conformities; procedures to prepare for and respond to emergencies; and procedures for internal audits and management reviews. Also the DPA, master's responsibility and overriding authority, resources and personnel (familiarisation, training), shipboard operations plans, maintenance, documentation control, and company verification. Certification is a DOC for the company and an SMC for the ship.
+    key_points:
+      - point: Objectives — safety at sea, prevent injury/loss of life, avoid environmental and property damage
+        match: ["safety at sea|loss of life|injury|environment|property"]
+      - point: Safety and environmental protection policy
+        match: ["policy"]
+      - point: Procedures for operations and emergencies
+        match: ["procedure|instruction|emergenc"]
+      - point: Reporting accidents and non-conformities
+        match: ["non conformit|nonconformit|accident|near miss|report"]
+      - point: Internal audits and management review
+        match: ["audit|review"]
+      - point: DPA and master's overriding authority
+        match: ["dpa|designated person|overriding"]
+      - point: DOC (company) and SMC (ship)
+        match: ["doc|document of compliance|smc|safety management certificate"]
+    follow_ups:
+      - What is a major non-conformity?
+    sources:
+      - { label: ISM Code, ref: Sections 1–13 }
+
+  - id: law-oral-psc
+    topic: psc
+    difficulty: 2
+    question: A Port State Control officer is boarding. As Chief Mate, how do you prepare the ship, and what do you do if the ship is detained?
+    model_answer: |
+      Preparation: certificates and documents up to date and ready (statutory certificates, crew certificates and endorsements, safe manning, ORB, GRB, hours of rest, logbooks, SMS records, DMLC). Check typical PSC focus areas: fire doors and dampers, LSA (lifeboats, release gear, launching appliances), FFA, emergency lighting, oily water separator and records, navigation equipment and charts or ENC updates, the GMDSS log, accommodation and food/hygiene (MLC), watertight and weathertight integrity, and emergency generator and steering. Crew drilled and familiar (PSC may ask for a fire or abandon ship drill). Check any current concentrated inspection campaign (CIC).
+      During: escort the officer, answer honestly, and note deficiencies. If detained: inform the Master, company, DPA, flag and class. Get the deficiency report (Form B) with the codes, rectify the deficiencies, and arrange re-inspection. Consider an appeal if unjustified. Record it in the SMS as a non-conformity and investigate the root cause.
+    key_points:
+      - point: Certificates and records ready and valid
+        match: ["certificat|document|record"]
+      - point: Key equipment checks (LSA, FFA, fire doors, OWS, nav equipment)
+        match: ["lifeboat|lsa|fire|ows|separator|navigation|emergency generator|steering"]
+      - point: Crew drills and familiarisation
+        match: ["drill|familiar|crew"]
+      - point: Concentrated Inspection Campaign
+        match: ["cic|concentrated inspection|campaign"]
+      - point: On detention — inform company, DPA, flag, class
+        match: ["company|dpa|flag|class|owner"]
+      - point: Rectify, re-inspection, SMS non-conformity/root cause
+        match: ["rectif|correct|re inspect|reinspect|non conformit|root cause"]
+    follow_ups:
+      - What are "clear grounds"?
+    sources:
+      - { label: IMO Res. A.1155(32), ref: Procedures for Port State Control }
+
+  - id: law-oral-bl-loi
+    topic: bills-of-lading
+    difficulty: 2
+    question: The receivers want to take delivery of cargo without producing the original bill of lading, offering a letter of indemnity. What do you advise?
+    model_answer: |
+      Delivering without the original B/L (to the wrong party) exposes the owner to claims from the lawful holder, and P&I cover normally excludes delivery without production of the B/L. Don't release the cargo without written authority from the owners or charterers. They decide whether to accept an LOI (usually the International Group standard wording, ideally countersigned by a bank). Check the charter party terms. Inform the company and P&I correspondent. Record all communications. The master/agent should only deliver against the original B/L (one of the set), or with owners' express instructions.
+    key_points:
+      - point: Risk of misdelivery claims from lawful holder
+        match: ["claim|misdeliver|lawful holder|liab"]
+      - point: P&I cover may be prejudiced
+        match: ["p and i|p&i|insurance|cover"]
+      - point: Only on owners'/charterers' written instruction
+        match: ["owner|charterer|company", "written|instruction|authori"]
+      - point: Standard LOI wording, bank countersignature
+        match: ["standard|bank|countersign|international group"]
+      - point: Original B/L normally required for delivery
+        match: ["original"]
+    follow_ups:
+      - What's the difference between a straight and an order bill of lading?
+    sources:
+      - { label: Maritime law, ref: Delivery without production of B/L }
+
+  - id: law-oral-isps
+    topic: isps
+    difficulty: 1
+    question: What are the duties of the Ship Security Officer and the main contents of the Ship Security Plan?
+    model_answer: |
+      SSO (often the Chief Mate): regular security inspections; maintaining and supervising implementation of the SSP; coordinating security with other crew and the PFSO; proposing modifications to the SSP; reporting deficiencies and non-conformities to the CSO; enhancing security awareness, training and drills (at least every 3 months, and when more than 25% of the crew change); ensuring security equipment is maintained and calibrated; Declarations of Security; records of security activities.
+      SSP: measures for each security level (access control, restricted areas, handling cargo and stores, monitoring the ship), duties of personnel, procedures for responding to threats and breaches, evacuation, audits and reviews, interfacing with port facilities, SSAS details (kept confidential), and reporting procedures. It is approved by the flag State, protected from unauthorised access, and kept on board.
+    key_points:
+      - point: Implement and maintain the SSP; regular security inspections
+        match: ["ssp|security plan|inspection"]
+      - point: Coordinate with CSO and PFSO
+        match: ["cso|pfso|company security|port facility"]
+      - point: Drills every 3 months / training
+        match: ["drill|training|exercise|3 month|three month"]
+      - point: Security levels 1–3 measures in SSP
+        match: ["security level|level 1|level 2|level 3"]
+      - point: Access control and restricted areas
+        match: ["access|restricted area|visitor|gangway"]
+      - point: SSAS and Declaration of Security
+        match: ["ssas|alert system|declaration of security|dos"]
+    follow_ups:
+      - When would a Declaration of Security be required?
+    sources:
+      - { label: ISPS Code, ref: Part A, Sections 9 and 12 }
+
+  - id: law-oral-noting-protest
+    topic: charter-parties
+    difficulty: 2
+    question: When would the Master note a protest, and what is the procedure?
+    model_answer: |
+      A note of protest is a declaration made under oath before a notary public or consul, recording events that might lead to loss or damage (heavy weather damage to ship or cargo, cargo shift, delays, breaches of charter by charterers or shippers, refusal to sign or accept documents, damage by stevedores). It's done within 24 hours of arrival (or as soon as possible) and before breaking bulk where cargo damage is suspected. It's supported by logbook entries (weather, actions taken, soundings, ventilation records). It can be extended later when the full extent is known. It protects the owner against claims and supports insurance claims.
+    key_points:
+      - point: Declaration under oath before notary/consul
+        match: ["notary|consul|oath|declaration"]
+      - point: Heavy weather or events likely to cause loss/damage
+        match: ["heavy weather|weather|damage|loss"]
+      - point: Within 24 hours of arrival / before breaking bulk
+        match: ["24 hour|before breaking bulk|break bulk|arrival|as soon as"]
+      - point: Supported by log entries
+        match: ["log"]
+      - point: Can be extended later
+        match: ["extend"]
+    follow_ups:
+      - What log entries support a heavy weather protest?
+    sources:
+      - { label: Maritime commercial practice, ref: Note of protest }

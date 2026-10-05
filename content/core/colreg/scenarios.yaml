@@ -1,0 +1,383 @@
+# COLREGs scenario player items (M7). Original drafts — needs_review: true (default).
+# relative_bearing: target bearing from own ship's head (deg). heading_rel: target heading relative to own heading.
+- id: scen-head-on-night
+  title: Head-on at night
+  situation: Open sea, good visibility, night. A vessel is fine ahead and the bearing is steady. Range is closing quickly.
+  visibility: good
+  time: night
+  own_ship: Power-driven vessel, 180 m, 15 kn
+  targets:
+    - { label: A, relative_bearing: 0, range_nm: 6, heading_rel: 180, vessel: "Power-driven vessel ≥ 50 m", lights: [white masthead (fwd), white masthead (aft), red sidelight, green sidelight] }
+  actions:
+    - Alter course to port to pass starboard to starboard
+    - Alter course to starboard early and substantially so both pass port to port
+    - Stand on and wait for the other vessel to act
+    - Stop engines and sound three short blasts
+  correct_action: 1
+  rule_options: ["8", "13", "14", "15", "17", "19"]
+  correct_rules: ["14", "8"]
+  rules: [Rule 14 head-on situation, Rule 8 action to avoid collision]
+  explanation: You see both sidelights and masthead lights in line on a reciprocal course, so this is head-on (Rule 14). Both vessels alter to starboard. Make the alteration early and large enough to be readily apparent (Rule 8), and sound one short blast.
+
+- id: scen-crossing-give-way
+  title: Crossing — target on your starboard bow
+  situation: Night, good visibility. A vessel bears 045° relative at 5 nm. Her compass bearing is steady and the range is decreasing.
+  visibility: good
+  time: night
+  own_ship: Power-driven vessel, 15 kn
+  targets:
+    - { label: A, relative_bearing: 45, range_nm: 5, heading_rel: 270, vessel: "Power-driven vessel ≥ 50 m", lights: [white masthead (fwd), white masthead (aft), red sidelight] }
+  actions:
+    - Maintain course and speed
+    - Alter course to port to pass ahead of her
+    - Alter course boldly to starboard (and/or reduce speed) to pass astern of her
+    - Increase speed to cross ahead
+  correct_action: 2
+  rule_options: ["8", "13", "14", "15", "16", "17"]
+  correct_rules: ["15", "16", "8"]
+  rules: [Rule 15 crossing situation, Rule 16 action by give-way vessel, Rule 8]
+  explanation: She is on your starboard side and you see her red sidelight. You are the give-way vessel (Rule 15) and must take early and substantial action (Rule 16), avoiding crossing ahead. A bold alteration to starboard to pass astern of her is correct, and you could also reduce speed.
+
+- id: scen-crossing-stand-on
+  title: Crossing — target on your port bow
+  situation: Night, good visibility. A vessel bears 315° relative at 6 nm, steady bearing, closing.
+  visibility: good
+  time: night
+  own_ship: Power-driven vessel, 14 kn
+  targets:
+    - { label: A, relative_bearing: 315, range_nm: 6, heading_rel: 90, vessel: "Power-driven vessel ≥ 50 m", lights: [white masthead (fwd), white masthead (aft), green sidelight] }
+  actions:
+    - Keep course and speed, monitor her closely, and be ready to act under Rule 17 if she does not give way
+    - Alter course to port immediately
+    - Reduce speed immediately
+    - Alter course to starboard immediately
+  correct_action: 0
+  rule_options: ["13", "14", "15", "16", "17", "18"]
+  correct_rules: ["15", "17"]
+  rules: [Rule 15 crossing, Rule 17 action by stand-on vessel]
+  explanation: You are the stand-on vessel (she has you on her starboard side and you see her green light). Under Rule 17(a)(i) keep course and speed, monitor by compass bearing and ARPA, and be ready to act under 17(a)(ii) and (b). If you do act, don't alter to port for a vessel on your port side (17(c)).
+
+- id: scen-overtaking
+  title: Overtaking a slower vessel
+  situation: Night, good visibility. You're coming up on a vessel almost dead ahead. You see one white light only, and the range is slowly closing.
+  visibility: good
+  time: night
+  own_ship: Power-driven vessel, 18 kn
+  targets:
+    - { label: A, relative_bearing: 5, range_nm: 2, heading_rel: 0, vessel: "Power-driven vessel, 10 kn", lights: [white sternlight] }
+  actions:
+    - She must keep out of your way because she is on your starboard bow
+    - You are overtaking and must keep out of her way until finally past and clear
+    - Treat it as head-on and alter to starboard
+    - Sound two short blasts and hold your course
+  correct_action: 1
+  rule_options: ["9", "13", "14", "15", "16", "17"]
+  correct_rules: ["13"]
+  rules: [Rule 13 overtaking]
+  explanation: You only see her sternlight, so you're coming up from more than 22.5° abaft her beam and you are the overtaking vessel (Rule 13). Keep out of the way, with a wide margin, until finally past and clear. A later change of bearing doesn't make it a crossing situation.
+
+- id: scen-being-overtaken
+  title: Being overtaken
+  situation: Day, good visibility. A faster vessel is coming up on your starboard quarter, bearing 160° relative and steady, range 1.5 nm.
+  visibility: good
+  time: day
+  own_ship: Power-driven vessel, 12 kn
+  targets:
+    - { label: A, relative_bearing: 160, range_nm: 1.5, heading_rel: 0, vessel: "Container ship, 20 kn", shapes: [] }
+  actions:
+    - Alter course to starboard to give her room
+    - Keep your course and speed (stand-on), and monitor
+    - Alter course to port across her bow
+    - Reduce speed so she passes faster
+  correct_action: 1
+  rule_options: ["13", "15", "16", "17", "18"]
+  correct_rules: ["13", "17"]
+  rules: [Rule 13 overtaking, Rule 17 stand-on vessel]
+  explanation: She is overtaking you from more than 22.5° abaft your beam, so she keeps out of the way (Rule 13). You are stand-on (Rule 17) and should keep course and speed. Altering towards her would create danger.
+
+- id: scen-fog-radar-ahead
+  title: Fog — radar target fine on starboard bow
+  situation: Dense fog, visibility 0.2 nm. ARPA shows a target bearing 010° relative at 6 nm, CPA 0.2 nm, closing. It cannot be seen.
+  visibility: restricted
+  time: day
+  own_ship: Power-driven vessel, at safe speed, sounding fog signals
+  targets:
+    - { label: A, relative_bearing: 10, range_nm: 6, heading_rel: 185, vessel: "Unknown radar target", sound: "one prolonged blast heard faintly ahead" }
+  actions:
+    - Alter course to port to open the CPA
+    - Make a substantial alteration to starboard in ample time and/or reduce speed, then keep plotting
+    - Maintain course and speed because you are stand-on
+    - Call her on VHF and agree a port-to-port passing before acting
+  correct_action: 1
+  rule_options: ["6", "7", "8", "17", "19", "35"]
+  correct_rules: ["19", "6", "8"]
+  rules: [Rule 19 restricted visibility, Rule 6 safe speed, Rule 8, Rule 35 fog signals]
+  explanation: There is no stand-on vessel in Rule 19. She is forward of the beam, so avoid altering to port (19(d)(i)). A substantial early alteration to starboard and/or reducing speed is correct. Keep plotting to confirm it works. You also hear a fog signal forward of the beam, so 19(e) requires reducing to minimum steerage speed until danger is over.
+
+- id: scen-fog-signal-ahead
+  title: Fog — signal heard ahead, no radar contact
+  situation: Restricted visibility. You hear one prolonged blast apparently forward of the beam. Radar shows nothing, possibly because of clutter.
+  visibility: restricted
+  time: night
+  own_ship: Power-driven vessel, 10 kn
+  targets:
+    - { label: "?", relative_bearing: 350, range_nm: 1, heading_rel: 180, vessel: "Unknown (heard only)", sound: "one prolonged blast every 2 minutes" }
+  actions:
+    - Continue at the same speed since radar shows nothing
+    - Reduce to the minimum speed to keep course, take all way off if necessary, and navigate with extreme caution
+    - Alter course to port towards the sound
+    - Sound five short blasts and increase speed
+  correct_action: 1
+  rule_options: ["6", "7", "19", "34", "35"]
+  correct_rules: ["19", "6"]
+  rules: [Rule 19(e), Rule 6 safe speed]
+  explanation: Rule 19(e) applies when you hear a fog signal apparently forward of the beam and haven't determined that risk doesn't exist. Reduce to minimum steerage way, take all way off if necessary, and navigate with extreme caution. Radar might be missing a small vessel in clutter.
+
+- id: scen-fog-quarter
+  title: Fog — target closing on starboard quarter
+  situation: Restricted visibility. Radar shows a faster vessel bearing 140° relative, 3 nm, CPA near zero, overtaking you.
+  visibility: restricted
+  time: day
+  own_ship: Power-driven vessel, 10 kn
+  targets:
+    - { label: A, relative_bearing: 140, range_nm: 3, heading_rel: 350, vessel: "Radar target, 18 kn" }
+  actions:
+    - Alter course to starboard towards her
+    - Alter course to port (away from her), checking the effect by radar
+    - Maintain course; she is overtaking and must give way
+    - Stop engines immediately
+  correct_action: 1
+  rule_options: ["13", "17", "19", "35"]
+  correct_rules: ["19"]
+  rules: [Rule 19(d)(ii)]
+  explanation: Rule 13 only applies to vessels in sight, so in restricted visibility there's no overtaking privilege. Rule 19(d)(ii) says avoid altering towards a vessel abeam or abaft the beam. Altering to port away from her is correct. Monitor by systematic plotting.
+
+- id: scen-trawler
+  title: Trawler crossing ahead
+  situation: Night, good visibility. A vessel bears 030° relative at 4 nm, steady bearing.
+  visibility: good
+  time: night
+  own_ship: Power-driven vessel, 14 kn
+  targets:
+    - { label: A, relative_bearing: 30, range_nm: 4, heading_rel: 260, vessel: "Vessel engaged in trawling, making way", lights: [green all-round (upper), white all-round (lower), white masthead (aft, higher), red sidelight] }
+  actions:
+    - She must give way because she is power-driven on your starboard bow
+    - Keep out of her way, altering to starboard early to pass well astern and clear of her gear
+    - Maintain course and speed
+    - Pass close ahead of her
+  correct_action: 1
+  rule_options: ["15", "16", "18", "26"]
+  correct_rules: ["18", "26"]
+  rules: [Rule 18 responsibilities, Rule 26 fishing vessels]
+  explanation: Green over white all-round means trawling (Rule 26). A power-driven vessel keeps out of the way of a vessel engaged in fishing (Rule 18(a)(iii)). Pass astern with a wide margin, because trawl gear can extend a long way.
+
+- id: scen-nuc
+  title: Vessel not under command
+  situation: Night, good visibility. A vessel fine on the port bow at 5 nm, bearing steady.
+  visibility: good
+  time: night
+  own_ship: Power-driven vessel, 15 kn
+  targets:
+    - { label: A, relative_bearing: 350, range_nm: 5, heading_rel: 100, vessel: "Vessel not under command, making way", lights: [red all-round (upper), red all-round (lower), green sidelight] }
+  actions:
+    - Stand on; she is on your port side
+    - Keep out of her way, altering early (for example to starboard) to pass well clear
+    - Alter to port towards her to pass astern
+    - Sound one prolonged blast and continue
+  correct_action: 1
+  rule_options: ["15", "17", "18", "27"]
+  correct_rules: ["18", "27"]
+  rules: [Rule 18(a)(i), Rule 27(a)]
+  explanation: Two all-round red lights means not under command (Rule 27(a)). She's making way, so she also shows sidelights. Rule 18 overrides the crossing rule, so you keep out of her way. Make an early, substantial alteration and give a wide berth.
+
+- id: scen-cbd
+  title: Vessel constrained by her draught
+  situation: Day, good visibility, in a deep-water route approach. A large tanker bears 020° relative at 6 nm heading towards you, showing a cylinder.
+  visibility: good
+  time: day
+  own_ship: Power-driven vessel, 14 kn
+  targets:
+    - { label: A, relative_bearing: 20, range_nm: 6, heading_rel: 190, vessel: "VLCC constrained by her draught", shapes: [black cylinder] }
+  actions:
+    - Hold course since she must alter
+    - Take early action so you don't impede her safe passage, keeping well clear of her deep-water track
+    - Pass close on her port side
+    - Turn to port across her bow
+  correct_action: 1
+  rule_options: ["14", "18", "28", "8"]
+  correct_rules: ["18", "28", "8"]
+  rules: [Rule 18(d), Rule 28, Rule 8(f)]
+  explanation: The cylinder means constrained by her draught (Rule 28). Under Rule 18(d)(i), vessels other than NUC or RAM avoid impeding her. Rule 8(f) says not impeding means acting early so a risk of collision doesn't develop. If risk does develop, the steering rules apply.
+
+- id: scen-sailing
+  title: Sailing vessel crossing
+  situation: Night, good visibility. A vessel bears 040° relative at 3 nm, steady bearing. No masthead light is visible.
+  visibility: good
+  time: night
+  own_ship: Power-driven vessel, 12 kn
+  targets:
+    - { label: A, relative_bearing: 40, range_nm: 3, heading_rel: 280, vessel: "Sailing vessel underway", lights: [red sidelight] }
+  actions:
+    - She must give way because sail gives way to power at night
+    - Keep out of her way by altering to starboard early to pass astern of her
+    - Maintain course and speed
+    - Sound three short blasts
+  correct_action: 1
+  rule_options: ["12", "15", "16", "18", "25"]
+  correct_rules: ["18", "16"]
+  rules: [Rule 18(a)(iv), Rule 16, Rule 25]
+  explanation: Sidelights with no masthead light means a sailing vessel (Rule 25). Power gives way to sail (Rule 18(a)(iv)). Take early, substantial action to pass astern (Rule 16).
+
+- id: scen-narrow-small
+  title: Narrow channel — small craft crossing
+  situation: Day. You're a deep-draught vessel in a narrow channel and can navigate safely only within it. A 15 m motor boat is about to cross the channel ahead from starboard to port.
+  visibility: good
+  time: day
+  own_ship: Bulk carrier, 10 kn, deep draught
+  targets:
+    - { label: A, relative_bearing: 20, range_nm: 0.8, heading_rel: 270, vessel: "Motor boat 15 m" }
+  actions:
+    - Alter course out of the channel to starboard to give way under Rule 15
+    - Sound at least five short and rapid blasts if in doubt of her intentions, and be ready to reduce speed; she shall not impede you
+    - Hold course and speed without signalling
+    - Sound one prolonged blast and alter to port
+  correct_action: 1
+  rule_options: ["9", "15", "17", "34"]
+  correct_rules: ["9", "34"]
+  rules: [Rule 9(b)/(d), Rule 34(d)]
+  explanation: Under Rule 9(b) and (d), a vessel under 20 m shall not impede, or cross ahead so as to impede, a vessel that can navigate only within the channel. You may sound five short blasts if in doubt (Rule 34(d)). Still be ready to act, because Rule 9 doesn't remove the duty to avoid collision.
+
+- id: scen-narrow-overtake
+  title: Narrow channel — overtaking on her port side
+  situation: You wish to overtake a slower vessel in a narrow channel. She needs to move over to allow safe passage. You intend to pass on her port side.
+  visibility: good
+  time: day
+  own_ship: Power-driven vessel, 12 kn
+  targets:
+    - { label: A, relative_bearing: 0, range_nm: 0.6, heading_rel: 0, vessel: "Power-driven vessel, 8 kn" }
+  actions:
+    - Sound two prolonged followed by one short blast
+    - Sound two prolonged followed by two short blasts, and overtake only after she signals agreement (prolonged-short-prolonged-short)
+    - Sound five short blasts and overtake
+    - Overtake without signalling
+  correct_action: 1
+  rule_options: ["9", "13", "34"]
+  correct_rules: ["9", "13", "34"]
+  rules: [Rule 9(e), Rule 13, Rule 34(c)]
+  explanation: Two prolonged and two short means "I intend to overtake you on your port side" (Rule 34(c)(i)). Wait for the agreement signal. You are still the overtaking vessel under Rule 13.
+
+- id: scen-anchored
+  title: Vessel at anchor in the fairway approach
+  situation: Night, good visibility. Two white all-round lights fine on the starboard bow at 2 nm, with her decks illuminated. Your track passes close to her.
+  visibility: good
+  time: night
+  own_ship: Power-driven vessel, 12 kn
+  targets:
+    - { label: A, relative_bearing: 5, range_nm: 2, heading_rel: 90, vessel: "Vessel ≥ 100 m at anchor", lights: [white all-round (fwd, higher), white all-round (aft, lower), deck lights] }
+  actions:
+    - She is underway and you must give way under Rule 15
+    - Alter early to pass with a wide berth, preferably astern of her (she may be swinging), at reduced speed
+    - Pass close across her bow
+    - Expect her to move out of your way
+  correct_action: 1
+  rule_options: ["8", "15", "18", "30"]
+  correct_rules: ["30", "8"]
+  rules: [Rule 30 anchored vessels, Rule 8]
+  explanation: Two all-round whites (forward light higher) plus deck lights means a vessel of 100 m or more at anchor (Rule 30). She can't move, so give her a wide berth with early action. Passing astern avoids her cable and swing. Allow for tidal set onto her.
+
+- id: scen-dredger
+  title: Dredger at work
+  situation: Day, good visibility. A dredger ahead is working in the channel. She shows ball-diamond-ball, two balls on her port side and two diamonds on her starboard side.
+  visibility: good
+  time: day
+  own_ship: Power-driven vessel, 8 kn
+  targets:
+    - { label: A, relative_bearing: 0, range_nm: 1.5, heading_rel: 90, vessel: "Dredger (RAM)", shapes: [ball-diamond-ball, two balls (port side), two diamonds (starboard side)] }
+  actions:
+    - Pass on her port side (the side with two balls)
+    - Pass on her starboard side (the side with two diamonds) at reduced speed
+    - Stop and wait until she finishes
+    - Pass between the two diamonds and the balls
+  correct_action: 1
+  rule_options: ["18", "27", "8", "9"]
+  correct_rules: ["27", "18"]
+  rules: [Rule 27(b) and (d), Rule 18(a)(ii)]
+  explanation: Two balls show the side where the obstruction is, and two diamonds show the side where you may pass (Rule 27(d)). She is RAM, so you keep out of her way (Rule 18). Pass on the diamond side, slowly, to minimise wash.
+
+- id: scen-tow-long
+  title: Long tow crossing from starboard
+  situation: Night, good visibility. A vessel bears 060° relative at 4 nm, steady bearing.
+  visibility: good
+  time: night
+  own_ship: Power-driven vessel, 14 kn
+  targets:
+    - { label: Tug, relative_bearing: 60, range_nm: 4, heading_rel: 270, vessel: "Power-driven vessel towing, tow > 200 m", lights: [white masthead, white masthead, white masthead, red sidelight] }
+    - { label: Tow, relative_bearing: 70, range_nm: 4.2, heading_rel: 270, vessel: "Barge being towed", lights: [red sidelight] }
+  actions:
+    - Pass between the tug and the tow
+    - Alter course boldly to starboard early to pass well astern of the tow
+    - Maintain course; towing vessels must give way
+    - Alter course to port to pass ahead of the tug
+  correct_action: 1
+  rule_options: ["15", "16", "18", "24"]
+  correct_rules: ["24", "15", "16"]
+  rules: [Rule 24 towing, Rule 15, Rule 16]
+  explanation: Three masthead lights in a vertical line means towing with a tow longer than 200 m (Rule 24). She is on your starboard side, so you give way (Rule 15) and pass well astern of the TOW, not the tug. Never pass between a tug and her tow.
+
+- id: scen-multi
+  title: Two-vessel situation
+  situation: Night. Vessel A crosses from your starboard bow (steady bearing). Vessel B is overtaking you on your port quarter.
+  visibility: good
+  time: night
+  own_ship: Power-driven vessel, 14 kn
+  targets:
+    - { label: A, relative_bearing: 40, range_nm: 5, heading_rel: 270, vessel: "Power-driven vessel", lights: [white masthead (fwd), white masthead (aft), red sidelight] }
+    - { label: B, relative_bearing: 200, range_nm: 1.5, heading_rel: 5, vessel: "Power-driven vessel overtaking", lights: [white masthead (fwd), white masthead (aft), green sidelight] }
+  actions:
+    - Alter course to port to pass ahead of A
+    - Alter course to starboard early to pass astern of A, after checking that the alteration is safe with respect to B
+    - Maintain course and speed for both
+    - Increase speed to escape B
+  correct_action: 1
+  rule_options: ["8", "13", "15", "16", "17"]
+  correct_rules: ["15", "16", "13", "8"]
+  rules: [Rule 15, Rule 16, Rule 13, Rule 8]
+  explanation: You give way to A (Rule 15). B is overtaking you and must keep clear (Rule 13). A starboard alteration takes you away from B on your port quarter and astern of A. Check the whole picture before acting (Rule 8).
+
+- id: scen-stand-on-last
+  title: Stand-on vessel — collision imminent
+  situation: Night. A power-driven vessel crossing from your port side (you see her green light) has not altered. She is now at 1 nm, bearing steady, and you have already sounded five short blasts.
+  visibility: good
+  time: night
+  own_ship: Power-driven vessel, 14 kn
+  targets:
+    - { label: A, relative_bearing: 330, range_nm: 1, heading_rel: 80, vessel: "Power-driven vessel", lights: [white masthead (fwd), white masthead (aft), green sidelight] }
+  actions:
+    - Alter hard to port to pass astern of her
+    - Take the action that best aids to avoid collision, normally a bold alteration to starboard (possibly a round turn) and/or reducing speed or going full astern
+    - Keep course and speed; the responsibility is hers
+    - Sound one prolonged blast only
+  correct_action: 1
+  rule_options: ["8", "15", "17", "34"]
+  correct_rules: ["17", "34", "8"]
+  rules: [Rule 17(b) and (c), Rule 34(d), Rule 8]
+  explanation: At this stage Rule 17(b) requires you to take the best action to avoid collision. Rule 17(c) says don't alter to port for a vessel on your own port side. A bold turn to starboard and/or reducing or taking off way is normally right. Sound one short blast if altering to starboard (Rule 34(a)).
+
+- id: scen-aground
+  title: Lights ahead — vessel aground
+  situation: Night, coastal waters. Ahead you see two all-round red lights in a vertical line, plus two all-round white lights at different heights.
+  visibility: good
+  time: night
+  own_ship: Power-driven vessel, 12 kn
+  targets:
+    - { label: A, relative_bearing: 355, range_nm: 3, heading_rel: 45, vessel: "Vessel aground", lights: [white all-round (fwd), white all-round (aft), red all-round (upper), red all-round (lower)] }
+  actions:
+    - She's NUC making way; alter to port
+    - She's aground. Check your position and the depth (she marks a danger), alter course to keep in safe water, and give a wide berth
+    - She's a pilot vessel; slow down to embark the pilot
+    - She's at anchor; pass close astern
+  correct_action: 1
+  rule_options: ["18", "27", "30", "7"]
+  correct_rules: ["30"]
+  rules: [Rule 30(d) vessels aground]
+  explanation: Anchor lights plus two all-round reds means a vessel aground (Rule 30(d)). She marks shoal water, so fix your position immediately, check the chart and UKC, and keep well clear in safe water.

@@ -1,0 +1,35 @@
+defaults:
+  competence: MGMT
+  type: lesson
+items:
+  - id: mgmt-lesson-emergencies
+    topic: emergency-response
+    difficulty: 1
+    title: Emergency response — first actions that pass the oral
+    related_item_ids: [mgmt-mob-001, mgmt-mob-002, mgmt-collision-001, mgmt-grounding-001, mgmt-enclosed-001, mgmt-fire-001, mgmt-oral-enclosed-rescue]
+    body_md: |
+      > Examiners fail candidates on **unsafe** first actions. These questions are marked *safety-critical* in the app.
+
+      ## Universal first actions: **A-M-C-A**
+      1. **Alarm**: raise it
+      2. **Master**: inform
+      3. **Contain**: watertight doors, ventilation, isolate
+      4. **Assess**: sound tanks, check damage and stability, account for people
+
+      ## Scenario cheatsheet
+      | Emergency | Don't forget |
+      | --- | --- |
+      | Enclosed space casualty | **Never enter without BA.** Rescue team, ventilate, test, standby person |
+      | Man overboard | Lifebuoy + light/smoke, **helm towards the side**, MOB button, lookout pointing |
+      | Engine-room fire → CO2 | Close vents and dampers, **quick-closing valves**, **headcount**, keep closed to cool |
+      | Collision | Don't back out if embedded, exchange info, **save the VDR** |
+      | Grounding | Stop engines, sound around the hull, **assess before refloating**, check tides |
+      | Oil spill | **Stop**, SOPEP, scupper plugs, report to coastal State, ORB entry |
+
+      ## MOB manoeuvres
+      - **Anderson** (single turn): fastest, person in sight
+      - **Williamson**: night, poor visibility, delayed. Returns to the reciprocal track
+      - **Scharnow**: delayed action. Returns to the track faster than Williamson, but not for immediate action
+
+      ## IAMSAR search patterns
+      Sector (accurate datum, MOB) · Expanding square (small area, single ship) · Parallel track (large area, several ships) · Creeping line
