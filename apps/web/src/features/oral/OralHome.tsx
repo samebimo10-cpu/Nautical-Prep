@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Tabs from "@radix-ui/react-tabs";
 import { useLiveQuery } from "dexie-react-hooks";
 import { COMPETENCES, COMPETENCE_LABELS, keyPointText } from "@cm/content-schema";
@@ -209,7 +209,7 @@ export function OralHome() {
           <ul className="grid gap-2">
             {(history ?? []).map((h) => (
               <li key={h.id}>
-                <a href={`/oral/session/${h.id}`} className="card flex items-center justify-between !py-3">
+                <Link to={`/oral/session/${h.id}`} className="card flex items-center justify-between !py-3">
                   <span className="text-sm">
                     {new Date(h.created_at).toLocaleString()} · {h.engine}
                   </span>
@@ -220,7 +220,7 @@ export function OralHome() {
                   ) : (
                     <span className="chip bg-slate-100">in progress</span>
                   )}
-                </a>
+                </Link>
               </li>
             ))}
             {!history?.length && <p className="muted">No orals yet.</p>}

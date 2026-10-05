@@ -16,8 +16,8 @@ test("a full mock exam can be completed offline and is graded by competence", as
     if (i === 3) await page.getByTestId("flag").click();
     if (i < 49) await page.getByTestId("mock-next").click();
   }
-  page.once("dialog", (d) => d.accept());
   await page.getByTestId("mock-submit").click();
+  await page.getByTestId("mock-submit").click(); // in-page confirmation
   await expect(page.getByTestId("mock-verdict")).toBeVisible();
   const pct = Number((await page.getByTestId("mock-percent").innerText()).replace("%", ""));
   expect(pct).toBeGreaterThan(70);

@@ -16,7 +16,24 @@ export interface BundleManifest {
 
 export type Progress = { loaded: number; total: number; phase: "checking" | "downloading" | "installing" | "done" };
 
+/** Standalone build: bundles embedded in the HTML as base64 gzip (window.__CM_BUNDLES__). */
+interface Embedded {
+  manifest: BundleManifest;
+  files: Record<string, string>;
+}
+function embedded(): Embedded | undefined {
+  return (globalThis as unknown as { __CM_BUNDLES__?: Embedded }).__CM_BUNDLES__;
+}
+function b64ToBytes(b64: string): Uint8Array {
+  const bin = atob(b64);
+  const out = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+  return out;
+}
+
 export async function fetchManifest(): Promise<BundleManifest> {
+  const emb = embedded();
+  if (emb) return emb.manifest;
   const res = await fetch("/bundles/manifest.json", { cache: "no-cache" });
   if (!res.ok) throw new Error(`manifest ${res.status}`);
   return (await res.json()) as BundleManifest;
@@ -27,6 +44,12 @@ export async function installedVersion(country: string): Promise<string | undefi
 }
 
 async function download(url: string, total: number, onProgress: (p: Progress) => void): Promise<Uint8Array> {
+  const emb = embedded();
+  const file = url.split("/").pop()!;
+  if (emb?.files[file]) {
+    onProgress({ loaded: total, total, phase: "downloading" });
+    return b64ToBytes(emb.files[file]!);
+  }
   const res = await fetch(url);
   if (!res.ok || !res.body) throw new Error(`bundle ${res.status}`);
   const reader = res.body.getReader();

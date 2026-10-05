@@ -38,6 +38,7 @@ export function OralSessionPage() {
   const [listening, setListening] = useState<null | { stop: () => Promise<string> }>(null);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
+  const [added, setAdded] = useState(false);
   const endRef = useRef<HTMLDivElement>(null);
   const spokenRef = useRef(0);
 
@@ -163,7 +164,7 @@ export function OralSessionPage() {
       const it = items!.get(m.item_id);
       if (it) await recordAttempt(it, 0, { timeMs: 0, source: "oral" });
     }
-    alert("Missed questions added to your review deck.");
+    setAdded(true);
   }
 
   const current = s.phase !== "done" ? items.get(s.itemIds[s.index] ?? "") : undefined;
@@ -260,8 +261,8 @@ export function OralSessionPage() {
               </ol>
             </div>
             {row.verdict.missedByQuestion.length > 0 && (
-              <button className="btn-accent" onClick={addMissedToDeck}>
-                Add missed questions to review deck
+              <button className="btn-accent" onClick={addMissedToDeck} disabled={added}>
+                {added ? "Added to your review deck ✓" : "Add missed questions to review deck"}
               </button>
             )}
             <Link to="/oral" className="btn-ghost">

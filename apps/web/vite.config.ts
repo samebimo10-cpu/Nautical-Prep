@@ -1,11 +1,16 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
+import { viteSingleFile } from "vite-plugin-singlefile";
+
+const STANDALONE = process.env.VITE_STANDALONE === "1";
 
 export default defineConfig({
+  ...(STANDALONE ? { base: "./", resolve: { alias: { "virtual:pwa-register": new URL("./src/lib/pwa-stub.ts", import.meta.url).pathname } } } : {}),
   plugins: [
     react(),
-    VitePWA({
+    ...(STANDALONE ? [viteSingleFile()] : []),
+    !STANDALONE && VitePWA({
       registerType: "autoUpdate",
       injectRegister: null,
       includeAssets: ["icon.svg", "icon-192.png", "icon-512.png"],
@@ -45,8 +50,10 @@ export default defineConfig({
   ],
   build: {
     target: "es2020",
+    outDir: STANDALONE ? "dist-standalone" : "dist",
+    copyPublicDir: !STANDALONE,
     chunkSizeWarningLimit: 600,
-    rollupOptions: {
+    rollupOptions: STANDALONE ? {} : {
       output: {
         manualChunks: {
           react: ["react", "react-dom", "react-router-dom"],

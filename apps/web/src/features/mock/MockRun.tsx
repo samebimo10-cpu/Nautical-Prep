@@ -21,6 +21,7 @@ export function MockRun() {
   const [items, setItems] = useState<Map<string, Item> | null>(null);
   const [idx, setIdx] = useState(0);
   const [now, setNow] = useState(Date.now());
+  const [confirming, setConfirming] = useState(false);
 
   useEffect(() => {
     if (!mock) return;
@@ -157,10 +158,10 @@ export function MockRun() {
         ) : (
           <button
             className="btn-accent flex-1"
-            onClick={() => confirm(`Submit with ${answered}/${mock.questions.length} answered?`) && submit()}
+            onClick={() => (confirming ? submit() : setConfirming(true))}
             data-testid="mock-submit"
           >
-            Submit
+            {confirming ? `Confirm submit (${answered}/${mock.questions.length} answered)` : "Submit"}
           </button>
         )}
       </div>
@@ -182,8 +183,8 @@ export function MockRun() {
             );
           })}
         </div>
-        <button className="btn-accent mt-3 w-full" onClick={() => confirm("Submit the paper now?") && submit()}>
-          Submit paper
+        <button className="btn-accent mt-3 w-full" onClick={() => (confirming ? submit() : setConfirming(true))}>
+          {confirming ? `Tap again to submit (${answered}/${mock.questions.length} answered)` : "Submit paper"}
         </button>
       </details>
     </div>

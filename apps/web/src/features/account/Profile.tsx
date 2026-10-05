@@ -20,6 +20,7 @@ export function ProfilePage() {
   const [code, setCode] = useState("");
   const [user, setUser] = useState<string | null>(null);
   const [msg, setMsg] = useState<string | null>(null);
+  const [confirmDelete, setConfirmDelete] = useState(false);
 
   useEffect(() => {
     if (profile) void installedVersion(profile.country).then(setVersion);
@@ -86,7 +87,11 @@ export function ProfilePage() {
     URL.revokeObjectURL(url);
   }
   async function deleteAccount() {
-    if (!confirm("Delete your account and ALL progress on this device (and on the server if signed in)? This cannot be undone.")) return;
+    if (!confirmDelete) {
+      setConfirmDelete(true);
+      setMsg("Tap the red button again to permanently delete your account and ALL progress. This cannot be undone.");
+      return;
+    }
     const sb = await supabase();
     if (sb && user) {
       await sb.rpc("delete_my_account");
@@ -223,7 +228,7 @@ export function ProfilePage() {
             Export my data (JSON)
           </button>
           <button className="btn-danger" onClick={deleteAccount}>
-            Delete account & all data
+            {confirmDelete ? "Tap again to delete everything" : "Delete account & all data"}
           </button>
         </div>
       </Card>

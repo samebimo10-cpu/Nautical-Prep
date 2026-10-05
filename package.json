@@ -19,7 +19,8 @@
     "secrets:check": "node scripts/check-secrets.mjs",
     "content:apply-reviews": "tsx scripts/apply-reviews.ts",
     "test:rls": "bash scripts/test-rls.sh",
-    "size:check": "node scripts/check-bundle-size.mjs"
+    "size:check": "node scripts/check-bundle-size.mjs",
+    "build:standalone": "tsx scripts/build-standalone.ts"
   },
   "devDependencies": {
     "@cm/calc": "workspace:*",
