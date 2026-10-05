@@ -19,7 +19,11 @@
     "secrets:check": "node scripts/check-secrets.mjs"
   },
   "devDependencies": {
+    "@cm/calc": "workspace:*",
+    "@cm/content-schema": "workspace:*",
+    "@cm/learning": "workspace:*",
     "@eslint/js": "^10.0.1",
+    "@types/node": "^26.6.4",
     "@vitest/coverage-v8": "^2.1.9",
     "eslint": "^9.39.5",
     "eslint-plugin-react-hooks": "^7.1.1",

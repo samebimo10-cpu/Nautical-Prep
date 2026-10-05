@@ -1,0 +1,495 @@
+defaults:
+  competence: NAV
+  type: mcq
+items:
+  - id: nav-passage-plan-001
+    topic: passage-planning
+    difficulty: 1
+    stem: According to the IMO Guidelines for Voyage Planning, what are the four stages of passage planning, in order?
+    options:
+      - Planning, appraisal, monitoring, execution
+      - Appraisal, planning, execution, monitoring
+      - Appraisal, execution, planning, monitoring
+      - Planning, execution, appraisal, monitoring
+    correct_index: 1
+    explanation: Appraisal (gather all relevant information), Planning (berth to berth plan), Execution (carrying out the plan, with tactics such as ETA and tidal windows) and Monitoring (continuous checking of the ship's progress against the plan).
+    sources:
+      - { label: IMO Res. A.893(21), ref: Guidelines for Voyage Planning }
+      - { label: SOLAS, ref: Ch. V Reg. 34 }
+
+  - id: nav-passage-plan-002
+    topic: passage-planning
+    difficulty: 2
+    stem: Which SOLAS regulation requires the master to ensure the intended voyage has been planned using appropriate nautical charts and publications?
+    options:
+      - SOLAS Ch. V Reg. 19
+      - SOLAS Ch. II-2 Reg. 10
+      - SOLAS Ch. V Reg. 34
+      - SOLAS Ch. IX Reg. 3
+    correct_index: 2
+    explanation: SOLAS V/34 (Safe navigation and avoidance of dangerous situations) requires voyage planning based on the IMO guidelines. V/19 covers carriage of navigational equipment. IX is the ISM chapter.
+    sources:
+      - { label: SOLAS, ref: Ch. V Reg. 34 }
+
+  - id: nav-passage-plan-003
+    topic: passage-planning
+    difficulty: 2
+    stem: A "no-go area" on a passage plan is best defined as
+    options:
+      - an area where the depth is less than the ship's draft plus the required under-keel clearance at the expected tide
+      - any area within 2 nautical miles of the coast
+      - an area marked as prohibited on the chart only
+      - an area outside the coverage of the ship's GMDSS sea area
+    correct_index: 0
+    explanation: No-go areas are defined from the ship's draft, squat and company UKC policy against charted depth and height of tide. They are shaded on paper charts or set by the safety contour in ECDIS.
+    sources:
+      - { label: IMO Res. A.893(21), ref: Planning }
+
+  - id: nav-ecdis-001
+    topic: ecdis
+    difficulty: 2
+    stem: Own ship's safety contour is set to 12 m. The ENC in use contains depth contours of 10 m and 15 m only. Which contour will ECDIS display as the safety contour?
+    options:
+      - 10 m contour
+      - No safety contour is displayed
+      - The 12 m contour, interpolated
+      - 15 m contour
+    correct_index: 3
+    explanation: If the chosen value is not available in the ENC, ECDIS defaults to the next deeper contour available. ECDIS never interpolates a contour, and it never picks a shallower one because that would be unsafe.
+    sources:
+      - { label: IMO Res. MSC.232(82), ref: ECDIS Performance Standards }
+
+  - id: nav-ecdis-002
+    topic: ecdis
+    difficulty: 2
+    stem: When ECDIS is operated in RCDS (raster) mode, which of the following is TRUE?
+    options:
+      - All anti-grounding alarms work exactly as in ENC mode
+      - It must be used together with an appropriate folio of up-to-date paper charts, and automatic alarms based on chart data are not available
+      - Raster charts may be used anywhere without restriction
+      - Raster charts are always more accurate than ENCs
+    correct_index: 1
+    explanation: Raster charts are just images. ECDIS cannot read depths or objects from them, so the chart-based alarms (safety contour, isolated dangers) don't work. Flag States generally require an appropriate portfolio of up-to-date paper charts when ECDIS is in RCDS mode.
+    sources:
+      - { label: IMO SN.1/Circ.207, ref: Differences between RCDS and ECDIS }
+
+  - id: nav-ecdis-003
+    topic: ecdis
+    difficulty: 1
+    stem: For ECDIS to meet SOLAS chart carriage requirements, the system must be type-approved, use up-to-date official charts, and
+    options:
+      - have an adequate back-up arrangement
+      - be connected to the AIS only
+      - be installed on the bridge wing
+      - display only raster charts
+    correct_index: 0
+    explanation: SOLAS V/19 accepts ECDIS as meeting chart carriage requirements when it is type-approved, uses official updated ENCs, and has an approved back-up arrangement (a second independent ECDIS or appropriate paper charts).
+    sources:
+      - { label: SOLAS, ref: Ch. V Reg. 19.2.1.4 }
+
+  - id: nav-ecdis-004
+    topic: ecdis
+    difficulty: 2
+    stem: Which ECDIS setting determines how far ahead the system looks for dangers and triggers an anti-grounding alarm?
+    options:
+      - Safety depth
+      - Shallow contour
+      - Look-ahead (guard zone / safety frame) time or distance
+      - Deep contour
+    correct_index: 2
+    explanation: The look-ahead (vector or safety-frame) setting defines the area ahead of the ship that is checked against the safety contour and other dangers. Safety depth only sets which spot soundings are shown in bold.
+    sources:
+      - { label: IMO Res. MSC.232(82), ref: Anti-grounding alarms }
+
+  - id: nav-radar-001
+    topic: radar-arpa
+    difficulty: 1
+    stem: Which radar band gives better detection in heavy rain and sea clutter?
+    options:
+      - X-band (3 cm)
+      - S-band (10 cm)
+      - Both are identical
+      - Neither; only ARPA can do this
+    correct_index: 1
+    explanation: The longer S-band wavelength is attenuated less by precipitation and sea clutter. X-band gives better bearing discrimination and detects small targets (including SART) better.
+    sources:
+      - { label: IMO Res. MSC.192(79), ref: Radar performance standards }
+
+  - id: nav-radar-002
+    topic: radar-arpa
+    difficulty: 2
+    stem: A SART (radar transponder) is triggered by which radar band?
+    options:
+      - S-band only
+      - X-band (9 GHz) only
+      - Both X- and S-band equally
+      - HF radio only
+    correct_index: 1
+    explanation: A radar SART responds to 9 GHz (X-band) radars. When triggered it shows a line of 12 dots on the X-band display. Most AIS-SARTs show up on AIS and ECDIS instead.
+    sources:
+      - { label: SOLAS, ref: Ch. III Reg. 6.2.2 }
+
+  - id: nav-radar-003
+    topic: radar-arpa
+    difficulty: 2
+    stem: On a radar set to sea-stabilised true motion, the trails of stationary targets (buoys) will show
+    options:
+      - No trails if there is no tidal stream
+      - A trail in the direction of own ship's heading
+      - Trails at all times equal to own speed
+      - A trail in the direction the set is towards
+    correct_index: 0
+    explanation: Sea-stabilised true motion shows movement through the water. A fixed object only shows a trail if there is current or tide, and the trail then runs in the opposite direction to the set. Ground-stabilised display is preferred for navigation, sea-stabilised for collision avoidance (aspect).
+    sources:
+      - { label: IMO Res. MSC.192(79), ref: Stabilisation modes }
+
+  - id: nav-radar-004
+    topic: radar-arpa
+    difficulty: 3
+    stem: Why should a sea-stabilised (water-tracking) input be used for ARPA collision avoidance in a strong tidal stream?
+    options:
+      - Ground stabilisation removes all targets from the display
+      - Sea stabilisation shows other vessels' true heading through the water, so their aspect (and thus applicable COLREG rule) is correct
+      - Sea stabilisation is more accurate for position fixing
+      - It is required by MARPOL
+    correct_index: 1
+    explanation: With ground stabilisation in a tidal stream, true vectors show course over ground. A target's aspect (and so which lights you would see) can be misjudged. Sea stabilisation gives heading-through-water vectors that match the target's aspect.
+    sources:
+      - { label: IMO Res. A.823(19), ref: ARPA performance standards }
+
+  - id: nav-compass-001
+    topic: compass
+    difficulty: 1
+    stem: The deviation of a magnetic compass is caused by
+    options:
+      - The angle between true and magnetic north
+      - The ship's own magnetism (permanent and induced)
+      - Gyro latitude error
+      - The variation shown on the chart
+    correct_index: 1
+    explanation: Deviation is caused by the ship's own magnetic fields. Variation is the angle between true and magnetic north and depends on geographic position, not on the ship.
+    sources:
+      - { label: Admiralty Manual of Navigation, ref: Magnetic compass }
+
+  - id: nav-compass-002
+    topic: compass
+    difficulty: 2
+    stem: The Flinders bar on a magnetic compass binnacle corrects deviation caused by
+    options:
+      - Permanent fore-and-aft magnetism
+      - Induced magnetism in vertical soft iron
+      - Heeling error from permanent magnetism only
+      - Electrical cables in the wheelhouse
+    correct_index: 1
+    explanation: The Flinders bar (soft iron) compensates induced magnetism in vertical soft iron (coefficient B component), which changes with magnetic latitude. Permanent magnetism is corrected with fore-and-aft and athwartships magnets. Heeling error is corrected with the heeling-error bucket magnet.
+    sources:
+      - { label: Admiralty Manual of Navigation, ref: Compass adjustment }
+
+  - id: nav-compass-003
+    topic: compass
+    difficulty: 1
+    stem: A transit of two charted objects bears 045°T. The gyro compass shows 047°G. What is the gyro error?
+    options:
+      - 2° High
+      - 2° Low
+      - 2° East
+      - No error
+    correct_index: 0
+    explanation: The gyro reads higher than true, so the error is 2° High. To get true bearings, subtract 2° from gyro readings.
+    sources:
+      - { label: Nautical practice, ref: Gyro error by transit }
+
+  - id: nav-tides-001
+    topic: tides
+    difficulty: 1
+    stem: Spring tides occur
+    options:
+      - At the first and last quarters of the Moon
+      - About one to two days after new and full Moon
+      - Only at the equinoxes
+      - When the Moon is at apogee
+    correct_index: 1
+    explanation: Sun and Moon line up at new and full Moon. Because of the age of the tide (a lag), the biggest ranges usually come 1–2 days later. Neaps follow the quarters. Equinoctial springs are especially large.
+    sources:
+      - { label: Admiralty Tide Tables, ref: Introduction }
+
+  - id: nav-tides-002
+    topic: tides
+    difficulty: 2
+    stem: Charted depths on Admiralty charts are referred to Chart Datum, which is usually approximately
+    options:
+      - Mean Sea Level
+      - Mean High Water Springs
+      - Lowest Astronomical Tide (LAT)
+      - Highest Astronomical Tide (HAT)
+    correct_index: 2
+    explanation: On most modern charts Chart Datum is about LAT, so the tide is rarely lower than the charted depth. Weather (high pressure, offshore winds) can still produce negative surges below LAT.
+    sources:
+      - { label: Admiralty Tide Tables, ref: Chart datum }
+
+  - id: nav-tides-003
+    topic: tides
+    difficulty: 2
+    stem: Vertical clearance (air draft) under bridges and overhead cables on recent Admiralty charts is measured from
+    options:
+      - Chart Datum
+      - Mean Sea Level
+      - Highest Astronomical Tide (HAT)
+      - Mean Low Water Springs
+    correct_index: 2
+    explanation: Vertical clearances are given above HAT on recent Admiralty charts, which is the worst case for a ship passing under. Always check the chart's title block because older charts may use MHWS.
+    sources:
+      - { label: Admiralty Chart 5011, ref: Symbols and Abbreviations }
+
+  - id: nav-weather-001
+    topic: weather
+    difficulty: 1
+    stem: According to Buys Ballot's law, in the Northern Hemisphere an observer facing the wind has the centre of low pressure
+    options:
+      - On the left hand
+      - Directly ahead
+      - On the right hand, slightly behind
+      - Directly behind
+    correct_index: 2
+    explanation: In the Northern Hemisphere, with your back to the wind the low is on your left. Facing the wind, the low is on your right and a little behind (about 8–12 points from the wind direction, depending on distance from the centre).
+    sources:
+      - { label: The Mariner's Handbook (NP100), ref: Meteorology }
+
+  - id: nav-trs-001
+    topic: tropical-storms
+    difficulty: 2
+    stem: In the Northern Hemisphere the wind is veering steadily. The vessel is most likely
+    options:
+      - In the navigable semicircle
+      - On the storm's track ahead of the centre
+      - In the dangerous semicircle
+      - In the eye of the storm
+    correct_index: 2
+    explanation: "Northern Hemisphere: a veering wind means you are in the right-hand (dangerous) semicircle, a backing wind means the left-hand (navigable) semicircle, and a steady direction with falling pressure means you are on the track. The Southern Hemisphere is the reverse."
+    sources:
+      - { label: The Mariner's Handbook (NP100), ref: Tropical revolving storms }
+
+  - id: nav-trs-002
+    topic: tropical-storms
+    difficulty: 3
+    stem: A power-driven vessel in the Northern Hemisphere finds herself in the dangerous semicircle of a tropical revolving storm. The recommended action is to
+    options:
+      - Put the wind on the port quarter and run
+      - Heave to with the wind right ahead
+      - Put the wind 1–4 points on the starboard bow and proceed at best possible speed, altering to starboard as the wind veers
+      - Stop engines and drift
+    correct_index: 2
+    explanation: "Northern Hemisphere dangerous semicircle: keep the wind 1–4 points (about 10–45°) on the starboard bow, make as much speed as possible, and alter to starboard as the wind veers. In the navigable semicircle, put the wind on the starboard quarter. If on the track ahead of the storm, put the wind about 160° relative on the starboard quarter."
+    sources:
+      - { label: The Mariner's Handbook (NP100), ref: Avoiding action, TRS }
+
+  - id: nav-trs-003
+    topic: tropical-storms
+    difficulty: 2
+    stem: In the tropics, what barometer reading (corrected for diurnal variation) indicates that a tropical storm should be suspected?
+    options:
+      - 1 hPa above normal
+      - 3 hPa or more below normal for the time of year
+      - Any reading below 1013 hPa
+      - A steady reading for 24 hours
+    correct_index: 1
+    explanation: A corrected pressure 3 hPa or more below the seasonal normal means a TRS should be suspected. At 5 hPa below normal, assume one is present and take avoiding action. Other signs include long swell, cirrus, and an unusual change in wind.
+    sources:
+      - { label: The Mariner's Handbook (NP100), ref: Warning signs of TRS }
+
+  - id: nav-routeing-001
+    topic: weather-routing
+    difficulty: 2
+    stem: A composite great circle track is used when
+    options:
+      - The great circle would take the vessel into a higher latitude than is safe (ice, weather), so a limiting latitude is applied
+      - The rhumb line is shorter than the great circle
+      - Sailing exactly east–west on the equator
+      - The vessel has no ECDIS
+    correct_index: 0
+    explanation: A composite track follows great circles to and from the limiting latitude, with a parallel-sailing leg along it. It gives the shortest route that stays clear of high latitudes.
+    sources:
+      - { label: Nautical practice, ref: Composite great circle sailing }
+
+  - id: nav-squat-001
+    topic: squat-ukc
+    difficulty: 2
+    stem: Squat in shallow water is approximately proportional to
+    options:
+      - Speed
+      - The square of the speed through the water
+      - The cube of the draft
+      - The square root of the block coefficient
+    correct_index: 1
+    explanation: Barrass's approximation gives maximum squat = Cb × V² / 100 in open water, roughly doubled in a confined channel. Halving speed reduces squat to about a quarter.
+    sources:
+      - { label: Barrass, Ship Squat, ref: Empirical formula }
+
+  - id: nav-squat-002
+    topic: squat-ukc
+    difficulty: 2
+    stem: A full-form tanker (Cb about 0.82) on even keel proceeds at speed in shallow water. Maximum squat will most likely occur
+    options:
+      - At the stern
+      - At the bow
+      - Equally at bow and stern
+      - At the LCF only
+    correct_index: 1
+    explanation: Ships with Cb above about 0.7 (full form) tend to squat by the head. Fine-form ships (container ships, Cb below about 0.7) tend to squat by the stern.
+    sources:
+      - { label: Barrass, Ship Squat, ref: Trim due to squat }
+
+  - id: nav-buoy-001
+    topic: buoyage
+    difficulty: 1
+    stem: In IALA Region B (for example the Philippines), a port-hand lateral mark entering harbour in the conventional direction of buoyage is
+    options:
+      - Red, can-shaped, red light
+      - Green, can-shaped, green light
+      - Green, conical, green light
+      - Red, conical, white light
+    correct_index: 1
+    explanation: Region B (Americas, Japan, Korea, Philippines) reverses lateral colours. Port-hand marks are green cans, starboard-hand marks are red cones ("red right returning"). Region A uses red port marks.
+    sources:
+      - { label: IALA Maritime Buoyage System, ref: Lateral marks }
+
+  - id: nav-buoy-002
+    topic: buoyage
+    difficulty: 1
+    stem: An Emergency Wreck Marking Buoy is coloured
+    options:
+      - Black with a red horizontal band
+      - Yellow with an X topmark
+      - Blue and yellow vertical stripes with a yellow upright cross topmark
+      - Red and white vertical stripes
+    correct_index: 2
+    explanation: It is blue and yellow in equal vertical stripes, with a yellow upright cross topmark and an alternating blue/yellow flashing light. It marks new wrecks until they are promulgated and permanently marked.
+    sources:
+      - { label: IALA, ref: Emergency Wreck Marking Buoy }
+
+  - id: nav-buoy-003
+    topic: buoyage
+    difficulty: 1
+    stem: An isolated danger mark has which topmark and light?
+    options:
+      - Two black balls vertically; white light Fl(2)
+      - Single red ball; white isophase light
+      - Two black cones points up; VQ
+      - Yellow X; yellow light
+    correct_index: 0
+    explanation: An isolated danger mark is black with one or more red horizontal bands, carries two black spheres as a topmark, and shows a white Fl(2) light. It is placed on a danger with navigable water all round.
+    sources:
+      - { label: IALA Maritime Buoyage System, ref: Isolated danger marks }
+
+  - id: nav-gmdss-001
+    topic: gmdss
+    difficulty: 1
+    stem: GMDSS Sea Area A2 is defined as the area
+    options:
+      - Within VHF DSC coverage of at least one coast station
+      - Excluding A1, within MF DSC coverage of at least one coast station
+      - Within Inmarsat geostationary coverage, excluding A1 and A2
+      - The polar regions outside A1, A2 and A3
+    correct_index: 1
+    explanation: A1 = VHF DSC (about 20–30 nm), A2 = MF DSC (about 100–150 nm) excluding A1, A3 = recognised mobile satellite service coverage (roughly 70°N–70°S for GEO) excluding A1/A2, A4 = the rest (polar).
+    sources:
+      - { label: SOLAS, ref: Ch. IV Reg. 2 }
+
+  - id: nav-gmdss-002
+    topic: gmdss
+    difficulty: 1
+    stem: The international NAVTEX frequency on which broadcasts are made in English is
+    options:
+      - 490 kHz
+      - 4209.5 kHz
+      - 518 kHz
+      - 2187.5 kHz
+    correct_index: 2
+    explanation: 518 kHz is the international English NAVTEX frequency. 490 kHz is used for national-language broadcasts and 4209.5 kHz for HF NAVTEX. 2187.5 kHz is MF DSC distress.
+    sources:
+      - { label: IMO NAVTEX Manual, ref: Frequencies }
+
+  - id: nav-vdr-001
+    topic: bridge-equipment
+    difficulty: 3
+    stem: For a VDR installed to the 2014 performance standards, recorded data must be retained on the long-term recording medium for at least
+    options:
+      - 12 hours
+      - 48 hours
+      - 30 days
+      - 7 days
+    correct_index: 2
+    explanation: Under MSC.333(90), the fixed and float-free capsules keep at least 48 hours and the long-term recording medium keeps at least 30 days (720 hours). Older VDRs kept 12 hours.
+    sources:
+      - { label: IMO Res. MSC.333(90), ref: VDR performance standards }
+
+  - id: nav-gnss-001
+    topic: bridge-equipment
+    difficulty: 2
+    stem: Which is the best indication that GNSS signals may be spoofed?
+    options:
+      - The GPS shows HDOP of 1.2
+      - GPS position jumps or diverges from radar/visual fixes while still reporting a good fix, sometimes with AIS targets showing impossible positions
+      - The ECDIS shows the ship inside the safety contour
+      - The echo sounder reads a lower depth than charted
+    correct_index: 1
+    explanation: Spoofing feeds false but "valid-looking" signals. Cross-check against independent methods (radar ranges, parallel index, visual bearings, echo sounder vs chart, DR). Unexplained jumps, wrong time, or several ships appearing in the same spot are classic signs.
+    sources:
+      - { label: IMO MSC.1/Circ.1575, ref: Guidelines for shipborne PNT }
+
+  - id: nav-celestial-001
+    topic: celestial
+    difficulty: 2
+    stem: For a true amplitude of the Sun, the observation should be taken when the Sun's
+    options:
+      - Upper limb is on the visible horizon
+      - Lower limb is about a semi-diameter above the visible horizon (centre on the celestial horizon)
+      - Centre is exactly on the visible horizon
+      - Altitude is 15°
+    correct_index: 1
+    explanation: Because of refraction and dip, the Sun's centre is on the celestial (rational) horizon when its lower limb is about one semi-diameter above the visible horizon. Amplitude tables assume this.
+    sources:
+      - { label: Norie's Nautical Tables, ref: Amplitudes }
+
+  - id: nav-celestial-002
+    topic: celestial
+    difficulty: 2
+    stem: The SOLAS requirement to determine compass error is
+    options:
+      - Once per voyage
+      - After each major alteration of course and at least once a watch where possible
+      - Only when entering port
+      - Monthly
+    correct_index: 1
+    explanation: SOLAS V/19 and STCW watchkeeping guidance require compass errors to be determined at least once a watch when possible, and after any major alteration of course. Record them in the compass error book.
+    sources:
+      - { label: STCW Code, ref: Section A-VIII/2 Part 4-1 }
+
+  - id: nav-pilotage-001
+    topic: pilotage
+    difficulty: 1
+    stem: When a pilot is on board, responsibility for the safe navigation of the vessel
+    options:
+      - Passes entirely to the pilot
+      - Remains with the master; the OOW continues to monitor and should challenge any doubtful action
+      - Passes to the Chief Mate
+      - Is shared equally under law in all countries
+    correct_index: 1
+    explanation: The pilot's presence does not relieve the master or OOW of their duties. A master–pilot information exchange must take place, and the OOW must monitor position and speak up if the pilot's actions or intentions are unclear.
+    sources:
+      - { label: STCW Code, ref: Section A-VIII/2 Part 4-1 }
+      - { label: IMO Res. A.960(23), ref: Pilotage recommendations }
+
+  - id: nav-ice-001
+    topic: ice-navigation
+    difficulty: 2
+    stem: Under SOLAS, the master of every ship which meets dangerous ice is bound to
+    options:
+      - Communicate the information by all means at their disposal to ships in the vicinity and to competent authorities
+      - Stop the ship until the ice melts
+      - Report only to the owner
+      - Report only if the ship is damaged
+    correct_index: 0
+    explanation: SOLAS V/31 requires danger messages for dangerous ice, derelicts, tropical storms, sub-freezing air temperatures with gale-force winds causing severe ice accretion, and winds of force 10 or above for which no storm warning has been received.
+    sources:
+      - { label: SOLAS, ref: Ch. V Reg. 31 }

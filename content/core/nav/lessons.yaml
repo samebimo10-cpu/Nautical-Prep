@@ -1,0 +1,71 @@
+defaults:
+  competence: NAV
+  type: lesson
+items:
+  - id: nav-lesson-passage-planning
+    topic: passage-planning
+    difficulty: 1
+    title: Passage planning at management level
+    related_item_ids: [nav-passage-plan-001, nav-passage-plan-002, nav-passage-plan-003, nav-oral-passage-appraisal]
+    body_md: |
+      ## The four stages — **A P E M**
+      1. **Appraisal**: gather all information.
+      2. **Planning**: draw up the berth-to-berth plan.
+      3. **Execution**: carry it out, with tactics (ETA, tides, daylight, traffic).
+      4. **Monitoring**: continuously check the ship's progress against the plan.
+
+      > Mnemonic: **"All Plans Execute Mistakes"**: the plan only works if you *monitor*.
+
+      ## What the Chief Mate checks
+      | Area | Check |
+      | --- | --- |
+      | Charts / ENCs | Largest scale, corrected (NtMs, T&Ps), permits valid |
+      | Publications | Sailing Directions, Lights, Radio Signals, Tide Tables, Ocean Passages |
+      | Ship | Draft, trim, **squat**, air draft, manoeuvring data, defects |
+      | Hazards | **No-go areas**, safety contour, clearing bearings, margins |
+      | Monitoring | Parallel indexing, fix intervals, wheel-over points |
+      | Contingency | **Abort points**, emergency anchorages, points of no return |
+      | Regulatory | TSS, reporting, VTS, ECA, ISPS / HRA |
+
+      ## Under-keel clearance
+      **UKC = charted depth + height of tide − draft − squat − allowances**
+
+      Follow the company UKC policy (static and dynamic minimums).
+
+      ## Exam tip
+      Examiners love "**What is an abort point?**" It is the last point at which the manoeuvre can be abandoned safely. Beyond it you're committed, so it must be marked and briefed.
+    sources:
+      - { label: IMO Res. A.893(21), ref: Guidelines for Voyage Planning }
+
+  - id: nav-lesson-trs
+    topic: tropical-storms
+    difficulty: 2
+    title: Tropical revolving storms — detect, locate, avoid
+    related_item_ids: [nav-trs-001, nav-trs-002, nav-trs-003, nav-weather-001, nav-oral-trs]
+    body_md: |
+      ## Warning signs
+      - Long low swell from the storm's direction
+      - Barometer **3 hPa below normal** (suspect), **5 hPa below** (assume a TRS)
+      - Loss of the diurnal pressure range
+      - Cirrus, then thickening cloud
+      - Unusual change in wind
+
+      ## Locate (Northern Hemisphere)
+      Face the wind: the centre is **8–12 points on your right**.
+
+      | Wind change | You are in |
+      | --- | --- |
+      | **Veering** | Dangerous (right-hand) semicircle |
+      | **Backing** | Navigable (left-hand) semicircle |
+      | Steady, pressure falling | On the track |
+
+      > Southern Hemisphere: everything reverses (left-hand semicircle is dangerous).
+
+      ## Action (NH, power vessel)
+      - **Dangerous**: wind **1–4 points on the starboard bow**, best speed, alter to starboard as it veers.
+      - **Navigable**: wind on the **starboard quarter**, alter to port as it backs.
+      - **On track ahead**: wind about **160° relative on the starboard quarter**, run into the navigable semicircle.
+
+      Report dangerous storms under **SOLAS V/31**.
+    sources:
+      - { label: The Mariner's Handbook (NP100), ref: Tropical revolving storms }

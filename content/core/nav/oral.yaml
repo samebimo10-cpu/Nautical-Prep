@@ -1,0 +1,308 @@
+defaults:
+  competence: NAV
+  type: oral
+  examiner_style: generic
+items:
+  - id: nav-oral-passage-appraisal
+    topic: passage-planning
+    difficulty: 2
+    question: You are Chief Mate and the Master asks you to check the Second Officer's passage plan for an ocean passage followed by a port approach. What would you check in the appraisal and planning?
+    model_answer: |
+      Appraisal: correct and up-to-date charts/ENCs (latest NtMs, T&P notices, ENC permits and updates), Sailing Directions, List of Lights, List of Radio Signals, Tide Tables and tidal stream atlases, Ocean Passages for the World and routeing charts, weather forecasts and routeing, ship's condition (draft, trim, squat, air draft, manoeuvring data, defects), local and port regulations, ship reporting and VTS requirements, ECA/MARPOL and security (ISPS, piracy/HRA) areas, and the company UKC policy.
+      Planning: courses and distances, wheel-over points, no-go areas and safety contour, clearing bearings/ranges and parallel indexing, abort points and contingency anchorages, tidal windows, speed changes, reporting points, areas of heavy traffic and TSS, positions for changing over steering, engine readiness and extra lookouts, and the bridge manning level for each leg. The Master approves the plan and the whole bridge team is briefed.
+    key_points:
+      - point: Charts/ENCs and publications up to date with corrections
+        match: ["chart|enc|publication|sailing direction|list of light", "correct|update|notice to mariner|ntm|latest"]
+      - point: Tides, tidal streams and weather considered
+        match: ["tide|tidal|weather|forecast"]
+      - point: Under-keel clearance, draft/squat and air draft (company UKC policy)
+        match: ["ukc|under keel|underkeel|squat|draft|air draft|clearance"]
+      - point: No-go areas, safety contour and margins of safety
+        match: ["no go|nogo|safety contour|margin|danger"]
+      - point: Parallel indexing / clearing bearings for monitoring
+        match: ["parallel index|clearing bearing|clearing line|clearing range|monitor"]
+      - point: Abort points and contingency plans/anchorages
+        match: ["abort|contingency|emergency anchorage|point of no return"]
+      - point: Reporting points, VTS, TSS and local regulations
+        match: ["report|vts|tss|traffic separation|local regulation|port regulation"]
+      - point: Master approves and bridge team is briefed
+        match: ["master|brief|approv|bridge team"]
+    follow_ups:
+      - What is an abort point and how would you mark it?
+      - How do you set the safety contour on ECDIS for this passage?
+    sources:
+      - { label: IMO Res. A.893(21), ref: Guidelines for Voyage Planning }
+      - { label: SOLAS, ref: Ch. V Reg. 34 }
+
+  - id: nav-oral-ecdis-settings
+    topic: ecdis
+    difficulty: 2
+    question: How would you set up the safety parameters on ECDIS before departure, and what are the dangers of over-reliance on ECDIS?
+    model_answer: |
+      Set the safety contour from static draft + squat + required UKC (+ a margin for tide and chart accuracy, CATZOC). Set safety depth for bold soundings, shallow and deep contours, and the look-ahead/anti-grounding guard zone in time or distance, suited to speed and area. Choose the display base or standard display and add other information as needed (isolated dangers, spot soundings). Set alarms for cross-track error, off-route, waypoint approach and safety contour, set the correct datum and position source, and check the chart update status and permits. Run the route check and review every alarm and warning.
+      Over-reliance: the chart is only as good as its survey data (CATZOC), GNSS errors or spoofing can go unnoticed, alarm fatigue sets in, "display base" can hide dangers, scale mistakes (over-scale, under-scale) happen, and with raster charts there are no chart-based alarms. Cross-check with radar overlay, visual fixes, parallel indexing and the echo sounder, and keep a proper lookout.
+    key_points:
+      - point: Safety contour from draft + squat + UKC
+        match: ["safety contour", "draft|squat|ukc|under keel"]
+      - point: Safety depth, shallow and deep contours
+        match: ["safety depth|shallow contour|deep contour"]
+      - point: Look-ahead / anti-grounding guard zone set
+        match: ["look ahead|guard zone|safety frame|anti grounding|vector"]
+      - point: Route checked for dangers and alarms reviewed
+        match: ["route check|check the route|alarm|warning"]
+      - point: Chart data quality (CATZOC) and update status
+        match: ["catzoc|zone of confidence|survey|update|permit"]
+      - point: Cross-check with independent means (radar, visual, echo sounder)
+        match: ["radar|visual|echo sounder|cross check|independent|parallel index"]
+      - point: GNSS failure or spoofing risk
+        match: ["gps|gnss|spoof|position source"]
+    follow_ups:
+      - What does CATZOC tell you and why does it matter for UKC?
+      - What would you do if both ECDIS units failed in coastal waters?
+    sources:
+      - { label: IMO Res. MSC.232(82), ref: ECDIS Performance Standards }
+      - { label: IMO SN.1/Circ.312, ref: ECDIS operating anomalies }
+
+  - id: nav-oral-ecdis-failure
+    topic: ecdis
+    difficulty: 3
+    question: Your ship uses ECDIS as the primary means of navigation and the main ECDIS fails during a coastal passage. What do you do?
+    model_answer: |
+      Inform the Master. Change over to the back-up ECDIS (or the approved back-up paper charts) and check the route and position are correct on it. Increase monitoring with radar (parallel indexing, ranges), visual fixes and the echo sounder. Call extra personnel if needed and consider reducing speed or delaying entry into confined waters. Log the failure and notify the company/DPA and technician. If the back-up also fails or is unreliable, navigate using radar and paper charts if carried, or consider anchoring or a holding position until safe. Notify port state/VTS if the failure affects safe navigation in their area, because a non-functional ECDIS can affect port entry and must be reported.
+    key_points:
+      - point: Inform the Master
+        match: ["master|captain"]
+      - point: Change to back-up ECDIS or paper charts
+        match: ["backup|back up|second ecdis|paper chart|standby"]
+      - point: Increase monitoring with radar, visual and echo sounder
+        match: ["radar|visual|echo sounder|parallel index|fix"]
+      - point: Consider speed reduction / anchoring / delaying
+        match: ["reduce speed|slow|anchor|delay|hold"]
+      - point: Log, inform company and arrange repair
+        match: ["log|record|company|dpa|technician|repair"]
+      - point: Report to VTS / port state if affects safe navigation
+        match: ["vts|port state|authorit|coast"]
+    follow_ups:
+      - What does SOLAS require as a back-up arrangement for ECDIS?
+    sources:
+      - { label: SOLAS, ref: Ch. V Reg. 19 }
+
+  - id: nav-oral-trs
+    topic: tropical-storms
+    difficulty: 2
+    question: How would you know you are approaching a tropical revolving storm, and how would you determine which semicircle you are in and avoid it in the Northern Hemisphere?
+    model_answer: |
+      Warnings: radio, NAVTEX and weather fax warnings; long, low swell from an unusual direction; corrected pressure 3 hPa below normal (suspect) or 5 hPa below (assume a TRS); loss of the diurnal range; cirrus followed by thickening cloud; a change in wind direction and strength; oppressive weather.
+      Position: by Buys Ballot's law, facing the wind the centre is about 8–12 points on the right (NH). Wind veering means the dangerous (right-hand) semicircle, backing means the navigable semicircle, and a steady direction with falling pressure means you are on the track.
+      Action (NH power vessel): dangerous semicircle, wind 1–4 points on the starboard bow and best speed, altering to starboard as it veers. Navigable semicircle, wind on the starboard quarter, alter course to port as it backs. On the track ahead of the centre, put the wind about 160° relative on the starboard quarter and run into the navigable semicircle. Send a danger message under SOLAS V/31. Secure the ship, check stability, and keep plotting the storm's track.
+    key_points:
+      - point: Warning signs (swell, pressure 3–5 hPa below normal, cloud, wind change)
+        match: ["swell|pressure|barometer|cloud|cirrus|3 hpa|5 hpa|3 mb|5 mb|millibar"]
+      - point: Buys Ballot's law to locate the centre
+        match: ["buys ballot|back to the wind|face the wind|facing the wind|centre on|center on"]
+      - point: Veering = dangerous semicircle, backing = navigable (NH)
+        match: ["veer", "dangerous"]
+      - point: Dangerous semicircle action — wind on starboard bow, best speed
+        match: ["starboard bow", "speed"]
+      - point: Navigable semicircle action — wind on starboard quarter
+        match: ["starboard quarter"]
+      - point: Send danger message (SOLAS V/31) and secure ship
+        match: ["danger message|report|secur|v 31|reg 31"]
+    follow_ups:
+      - What changes in the Southern Hemisphere?
+      - What is the significance of the "dangerous quadrant"?
+    critical: false
+    sources:
+      - { label: The Mariner's Handbook (NP100), ref: Tropical revolving storms }
+      - { label: SOLAS, ref: Ch. V Reg. 31–32 }
+
+  - id: nav-oral-ukc
+    topic: squat-ukc
+    difficulty: 2
+    question: Explain how you would calculate the under-keel clearance for a port approach. What factors reduce it?
+    model_answer: |
+      UKC = charted depth + predicted height of tide − static draft (corrected for density and trim) − squat − allowances.
+      Factors that reduce UKC: squat (depends on speed², Cb, blockage), heel and rolling, pitching and heave in swell, density changes (going from salt to fresh water increases draft by up to the FWA), negative storm surges and high pressure (each 1 hPa above normal lowers the level by roughly 1 cm), chart inaccuracy (CATZOC/old surveys), siltation, and the wrong height of tide (secondary port errors, timing). Compare against the company UKC policy (static and dynamic minimums), plan a tidal window, and reduce speed to reduce squat.
+    key_points:
+      - point: Charted depth + height of tide − draft
+        match: ["charted depth|chart depth|depth", "tide|tidal"]
+      - point: Squat (speed squared, Cb, confined water)
+        match: ["squat"]
+      - point: Density / fresh water allowance
+        match: ["density|fresh water|fwa|dock water"]
+      - point: Heel, roll, pitch, heave or swell
+        match: ["heel|roll|pitch|heave|swell|wave"]
+      - point: Meteorological effects (pressure, surge)
+        match: ["pressure|surge|meteorolog|wind"]
+      - point: Chart accuracy / CATZOC / siltation
+        match: ["catzoc|survey|accuracy|silt|zone of confidence"]
+      - point: Company UKC policy and tidal window
+        match: ["policy|company|window|minimum"]
+    follow_ups:
+      - How does a change of 10 hPa in pressure affect sea level?
+    sources:
+      - { label: Admiralty Tide Tables, ref: Meteorological effects }
+
+  - id: nav-oral-pilot-exchange
+    topic: pilotage
+    difficulty: 1
+    question: What information is exchanged between the Master and Pilot when the pilot boards, and what are your duties as OOW while the pilot has the con?
+    model_answer: |
+      The Master gives the Pilot Card: draft, air draft, dimensions, manoeuvring characteristics, engine/thruster status, anchors ready, any defects, propeller type and rudder angle limits. The pilot gives the intended passage plan (route, speeds, tugs, berthing side, mooring arrangements, VTS/communication channels, expected traffic, tidal conditions, and abort/contingency plans). The pilot also gets the wheelhouse poster and the plans are agreed.
+      OOW: monitor position and the pilot's orders (check they're carried out correctly, rudder and engine), keep a proper lookout, cross-check with the passage plan, keep the log, and challenge or tell the Master if in doubt. The Master stays responsible, and the pilot's presence does not relieve the OOW.
+    key_points:
+      - point: Pilot card / ship's particulars and manoeuvring data
+        match: ["pilot card|draft|manoeuvr|maneuver|particular|wheelhouse poster"]
+      - point: Pilot's passage plan, tugs, berthing agreed
+        match: ["plan|tug|berth|mooring|route"]
+      - point: Defects and equipment status disclosed
+        match: ["defect|status|equipment|engine|thruster"]
+      - point: OOW continues monitoring position and pilot's orders
+        match: ["monitor|check|position|order"]
+      - point: Master remains responsible; challenge if in doubt
+        match: ["master", "responsib|challenge|doubt|question"]
+    follow_ups:
+      - What would you do if you believed the pilot was about to put the ship into danger?
+    critical: true
+    sources:
+      - { label: IMO Res. A.960(23), ref: Master–pilot relationship }
+      - { label: STCW Code, ref: Section A-VIII/2 }
+
+  - id: nav-oral-gnss-loss
+    topic: bridge-equipment
+    difficulty: 2
+    question: During a coastal passage the GPS position starts to jump and AIS targets appear in impossible positions. What do you suspect and what action do you take?
+    model_answer: |
+      Suspect GNSS interference or spoofing (or jamming). Inform the Master. Navigate by independent means: radar ranges and bearings, parallel indexing, visual fixes, the echo sounder against charted depth, and DR/EP from log and gyro. Switch ECDIS to a DR or other position source, or treat its position as unreliable, and remember that AIS, ECDIS, the gyro speed correction, DSC position and VDR may all be affected. Reduce speed if needed, increase the watch, and report to VTS/coastal authorities and the company (and to the relevant reporting scheme). Log the event.
+    key_points:
+      - point: Suspect GNSS spoofing/jamming
+        match: ["spoof|jam|interference"]
+      - point: Inform the Master
+        match: ["master|captain"]
+      - point: Fix by radar / visual / echo sounder / parallel index
+        match: ["radar|visual|bearing|echo sounder|parallel index"]
+      - point: Use DR/EP and treat GNSS-fed systems as unreliable
+        match: ["dead reckoning|dr|estimated position|ep|unreliable|ecdis|ais"]
+      - point: Report to authorities/company and log
+        match: ["report|vts|authorit|company|log"]
+    follow_ups:
+      - Which other equipment depends on the GNSS input?
+    sources:
+      - { label: IMO MSC.1/Circ.1575, ref: Shipborne PNT guidelines }
+
+  - id: nav-oral-compass-error
+    topic: compass
+    difficulty: 1
+    question: How do you determine compass error at sea and in coastal waters, and how often should it be done?
+    model_answer: |
+      Coastal: transit bearings, comparing a charted transit with the gyro or magnetic bearing, or a bearing of a known object from a fixed position. At sea: an azimuth of a celestial body (Sun, star, or Polaris in lower northern latitudes) or an amplitude at rising or setting. Compare the true bearing calculated from tables or formula with the compass bearing. The error is the difference (High/Low for gyro, East/West for magnetic). Deviation = error − variation. Check at least once a watch where possible and after any large alteration of course. Record in the compass error book and update the deviation card.
+    key_points:
+      - point: Transit bearing (coastal)
+        match: ["transit|leading line|known bearing"]
+      - point: Azimuth or amplitude (celestial)
+        match: ["azimuth|amplitude|sun|star|polaris|pole star"]
+      - point: Compare true with compass to get error; deviation = error − variation
+        match: ["true", "compass|error|deviation"]
+      - point: Every watch and after major course alteration
+        match: ["every watch|each watch|once a watch|alteration|change of course"]
+      - point: Recorded in compass error book
+        match: ["record|book|log"]
+    follow_ups:
+      - Why is an amplitude taken when the Sun's lower limb is a semi-diameter above the horizon?
+    sources:
+      - { label: STCW Code, ref: Section A-VIII/2 }
+
+  - id: nav-oral-anchoring-plan
+    topic: anchoring
+    difficulty: 2
+    question: How would you plan an anchorage and what would you check to make sure the vessel is not dragging?
+    model_answer: |
+      Planning: choose a position with good holding ground, enough depth for the scope of cable, and shelter, clear of cables, pipelines, fairways and other ships. Plan the swinging circle (cable length + ship's length) and the approach: run in heading into wind and tide, with reducing speed and a clear marker for letting go. Brief the forecastle team, test the windlass, and decide the scope (commonly 4 × depth in good weather, up to 6–8 × in poor weather, or by formula).
+      Dragging checks: anchor watch with frequent fixes (radar ranges, visual bearings, GPS anchor alarm and ECDIS anchor watch circle), heading and the swing pattern, cable tension and lead (jerking or vibration on the cable), and transit bearings changing. If she is dragging: inform the Master, engine on standby or ready, pay out more cable or let go the second anchor, and heave up and re-anchor or proceed to sea if required.
+    key_points:
+      - point: Holding ground, depth, shelter, clear of cables/traffic
+        match: ["holding ground|holding|seabed|bottom|shelter|cable|pipeline|fairway"]
+      - point: Swinging circle and scope of cable
+        match: ["swing|scope|shackle|length of cable"]
+      - point: Approach into wind/tide at low speed
+        match: ["into the wind|into wind|tide|stem|slow|speed"]
+      - point: Anchor watch with frequent position checks and alarms
+        match: ["anchor watch|fix|bearing|range|alarm|position"]
+      - point: Signs of dragging (bearings change, cable jerking)
+        match: ["jerk|vibrat|bearing chang|position chang|drag"]
+      - point: Actions if dragging — Master, engines, more cable/second anchor
+        match: ["master|engine|second anchor|more cable|pay out|heave up"]
+    follow_ups:
+      - How would you anchor in deep water (more than 50 m)?
+    sources:
+      - { label: Nautical practice, ref: Anchoring }
+
+  - id: nav-oral-ice
+    topic: ice-navigation
+    difficulty: 3
+    question: Your vessel is routed through an area where ice may be encountered. What precautions would you take?
+    model_answer: |
+      Obtain ice reports and charts (ice services, NAVTEX, International Ice Patrol), routeing guidance and the ship's ice class/Polar Code certificate if applicable. Plan to keep clear of ice, maintaining a margin. Reduce speed at night and in poor visibility, post extra lookouts, use radar on both bands carefully (growlers and bergy bits are poor radar targets, especially in sea clutter), and use searchlights. Check sea and air temperature. Prepare for icing (deck crew, de-icing equipment, stability check for ice accretion). Enter ice at low speed, at right angles, at the edge where it is lightest. Keep engines ready and ballast to immerse the propeller and rudder. Report dangerous ice under SOLAS V/31.
+    key_points:
+      - point: Ice reports/charts and routeing information
+        match: ["ice report|ice chart|ice patrol|navtex|ice service|forecast"]
+      - point: Reduced speed and extra lookouts
+        match: ["reduce speed|slow|safe speed|lookout|look out"]
+      - point: Radar limitations (growlers, bergy bits)
+        match: ["growler|bergy|radar"]
+      - point: Icing / stability effects
+        match: ["icing|ice accretion|stabilit|topside ice"]
+      - point: Report dangerous ice (SOLAS V/31)
+        match: ["report|danger message|v 31"]
+    follow_ups:
+      - What is the Polar Code and when does it apply?
+    sources:
+      - { label: SOLAS, ref: Ch. V Reg. 31; Ch. XIV (Polar Code) }
+
+  - id: nav-oral-restricted-visibility-master
+    topic: watchkeeping
+    difficulty: 2
+    question: As Chief Mate on watch, visibility suddenly drops to less than 1 mile in a traffic area. What do you do?
+    model_answer: |
+      Call the Master (as per standing orders). Proceed at a safe speed with the engines ready for immediate manoeuvre, sound fog signals (Rule 35), switch on navigation lights, post extra lookouts (bow lookout if appropriate) and a helmsman, change to hand steering, and use radar on appropriate ranges with ARPA plotting. Close watertight doors. Use VHF/AIS carefully and avoid VHF-assisted collision avoidance. Comply with Rule 19, including avoiding an alteration to port for a vessel forward of the beam (other than one being overtaken). Inform the engine room. Record in the log.
+    key_points:
+      - point: Call the Master
+        match: ["master|captain"]
+      - point: Safe speed and engines ready
+        match: ["safe speed|reduce speed|slow|engine"]
+      - point: Sound fog signals and lights on
+        match: ["fog signal|sound signal|whistle|rule 35|light"]
+      - point: Extra lookout and hand steering
+        match: ["lookout|look out|hand steer|helmsman"]
+      - point: Radar/ARPA systematic observation
+        match: ["radar|arpa|plot"]
+      - point: Rule 19 action (avoid port alteration for vessel forward of beam)
+        match: ["rule 19|forward of the beam|alter to port|port alteration"]
+    follow_ups:
+      - Why is a turn to port for a vessel forward of the beam discouraged under Rule 19?
+    critical: true
+    sources:
+      - { label: COLREG, ref: Rules 6, 19, 35 }
+
+  - id: nav-oral-routeing-measures
+    topic: passage-planning
+    difficulty: 2
+    question: What ship routeing measures might you find on a chart, and what are the rules for using a traffic separation scheme?
+    model_answer: |
+      Routeing measures adopted by IMO include traffic separation schemes, inshore traffic zones, two-way routes, recommended tracks, deep-water routes, precautionary areas and areas to be avoided. Rule 10: proceed in the appropriate traffic lane in the general direction of traffic flow, keep clear of the separation zone, join or leave at the termini (or at as small an angle as practicable from the side), and cross on a heading as nearly as practicable at right angles to the flow. Do not use the inshore traffic zone when you can safely use the lane (except vessels under 20 m, sailing vessels, fishing, or to reach a port or place within the zone). Avoid anchoring in the TSS or near its termini. Give way to vessels in the lane where required by the rules. Rule 10 does not relieve any vessel of her obligations under any other rule.
+    key_points:
+      - point: Types of routeing measures (TSS, ITZ, deep water routes, areas to be avoided)
+        match: ["inshore traffic zone|deep water route|area to be avoided|precautionary|two way route|recommended track"]
+      - point: Proceed in correct lane in direction of flow
+        match: ["lane", "direction|flow"]
+      - point: Join/leave at termini or small angle
+        match: ["termin|small angle|join|leave"]
+      - point: Cross at right angles (heading)
+        match: ["right angle|90"]
+      - point: Avoid separation zone and anchoring
+        match: ["separation zone|anchor"]
+    follow_ups:
+      - Which vessels may use an inshore traffic zone?
+    sources:
+      - { label: COLREG, ref: Rule 10 }
+      - { label: SOLAS, ref: Ch. V Reg. 10 }

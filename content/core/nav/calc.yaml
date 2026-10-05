@@ -1,0 +1,127 @@
+defaults:
+  competence: NAV
+  type: calc
+items:
+  - id: nav-calc-gc-distance
+    topic: great-circle
+    difficulty: 2
+    template: "Find the great circle distance from {{lat1}}°N, longitude {{lon1}}° to {{lat2}}°N, longitude {{lon2}}° (negative longitude = West). Answer in nautical miles."
+    variables:
+      lat1: { min: 30, max: 45, step: 1 }
+      lon1: { min: -20, max: -5, step: 1 }
+      lat2: { min: 30, max: 45, step: 1 }
+      lon2: { min: -75, max: -55, step: 1 }
+    calc_fn: nav.gcDistance
+    units: nm
+    tolerance: 2
+    worked_solution_template: |
+      1. d.long = {{dlong:1}}° (westerly)
+      2. cos D = sin L1 · sin L2 + cos L1 · cos L2 · cos d.long
+      3. Distance = D (degrees) × 60 = {{distance:1}} nm
+    sources:
+      - { label: Spherical trigonometry, ref: Cosine formula }
+
+  - id: nav-calc-gc-course
+    topic: great-circle
+    difficulty: 3
+    template: "Find the initial great circle course from {{lat1}}°N, longitude {{lon1}}° to {{lat2}}°N, longitude {{lon2}}° (negative = West), in °T."
+    variables:
+      lat1: { min: 35, max: 50, step: 1 }
+      lon1: { min: -15, max: -5, step: 1 }
+      lat2: { min: 35, max: 45, step: 1 }
+      lon2: { min: -75, max: -60, step: 1 }
+    calc_fn: nav.gcInitialCourse
+    units: "°"
+    tolerance: 0.5
+    worked_solution_template: |
+      1. d.long = {{dlong:1}}°
+      2. tan C = sin d.long / (cos L1 · tan L2 − sin L1 · cos d.long)
+      3. Resolve quadrant (westerly d.long, northerly start) → initial course {{ic:1}}°T
+      4. Great circle distance for reference = {{distance:1}} nm
+    sources:
+      - { label: Spherical trigonometry, ref: Initial course formula }
+
+  - id: nav-calc-mercator
+    topic: mercator-sailing
+    difficulty: 2
+    template: "By Mercator sailing, find the rhumb line course from {{lat1}}°N {{lon1}}°E to {{lat2}}°N {{lon2}}°E (°T)."
+    variables:
+      lat1: { min: 0, max: 20, step: 1 }
+      lon1: { min: 100, max: 110, step: 1 }
+      lat2: { min: 22, max: 40, step: 1 }
+      lon2: { min: 115, max: 140, step: 1 }
+    calc_fn: nav.mercatorCourse
+    units: "°"
+    tolerance: 0.5
+    worked_solution_template: |
+      1. MP(L1) = {{mp1:1}}, MP(L2) = {{mp2:1}} → DMP = {{dmp:1}}
+      2. d.long = {{dlongMin:0}}′, d.lat = {{dlatMin:0}}′
+      3. tan C = d.long / DMP → course {{course:1}}°T
+      4. Distance = d.lat / cos C = {{distance:1}} nm
+    sources:
+      - { label: Norie's Nautical Tables, ref: Meridional parts }
+
+  - id: nav-calc-amplitude
+    topic: compass
+    difficulty: 2
+    template: "In latitude {{lat}}°N the Sun (declination {{dec}}°N) rises bearing {{compass}}° by compass. Variation is {{variation}}° (negative = W). Find the deviation (+E / −W) in degrees."
+    variables:
+      lat: { min: 10, max: 50, step: 1 }
+      dec: { min: 5, max: 23, step: 1 }
+      compass: { min: 55, max: 85, step: 1 }
+      variation: { min: -8, max: 8, step: 1 }
+    calc_fn: nav.amplitudeDeviation
+    units: "°"
+    tolerance: 0.3
+    worked_solution_template: |
+      1. sin Amp = sin Dec / cos Lat → Amp = E {{amp:2}}° N
+      2. True bearing = 090 − {{amp:2}} = {{trueBearing:2}}°T
+      3. Compass error = True − Compass = {{error:2}}° (+E/−W)
+      4. Deviation = Error − Variation = {{deviation:2}}°
+    sources:
+      - { label: Norie's Nautical Tables, ref: Amplitudes }
+
+  - id: nav-calc-tide-secondary
+    topic: tides
+    difficulty: 2
+    template: |
+      Standard port: LW {{lwh}} m at {{lwt}} h, HW {{hwh}} m at {{hwt}} h (decimal hours).
+      Secondary port differences: HW time {{dhwt}} h, LW time {{dlwt}} h, HW height {{dhwh}} m, LW height {{dlwh}} m.
+      Using the cosine method, find the height of tide at the secondary port at {{t}} h.
+    variables:
+      lwh: { min: 0.3, max: 1.2, step: 0.1 }
+      lwt: { min: 0, max: 1, step: 0.5 }
+      hwh: { min: 3.5, max: 5.5, step: 0.1 }
+      hwt: { min: 6, max: 6.5, step: 0.5 }
+      dhwt: { min: 0, max: 0.5, step: 0.25 }
+      dlwt: { min: 0, max: 0.5, step: 0.25 }
+      dhwh: { min: -0.5, max: 0.2, step: 0.1 }
+      dlwh: { min: -0.2, max: 0.1, step: 0.1 }
+      t: { min: 2, max: 5, step: 0.5 }
+    calc_fn: nav.secondaryTide
+    units: m
+    tolerance: 0.05
+    worked_solution_template: |
+      1. Secondary LW = {{lwHeight:2}} m at {{lwTime:2}} h; HW = {{hwHeight:2}} m at {{hwTime:2}} h
+      2. Range = {{range:2}} m, duration = {{duration:2}} h
+      3. h = LW + Range × (1 − cos(180° × t/D)) / 2 = {{height:2}} m
+    sources:
+      - { label: Admiralty Tide Tables, ref: Secondary ports; cosine curve approximation }
+
+  - id: nav-calc-squat
+    topic: squat-ukc
+    difficulty: 1
+    template: "A vessel with block coefficient {{cb}} proceeds at {{v}} knots. Confined channel? ({{confined}} = 1 yes, 0 no). Estimate maximum squat (m) using Barrass's formula."
+    variables:
+      cb: { min: 0.6, max: 0.85, step: 0.05 }
+      v: { min: 6, max: 14, step: 1 }
+      confined: { min: 0, max: 1, step: 1 }
+    calc_fn: trim.squat
+    units: m
+    tolerance: 0.02
+    worked_solution_template: |
+      1. V² = {{v2:0}}
+      2. Squat = Cb × V² / 100 (open) or / 50 (confined)
+      3. Squat = {{squat:2}} m
+    sources:
+      - { label: Barrass, Ship Squat, ref: Empirical formula }

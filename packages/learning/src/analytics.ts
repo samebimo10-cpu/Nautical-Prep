@@ -2,7 +2,7 @@ import { COMPETENCES, SYLLABUS_WEIGHTS, type Competence } from "@cm/content-sche
 import { DAY_MS, type Confidence } from "./srs";
 
 export interface Attempt {
-  id?: string;
+  id?: string | number;
   item_id: string;
   item_type: "mcq" | "written" | "calc" | "oral" | "scenario" | "flashcard";
   competence: Competence;

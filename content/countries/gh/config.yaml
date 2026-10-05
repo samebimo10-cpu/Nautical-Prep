@@ -1,0 +1,26 @@
+# ALL regulatory values below are DRAFT / null until confirmed with GMA.
+# Do not fill from memory — see docs/CONTENT_TODO.md.
+code: gh
+name: Ghana
+authority: GMA (Ghana Maritime Authority)
+currency: GHS
+wave: 2
+exam_components:
+  - id: written
+    format: draft
+    duration_minutes: null
+    pass_mark_percent: null
+    question_count: null
+  - id: oral
+    format: draft
+    duration_minutes: null
+    pass_mark_percent: null
+    question_count: null
+eligibility:
+  sea_time_months: null
+  required_courses: []
+local_topics: []
+examiner_persona: gh
+status: draft
+notes:
+  - Exam format, pass marks, fees and eligibility to be confirmed with GMA.

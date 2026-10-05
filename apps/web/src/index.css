@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .card { @apply rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200; }
+  .btn { @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl px-4 py-2 font-semibold transition disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply btn bg-navy-800 text-white hover:bg-navy-700; }
+  .btn-accent { @apply btn bg-sea-600 text-white hover:bg-sea-500; }
+  .btn-ghost { @apply btn bg-slate-100 text-slate-800 hover:bg-slate-200; }
+  .btn-danger { @apply btn bg-signal-red text-white; }
+  .input { @apply w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-base focus:border-sea-500 focus:outline-none focus:ring-2 focus:ring-sea-400/40; }
+  .label { @apply mb-1 block text-sm font-medium text-slate-700; }
+  .chip { @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold; }
+  .h1 { @apply text-2xl font-bold text-navy-800; }
+  .h2 { @apply text-lg font-semibold text-navy-800; }
+  .muted { @apply text-sm text-slate-600; }
+  .prose-cm h1 { @apply mb-2 mt-4 text-xl font-bold text-navy-800; }
+  .prose-cm h2 { @apply mb-2 mt-4 text-lg font-semibold text-navy-800; }
+  .prose-cm h3 { @apply mb-1 mt-3 font-semibold text-navy-700; }
+  .prose-cm p { @apply my-2 leading-relaxed; }
+  .prose-cm ul { @apply my-2 list-disc pl-6; }
+  .prose-cm ol { @apply my-2 list-decimal pl-6; }
+  .prose-cm li { @apply my-0.5; }
+  .prose-cm table { @apply my-3 w-full border-collapse text-sm; }
+  .prose-cm th, .prose-cm td { @apply border border-slate-300 px-2 py-1 text-left; }
+  .prose-cm code { @apply rounded bg-slate-100 px-1; }
+  .prose-cm blockquote { @apply my-2 border-l-4 border-sea-500 bg-sea-400/10 px-3 py-2; }
+  .prose-cm strong { @apply font-semibold text-navy-800; }
+}
+
+:focus-visible { outline: 3px solid #2ec4b6; outline-offset: 2px; }
+body { padding-bottom: env(safe-area-inset-bottom); }

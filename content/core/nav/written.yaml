@@ -1,0 +1,42 @@
+defaults:
+  competence: NAV
+  type: written
+items:
+  - id: nav-written-passage-plan
+    topic: passage-planning
+    difficulty: 2
+    prompt: Describe the factors to be considered in the appraisal and planning stages of a passage plan for a deep-draught vessel approaching a port through a channel with tidal restrictions.
+    model_answer: |
+      Appraisal: ship's condition (draft, trim, squat, air draft, manoeuvring limits); charts/ENCs and publications corrected up to date; tidal predictions and streams for the channel; company UKC policy; weather and swell forecasts; traffic density, VTS and reporting requirements; pilotage and tug availability; local regulations.
+      Planning: tidal window calculated (earliest/latest time with required UKC including squat at planned speed); no-go areas marked; courses, wheel-over positions and turning radii; parallel indexing and clearing lines; abort point before the channel and contingency anchorages; speed plan to limit squat; bridge manning and engine readiness; communication plan (VTS channels); pilot boarding position; briefing of the bridge team; Master's approval.
+    marking_points:
+      - { point: Ship's draft, squat and air draft considered, weight: 2 }
+      - { point: Tidal window calculated with UKC policy, weight: 3 }
+      - { point: Charts/publications corrected and appropriate scale, weight: 1 }
+      - { point: No-go areas and safety contour marked, weight: 2 }
+      - { point: Parallel indexing / clearing lines, weight: 2 }
+      - { point: Abort point and contingency anchorage, weight: 2 }
+      - { point: VTS, pilotage, tugs and reporting, weight: 1 }
+      - { point: Bridge team briefing and Master's approval, weight: 1 }
+    sources:
+      - { label: IMO Res. A.893(21), ref: Guidelines for Voyage Planning }
+
+  - id: nav-written-trs
+    topic: tropical-storms
+    difficulty: 3
+    prompt: Your vessel is in the North Atlantic in September. Describe how you would detect a tropical revolving storm, locate its centre, and the avoiding action you would take if you found yourself in each part of the storm.
+    model_answer: |
+      Detection: warnings (NAVTEX, SafetyNET, weather fax), swell from an unusual direction, barometer 3 hPa below normal (suspect) / 5 hPa (assume), loss of diurnal range, cirrus and cloud changes, wind change.
+      Location: Buys Ballot's law — facing the wind, centre 8–12 points to the right in NH; plot successive bearings; track estimation from forecasts.
+      Semicircle: veering = dangerous; backing = navigable; steady direction, falling pressure = on track.
+      Action NH: dangerous semicircle — wind 1–4 points on starboard bow, best speed, alter to starboard as wind veers; navigable — wind on starboard quarter, alter to port as it backs; on track ahead — wind about 160° relative on starboard quarter into navigable semicircle; behind — avoid the centre.
+      Also: secure ship, check stability, report under SOLAS V/31.
+    marking_points:
+      - { point: Warning signs listed, weight: 2 }
+      - { point: Buys Ballot's law, weight: 2 }
+      - { point: Veering/backing rule for semicircle, weight: 2 }
+      - { point: Correct action dangerous semicircle, weight: 2 }
+      - { point: Correct action navigable semicircle and on track, weight: 2 }
+      - { point: SOLAS danger message and ship preparation, weight: 1 }
+    sources:
+      - { label: The Mariner's Handbook (NP100), ref: Tropical revolving storms }

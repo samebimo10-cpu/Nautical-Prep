@@ -1,0 +1,26 @@
+# ALL regulatory values below are DRAFT / null until confirmed with NIMASA.
+# Do not fill from memory — see docs/CONTENT_TODO.md.
+code: ng
+name: Nigeria
+authority: NIMASA (Nigerian Maritime Administration and Safety Agency)
+currency: NGN
+wave: 1
+exam_components:
+  - id: written
+    format: draft
+    duration_minutes: null
+    pass_mark_percent: null
+    question_count: null
+  - id: oral
+    format: draft
+    duration_minutes: null
+    pass_mark_percent: null
+    question_count: null
+eligibility:
+  sea_time_months: null
+  required_courses: []
+local_topics: []
+examiner_persona: ng
+status: draft
+notes:
+  - Exam format, pass marks, fees and eligibility to be confirmed with NIMASA.
