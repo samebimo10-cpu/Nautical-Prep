@@ -6,12 +6,19 @@ import { Markdown } from "../../components/Markdown";
 
 export function Booking() {
   const profile = useProfile();
-  const data = useLiveQuery(async () => ({ md: await getMeta<string | null>("booking_md"), config: profile ? await db.configs.get(profile.country) : undefined }), [profile?.country]);
+  const data = useLiveQuery(
+    async () => ({ md: await getMeta<string | null>("booking_md"), config: profile ? await db.configs.get(profile.country) : undefined }),
+    [profile?.country],
+  );
   if (!data) return null;
   return (
     <div>
       <PageHeader title="Exam booking guide" back="/more" />
-      {data.config?.status !== "reviewed" && <Banner tone="warn">Draft guide. Steps, fees and documents must be confirmed with {data.config?.authority ?? "the authority"} before you rely on them.</Banner>}
+      {data.config?.status !== "reviewed" && (
+        <Banner tone="warn">
+          Draft guide. Steps, fees and documents must be confirmed with {data.config?.authority ?? "the authority"} before you rely on them.
+        </Banner>
+      )}
       <div className="card">{data.md ? <Markdown>{data.md}</Markdown> : <p>No guide available for this country yet.</p>}</div>
       {data.config && (
         <div className="card mt-3 text-sm">

@@ -36,6 +36,7 @@ if (check) {
     process.exit(1);
   }
   console.log("✓ Production gate: paid bundles contain reviewed items only");
+  if (outIdx < 0) process.exit(0); // check-only unless an output dir is given
 }
 
 mkdirSync(out, { recursive: true });

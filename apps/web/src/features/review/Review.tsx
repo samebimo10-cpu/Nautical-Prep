@@ -97,7 +97,10 @@ export function Review() {
   const { card, item } = queue[i]!;
   async function rate(q: number) {
     await db.srs.put(review(card, q, new Date()));
-    await recordAttempt(item.type === "lesson" ? { ...item, type: "flashcard" } : { ...item, type: "flashcard" }, q >= 3 ? 1 : 0, { timeMs: 0, source: "review" });
+    await recordAttempt(item.type === "lesson" ? { ...item, type: "flashcard" } : { ...item, type: "flashcard" }, q >= 3 ? 1 : 0, {
+      timeMs: 0,
+      source: "review",
+    });
     setShown(false);
     setI((x) => x + 1);
   }

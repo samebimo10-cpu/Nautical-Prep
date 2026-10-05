@@ -10,7 +10,9 @@ export function ProgressPage() {
   if (!attempts) return null;
   const now = new Date();
   const comp = scoreByCompetence(attempts, now, 30);
-  const topics = Object.values(scoreByTopic(attempts, now, 30)).filter((t) => t.attempts >= 2).sort((a, b) => a.avg - b.avg);
+  const topics = Object.values(scoreByTopic(attempts, now, 30))
+    .filter((t) => t.attempts >= 2)
+    .sort((a, b) => a.avg - b.avg);
   const timeMin = Math.round(attempts.reduce((s, a) => s + (a.time_ms || 0), 0) / 60000);
   const sure = attempts.filter((a) => a.confidence === "sure");
   const calibration = sure.length ? sure.filter((a) => a.score >= 0.6).length / sure.length : null;
@@ -42,7 +44,10 @@ export function ProgressPage() {
         <ul className="grid gap-1">
           {topics.slice(0, 10).map((t) => (
             <li key={`${t.competence}/${t.topic}`}>
-              <Link to={`/quiz?competence=${t.competence}&topic=${encodeURIComponent(t.topic)}&n=10`} className="flex justify-between rounded-lg px-2 py-1.5 text-sm hover:bg-slate-50">
+              <Link
+                to={`/quiz?competence=${t.competence}&topic=${encodeURIComponent(t.topic)}&n=10`}
+                className="flex justify-between rounded-lg px-2 py-1.5 text-sm hover:bg-slate-50"
+              >
                 <span className="capitalize">
                   {t.competence} · {t.topic.replace(/-/g, " ")}
                 </span>

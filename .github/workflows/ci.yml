@@ -1,0 +1,48 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - name: Content validation
+        run: pnpm content:validate
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - name: Unit tests (calc coverage ≥ 95%)
+        run: pnpm test -- --coverage --coverage.thresholds.lines=95 --coverage.include='packages/calc/src/**'
+      - run: pnpm build
+      - run: pnpm size:check
+      - run: pnpm secrets:check
+      - name: RLS tests (throwaway Postgres)
+        run: |
+          sudo apt-get update && sudo apt-get install -y postgresql
+          sudo systemctl stop postgresql || true
+          pnpm test:rls
+      - run: pnpm --filter web exec playwright install --with-deps chromium
+      - name: E2E (incl. offline)
+        run: pnpm e2e
+        env: { CI: "true" }
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with: { name: playwright-report, path: apps/web/playwright-report }
+
+  production-gate:
+    # Fails when a paid production bundle would contain non-reviewed items (spec M9).
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm content:gate

@@ -21,7 +21,7 @@ export function aiAvailable(): boolean {
 }
 
 async function invoke<T>(fn: string, body: Record<string, unknown>): Promise<T> {
-  const sb = supabase();
+  const sb = await supabase();
   if (!sb) throw new Error("AI features need the online backend (not configured).");
   if (!navigator.onLine) throw new Error("needs connection");
   const { data, error } = await sb.functions.invoke(fn, { body });

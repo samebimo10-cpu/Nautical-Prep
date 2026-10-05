@@ -9,11 +9,14 @@ import { Banner, Card, PageHeader } from "../../components/ui";
 export function MockHome() {
   const nav = useNavigate();
   const profile = useProfile();
-  const data = useLiveQuery(async () => ({
-    config: profile ? await db.configs.get(profile.country) : undefined,
-    mocks: await db.mocks.orderBy("started_at").reverse().toArray(),
-    count: await db.items.count(),
-  }), [profile?.country]);
+  const data = useLiveQuery(
+    async () => ({
+      config: profile ? await db.configs.get(profile.country) : undefined,
+      mocks: await db.mocks.orderBy("started_at").reverse().toArray(),
+      count: await db.items.count(),
+    }),
+    [profile?.country],
+  );
   if (!profile || !data) return null;
   const fmt = mockFormat(data.config);
   const ent = entitlementsFor(localTier());
@@ -47,8 +50,8 @@ export function MockHome() {
       <PageHeader title="Mock exam" back="/practice" />
       {!fmt.official && (
         <Banner tone="warn">
-          <strong>Official format not yet confirmed.</strong> This is a practice format: {fmt.question_count} questions, {fmt.duration_minutes} minutes, pass mark{" "}
-          {fmt.pass_mark_percent}%.
+          <strong>Official format not yet confirmed.</strong> This is a practice format: {fmt.question_count} questions, {fmt.duration_minutes} minutes, pass
+          mark {fmt.pass_mark_percent}%.
         </Banner>
       )}
       <Card>
@@ -81,7 +84,9 @@ export function MockHome() {
               <li key={m.id}>
                 <Link to={`/mock/result/${m.id}`} className="flex items-center justify-between py-2">
                   <span className="text-sm">{new Date(m.started_at).toLocaleString()}</span>
-                  <span className={`chip ${m.result!.passed ? "bg-emerald-100 text-emerald-800" : "bg-red-100 text-red-800"}`}>{Math.round(m.result!.percent)}%</span>
+                  <span className={`chip ${m.result!.passed ? "bg-emerald-100 text-emerald-800" : "bg-red-100 text-red-800"}`}>
+                    {Math.round(m.result!.percent)}%
+                  </span>
                 </Link>
               </li>
             ))}

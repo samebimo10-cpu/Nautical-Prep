@@ -64,7 +64,13 @@ export function QuizRun() {
           <p className="muted">
             {outcomes.length} questions · {missed.length} to review
           </p>
-          <p className="mt-2 text-sm">{pct >= 85 ? "Exam-ready standard on this set." : pct >= 70 ? "Pass level — push for 85%+ for a safety margin." : "Below pass level — missed items are now in your review deck."}</p>
+          <p className="mt-2 text-sm">
+            {pct >= 85
+              ? "Exam-ready standard on this set."
+              : pct >= 70
+                ? "Pass level — push for 85%+ for a safety margin."
+                : "Below pass level — missed items are now in your review deck."}
+          </p>
         </div>
         {missed.length > 0 && (
           <Link to={`/quiz?ids=${missed.map((m) => m.item.id).join(",")}`} className="btn-accent">
@@ -149,7 +155,13 @@ export function McqCard({ item, onDone }: { item: McqItem; onDone: (score: numbe
               data-testid={`option-${pos}`}
               data-correct={i === item.correct_index ? "true" : undefined}
               className={`min-h-[48px] rounded-xl border px-3 py-2 text-left ${
-                state === "chosen" ? "border-sea-500 bg-sea-400/10" : state === "right" ? "border-emerald-500 bg-emerald-50" : state === "wrong" ? "border-red-500 bg-red-50" : "border-slate-200"
+                state === "chosen"
+                  ? "border-sea-500 bg-sea-400/10"
+                  : state === "right"
+                    ? "border-emerald-500 bg-emerald-50"
+                    : state === "wrong"
+                      ? "border-red-500 bg-red-50"
+                      : "border-slate-200"
               }`}
             >
               <span className="mr-2 font-bold">{"ABCD"[pos]}.</span>

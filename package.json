@@ -15,8 +15,11 @@
     "content:import": "tsx scripts/import-content.ts",
     "content:bundle": "tsx scripts/export-offline-bundle.ts",
     "content:gate": "tsx scripts/export-offline-bundle.ts --prod --check",
-    "ci:all": "pnpm content:validate && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm e2e && pnpm content:import && pnpm secrets:check",
-    "secrets:check": "node scripts/check-secrets.mjs"
+    "ci:all": "pnpm content:validate && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm size:check && pnpm secrets:check && pnpm e2e && pnpm content:import && pnpm content:gate",
+    "secrets:check": "node scripts/check-secrets.mjs",
+    "content:apply-reviews": "tsx scripts/apply-reviews.ts",
+    "test:rls": "bash scripts/test-rls.sh",
+    "size:check": "node scripts/check-bundle-size.mjs"
   },
   "devDependencies": {
     "@cm/calc": "workspace:*",

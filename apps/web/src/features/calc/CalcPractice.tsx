@@ -41,11 +41,21 @@ export function CalcPractice() {
 
   return (
     <div>
-      <PageHeader title={item.topic.replace(/-/g, " ")} back="/calc" right={<span className="chip bg-navy-50 text-navy-700">{count.right}/{count.done}</span>} />
+      <PageHeader
+        title={item.topic.replace(/-/g, " ")}
+        back="/calc"
+        right={
+          <span className="chip bg-navy-50 text-navy-700">
+            {count.right}/{count.done}
+          </span>
+        }
+      />
       <div className="card">
         <div className="mb-2 flex items-center gap-2">
           <DraftBadge status={item.status} />
-          <span className="text-xs text-slate-600">Tolerance ±{item.tolerance} {item.units}</span>
+          <span className="text-xs text-slate-600">
+            Tolerance ±{item.tolerance} {item.units}
+          </span>
         </div>
         <p className="whitespace-pre-line text-lg leading-relaxed" data-testid="calc-stem">
           {g.stem}

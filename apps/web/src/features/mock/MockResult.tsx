@@ -49,7 +49,13 @@ export function MockResultPage() {
       </div>
       {wrong.length > 0 && (
         <>
-          <Link to={`/quiz?ids=${wrong.filter((q) => q.kind === "mcq").map((q) => q.item_id).join(",")}`} className="btn-accent">
+          <Link
+            to={`/quiz?ids=${wrong
+              .filter((q) => q.kind === "mcq")
+              .map((q) => q.item_id)
+              .join(",")}`}
+            className="btn-accent"
+          >
             Re-practise the questions you got wrong
           </Link>
           <div className="card">

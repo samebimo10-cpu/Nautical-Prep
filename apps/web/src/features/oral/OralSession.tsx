@@ -17,7 +17,13 @@ async function finalise(row: OralRow, session: OralSession, verdict: OralVerdict
     if (it) await recordAttempt(it, r.score, { timeMs: 0, answer: r.answer, source: "oral" });
   }
   await db.orals.update(row.id, { session, verdict });
-  await enqueue("oral", { country: row.country, transcript: session.turns, rubric_scores: session.results.map((r) => ({ item_id: r.item_id, score: r.score, missed: r.missed })), verdict: verdict.passed ? "pass" : "fail", created_at: row.created_at });
+  await enqueue("oral", {
+    country: row.country,
+    transcript: session.turns,
+    rubric_scores: session.results.map((r) => ({ item_id: r.item_id, score: r.score, missed: r.missed })),
+    verdict: verdict.passed ? "pass" : "fail",
+    created_at: row.created_at,
+  });
   await trackEvent("oral_complete", { engine: row.engine, average: verdict.average, passed: verdict.passed });
 }
 
@@ -36,7 +42,11 @@ export function OralSessionPage() {
   const spokenRef = useRef(0);
 
   useEffect(() => {
-    void db.items.where("type").equals("oral").toArray().then((l) => setItems(new Map((l as OralItem[]).map((i) => [i.id, i]))));
+    void db.items
+      .where("type")
+      .equals("oral")
+      .toArray()
+      .then((l) => setItems(new Map((l as OralItem[]).map((i) => [i.id, i]))));
   }, []);
 
   // AI engine: start the server session on first load
@@ -46,7 +56,16 @@ export function OralSessionPage() {
       try {
         const r = await oralTurn({ country: row.country, n: row.session.itemIds.length });
         const persona = PERSONAS[row.session.persona] ?? PERSONAS.generic!;
-        await db.orals.update(row.id, { ai_session_id: r.session_id, session: { ...row.session, turns: [{ role: "examiner", text: persona.greeting }, { role: "examiner", text: r.examiner_text }] } });
+        await db.orals.update(row.id, {
+          ai_session_id: r.session_id,
+          session: {
+            ...row.session,
+            turns: [
+              { role: "examiner", text: persona.greeting },
+              { role: "examiner", text: r.examiner_text },
+            ],
+          },
+        });
       } catch (e) {
         setErr((e as Error).message);
       }
@@ -69,7 +88,18 @@ export function OralSessionPage() {
       const res = await oralTurn({ session_id: r.ai_session_id, country: r.country, answer });
       const turns = [...r.session.turns, { role: "candidate" as const, text: answer }, { role: "examiner" as const, text: res.examiner_text }];
       const results = res.grade
-        ? [...r.session.results, { item_id: res.grade.item_id, score: res.grade.score, hit: res.grade.points_hit, missed: res.grade.points_missed, critical: items?.get(res.grade.item_id)?.critical ?? false, followUpAsked: false, answer }]
+        ? [
+            ...r.session.results,
+            {
+              item_id: res.grade.item_id,
+              score: res.grade.score,
+              hit: res.grade.points_hit,
+              missed: res.grade.points_missed,
+              critical: items?.get(res.grade.item_id)?.critical ?? false,
+              followUpAsked: false,
+              answer,
+            },
+          ]
         : r.session.results;
       const session: OralSession = { ...r.session, turns, results, phase: res.done ? "done" : "question" };
       await db.orals.update(r.id, { session, pending_answer: null });
@@ -83,7 +113,8 @@ export function OralSessionPage() {
 
   // flush a queued AI answer when back online
   useEffect(() => {
-    if (row?.engine === "ai" && row.pending_answer && online && row.ai_session_id) void sendAi(row, row.pending_answer).catch((e) => setErr((e as Error).message));
+    if (row?.engine === "ai" && row.pending_answer && online && row.ai_session_id)
+      void sendAi(row, row.pending_answer).catch((e) => setErr((e as Error).message));
   }, [online, row, sendAi]);
 
   if (!row || !items) return null;
@@ -147,7 +178,11 @@ export function OralSessionPage() {
           <li
             key={i}
             className={`max-w-[88%] whitespace-pre-line rounded-2xl px-3 py-2 text-sm ${
-              t.role === "candidate" ? "ml-auto bg-navy-800 text-white" : t.role === "coach" ? "bg-emerald-50 ring-1 ring-emerald-200" : "bg-white ring-1 ring-slate-200"
+              t.role === "candidate"
+                ? "ml-auto bg-navy-800 text-white"
+                : t.role === "coach"
+                  ? "bg-emerald-50 ring-1 ring-emerald-200"
+                  : "bg-white ring-1 ring-slate-200"
             }`}
           >
             <span className="mb-0.5 block text-[10px] font-bold uppercase tracking-wide opacity-70">{t.role}</span>
@@ -181,7 +216,9 @@ export function OralSessionPage() {
               {s.phase === "probe" ? "Add to answer" : "Answer"}
             </button>
           </div>
-          {!voice.canListen() && voiceOn && <p className="mt-1 text-xs text-slate-600">Speech input isn't supported in this browser, so type your answer instead.</p>}
+          {!voice.canListen() && voiceOn && (
+            <p className="mt-1 text-xs text-slate-600">Speech input isn't supported in this browser, so type your answer instead.</p>
+          )}
         </div>
       ) : (
         row.verdict && (

@@ -2,10 +2,37 @@ import { describe, expect, it } from "vitest";
 import type { Item } from "@cm/content-schema";
 import { selectQuiz } from "./select";
 
-const base = { topic: "t", countries: ["*" as const], difficulty: 1 as const, sources: [], status: "draft" as const, needs_review: true, last_reviewed: null, reviewer: null };
-const mcq = (id: string, competence: Item["competence"], difficulty: 1 | 2 | 3 = 1): Item => ({ ...base, difficulty, id, competence, type: "mcq", stem: "Question?", options: ["a", "b", "c", "d"], correct_index: 0, explanation: "Because." });
+const base = {
+  topic: "t",
+  countries: ["*" as const],
+  difficulty: 1 as const,
+  sources: [],
+  status: "draft" as const,
+  needs_review: true,
+  last_reviewed: null,
+  reviewer: null,
+};
+const mcq = (id: string, competence: Item["competence"], difficulty: 1 | 2 | 3 = 1): Item => ({
+  ...base,
+  difficulty,
+  id,
+  competence,
+  type: "mcq",
+  stem: "Question?",
+  options: ["a", "b", "c", "d"],
+  correct_index: 0,
+  explanation: "Because.",
+});
 const items = [...["a", "b", "c", "d"].map((x) => mcq(`nav-${x}`, "NAV")), ...["a", "b", "c", "d"].map((x) => mcq(`stab-${x}`, "STAB", 2))];
-const att = (item_id: string, score: number) => ({ item_id, item_type: "mcq" as const, competence: "NAV" as const, topic: "t", score, time_ms: 0, created_at: "2026-01-01" });
+const att = (item_id: string, score: number) => ({
+  item_id,
+  item_type: "mcq" as const,
+  competence: "NAV" as const,
+  topic: "t",
+  score,
+  time_ms: 0,
+  created_at: "2026-01-01",
+});
 
 describe("selectQuiz", () => {
   it("mixed mode interleaves competences", () => {

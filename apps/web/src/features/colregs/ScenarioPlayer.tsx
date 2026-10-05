@@ -14,7 +14,12 @@ function Plot({ s }: { s: ColregScenario }) {
   const night = s.time === "night";
   const fog = s.visibility === "restricted";
   return (
-    <svg viewBox={`${-R - 10} ${-R - 10} ${2 * R + 20} ${2 * R + 20}`} role="img" aria-label={`Plot: ${s.targets.map((t) => `${t.label} bearing ${t.relative_bearing} degrees relative, ${t.range_nm} miles`).join("; ")}`} className="w-full rounded-2xl">
+    <svg
+      viewBox={`${-R - 10} ${-R - 10} ${2 * R + 20} ${2 * R + 20}`}
+      role="img"
+      aria-label={`Plot: ${s.targets.map((t) => `${t.label} bearing ${t.relative_bearing} degrees relative, ${t.range_nm} miles`).join("; ")}`}
+      className="w-full rounded-2xl"
+    >
       <rect x={-R - 10} y={-R - 10} width={2 * R + 20} height={2 * R + 20} fill={night ? "#0b1d33" : "#dbeafe"} />
       {[2, 4, 6].map((nm) => (
         <circle key={nm} r={(nm / SCALE_NM) * R} fill="none" stroke={night ? "#1e3a5f" : "#93c5fd"} strokeDasharray="4 4" />
@@ -42,7 +47,14 @@ function Plot({ s }: { s: ColregScenario }) {
             {fog ? (
               <>
                 <circle r={6} fill="#f59e0b" opacity={0.9} />
-                <line x1={0} y1={0} x2={22 * Math.sin((t.heading_rel * Math.PI) / 180)} y2={-22 * Math.cos((t.heading_rel * Math.PI) / 180)} stroke="#f59e0b" strokeWidth={2} />
+                <line
+                  x1={0}
+                  y1={0}
+                  x2={22 * Math.sin((t.heading_rel * Math.PI) / 180)}
+                  y2={-22 * Math.cos((t.heading_rel * Math.PI) / 180)}
+                  stroke="#f59e0b"
+                  strokeWidth={2}
+                />
               </>
             ) : (
               <g transform={`rotate(${t.heading_rel})`}>
@@ -53,7 +65,9 @@ function Plot({ s }: { s: ColregScenario }) {
             {!fog && night && t.lights.map((l, j) => <circle key={j} cx={14} cy={-10 + j * 7} r={3} fill={lightColour(l)} stroke="#000" strokeWidth={0.5} />)}
             {!fog && !night && t.shapes.length > 0 && (
               <text x={10} y={-6} fontSize="12" fill="#0f172a">
-                {t.shapes.map((sh) => (sh.includes("ball") ? "●" : sh.includes("diamond") ? "◆" : sh.includes("cone") ? "▲" : sh.includes("cylinder") ? "▮" : "■")).join("")}
+                {t.shapes
+                  .map((sh) => (sh.includes("ball") ? "●" : sh.includes("diamond") ? "◆" : sh.includes("cone") ? "▲" : sh.includes("cylinder") ? "▮" : "■"))
+                  .join("")}
               </text>
             )}
             <text x={10} y={18} fontSize="10" fill={night ? "#e2e8f0" : "#0f172a"}>
@@ -84,7 +98,11 @@ export function ScenarioPlayer() {
     if (action === null || !s) return;
     const score = scoreScenario(action === s.correct_action, rules, s.correct_rules);
     setDone(score);
-    await recordAttempt({ id: s.id, competence: "COLREG", topic: "scenarios", type: "scenario" }, score, { timeMs: 0, answer: { action, rules }, source: "colregs" });
+    await recordAttempt({ id: s.id, competence: "COLREG", topic: "scenarios", type: "scenario" }, score, {
+      timeMs: 0,
+      answer: { action, rules },
+      source: "colregs",
+    });
   }
 
   return (
@@ -120,7 +138,11 @@ export function ScenarioPlayer() {
             <label
               key={i}
               className={`flex min-h-[44px] items-start gap-2 rounded-xl border p-2 text-sm ${
-                done !== null && i === s.correct_action ? "border-emerald-500 bg-emerald-50" : done !== null && action === i ? "border-red-500 bg-red-50" : "border-slate-200"
+                done !== null && i === s.correct_action
+                  ? "border-emerald-500 bg-emerald-50"
+                  : done !== null && action === i
+                    ? "border-red-500 bg-red-50"
+                    : "border-slate-200"
               }`}
             >
               <input type="radio" name="action" className="mt-1 h-5 w-5" checked={action === i} onChange={() => setAction(i)} data-testid={`action-${i}`} />
@@ -153,7 +175,10 @@ export function ScenarioPlayer() {
         </button>
       ) : (
         <div className="card mt-3" aria-live="polite">
-          <p data-testid="scenario-score" className={`text-lg font-bold ${done >= 0.99 ? "text-emerald-700" : done >= 0.6 ? "text-amber-700" : "text-red-700"}`}>
+          <p
+            data-testid="scenario-score"
+            className={`text-lg font-bold ${done >= 0.99 ? "text-emerald-700" : done >= 0.6 ? "text-amber-700" : "text-red-700"}`}
+          >
             Score {Math.round(done * 100)}%
           </p>
           <p className="mt-1 text-sm leading-relaxed">{s.explanation}</p>

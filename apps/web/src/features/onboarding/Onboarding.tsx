@@ -138,8 +138,8 @@ export function Onboarding() {
           <div className="grid gap-3">
             <h2 className="h2">Download your offline pack</h2>
             <p className="muted">
-              All questions, lessons, calculations, mock exams, COLREGs scenarios and the offline oral examiner are stored on your phone so you can study at
-              sea with no signal.
+              All questions, lessons, calculations, mock exams, COLREGs scenarios and the offline oral examiner are stored on your phone so you can study at sea
+              with no signal.
             </p>
             <p className="text-sm font-medium">Download size: {size ? formatBytes(size) : "—"}</p>
             {progress && (

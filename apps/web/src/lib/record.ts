@@ -23,7 +23,14 @@ export async function recordAttempt(
     source: opts.source,
   };
   const localId = await db.attempts.add({ ...attempt, synced: 0 });
-  await enqueue("attempt", { local_id: localId, item_id: attempt.item_id, answer: attempt.answer ?? null, score, time_ms: attempt.time_ms, created_at: attempt.created_at });
+  await enqueue("attempt", {
+    local_id: localId,
+    item_id: attempt.item_id,
+    answer: attempt.answer ?? null,
+    score,
+    time_ms: attempt.time_ms,
+    created_at: attempt.created_at,
+  });
   // SRS: every missed item enters the deck; correct items already in the deck are rescheduled.
   const existing = await db.srs.get(item.id);
   const correct = score >= 0.6;

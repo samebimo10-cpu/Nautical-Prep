@@ -17,11 +17,7 @@ export function Layout() {
       <header className="sticky top-0 z-30 bg-navy-800 px-4 py-3 text-white shadow">
         <div className="flex items-center justify-between">
           <span className="font-bold tracking-wide">{t("app.name")}</span>
-          <span
-            data-testid="net-status"
-            className={`chip ${online ? "bg-sea-500/20 text-sea-400" : "bg-amber-400/20 text-amber-200"}`}
-            aria-live="polite"
-          >
+          <span data-testid="net-status" className={`chip ${online ? "bg-sea-500/20 text-sea-400" : "bg-amber-400/20 text-amber-200"}`} aria-live="polite">
             {online ? "Online" : "Offline"}
           </span>
         </div>

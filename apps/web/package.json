@@ -31,6 +31,9 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
+    "@capacitor/android": "^7.6.9",
+    "@capacitor/cli": "^7.6.9",
+    "@capacitor/core": "^7.6.9",
     "@playwright/test": "~1.56.1",
     "@testing-library/react": "^16.3.3",
     "@types/react": "^18.3.31",

@@ -54,6 +54,14 @@ export function Stat({ label, value, sub }: { label: string; value: ReactNode; s
 }
 
 export function Banner({ tone = "info", children }: { tone?: "info" | "warn" | "ok"; children: ReactNode }) {
-  const cls = { info: "bg-navy-50 text-navy-800 ring-navy-100", warn: "bg-amber-50 text-amber-900 ring-amber-200", ok: "bg-emerald-50 text-emerald-900 ring-emerald-200" }[tone];
-  return <div role="status" className={`mb-3 rounded-xl px-3 py-2 text-sm ring-1 ${cls}`}>{children}</div>;
+  const cls = {
+    info: "bg-navy-50 text-navy-800 ring-navy-100",
+    warn: "bg-amber-50 text-amber-900 ring-amber-200",
+    ok: "bg-emerald-50 text-emerald-900 ring-emerald-200",
+  }[tone];
+  return (
+    <div role="status" className={`mb-3 rounded-xl px-3 py-2 text-sm ring-1 ${cls}`}>
+      {children}
+    </div>
+  );
 }

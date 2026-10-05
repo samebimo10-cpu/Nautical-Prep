@@ -44,9 +44,17 @@ export function MockRun() {
     for (const q of mock.questions) {
       const it = items.get(q.item_id);
       const pq = result.perQuestion.find((p) => p.item_id === q.item_id);
-      if (it && pq && (it.type === "mcq" || it.type === "calc")) await recordAttempt(it, pq.correct ? 1 : 0, { timeMs: 0, answer: mock.answers[q.item_id], source: "mock" });
+      if (it && pq && (it.type === "mcq" || it.type === "calc"))
+        await recordAttempt(it, pq.correct ? 1 : 0, { timeMs: 0, answer: mock.answers[q.item_id], source: "mock" });
     }
-    await enqueue("mock", { country: mock.country, started_at: mock.started_at, finished_at, score: result.percent, passed: result.passed, item_ids: mock.questions.map((q) => q.item_id) });
+    await enqueue("mock", {
+      country: mock.country,
+      started_at: mock.started_at,
+      finished_at,
+      score: result.percent,
+      passed: result.passed,
+      item_ids: mock.questions.map((q) => q.item_id),
+    });
     await trackEvent("mock_complete", { percent: result.percent });
     nav(`/mock/result/${mock.id}`, { replace: true });
   }, [mock, items, nav]);
@@ -80,7 +88,12 @@ export function MockRun() {
         <span className="font-semibold">
           Q {idx + 1}/{mock.questions.length} · {answered} answered
         </span>
-        <span data-testid="timer" className={`font-mono text-lg font-bold ${remaining < 5 * 60_000 ? "text-red-700" : "text-navy-800"}`} role="timer" aria-label="Time remaining">
+        <span
+          data-testid="timer"
+          className={`font-mono text-lg font-bold ${remaining < 5 * 60_000 ? "text-red-700" : "text-navy-800"}`}
+          role="timer"
+          aria-label="Time remaining"
+        >
           {fmtTime(remaining)}
         </span>
       </div>
@@ -142,7 +155,11 @@ export function MockRun() {
             Next →
           </button>
         ) : (
-          <button className="btn-accent flex-1" onClick={() => confirm(`Submit with ${answered}/${mock.questions.length} answered?`) && submit()} data-testid="mock-submit">
+          <button
+            className="btn-accent flex-1"
+            onClick={() => confirm(`Submit with ${answered}/${mock.questions.length} answered?`) && submit()}
+            data-testid="mock-submit"
+          >
             Submit
           </button>
         )}

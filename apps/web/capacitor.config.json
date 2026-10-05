@@ -1,0 +1,7 @@
+{
+  "appId": "com.chiefmateprep.app",
+  "appName": "Chief Mate Prep",
+  "webDir": "dist",
+  "android": { "allowMixedContent": false },
+  "server": { "androidScheme": "https" }
+}

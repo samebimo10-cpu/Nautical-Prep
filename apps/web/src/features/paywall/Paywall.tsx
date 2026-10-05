@@ -28,13 +28,21 @@ export function Paywall() {
   const priced = p.pro > 0;
   const tiers = [
     { id: "free" as const, name: "Free", features: ["150-question bank", "1 mock exam", "Offline oral examiner", "Sea-time & eligibility tracker"] },
-    { id: "pro" as const, name: "Pro", features: ["Full question bank & calculations", "Unlimited mocks", "COLREGs simulator", "AI written-answer grading (20/day)"] },
-    { id: "pro_oral" as const, name: "Pro + Oral", features: ["Everything in Pro", "AI oral examiner (3 sessions/day)", "Country examiner personas", "Voice mode"] },
+    {
+      id: "pro" as const,
+      name: "Pro",
+      features: ["Full question bank & calculations", "Unlimited mocks", "COLREGs simulator", "AI written-answer grading (20/day)"],
+    },
+    {
+      id: "pro_oral" as const,
+      name: "Pro + Oral",
+      features: ["Everything in Pro", "AI oral examiner (3 sessions/day)", "Country examiner personas", "Voice mode"],
+    },
   ];
   async function buy(tier: "pro" | "pro_oral") {
     setMsg(null);
     try {
-      const email = (await supabase()?.auth.getUser())?.data.user?.email;
+      const email = (await (await supabase())?.auth.getUser())?.data.user?.email;
       if (!email) throw new Error("Sign in first (Profile) so your purchase is linked to your account.");
       await paystack.checkout({ tier, country: profile!.country, currency: p.currency, amountMinor: p[tier] }, email);
       await trackEvent("purchase", { tier });
@@ -44,7 +52,7 @@ export function Paywall() {
     }
   }
   async function restore() {
-    const sb = supabase();
+    const sb = await supabase();
     if (!sb) return setMsg("Restore needs the online backend.");
     const { data } = await sb.from("subscriptions").select("tier,status,current_period_end").eq("status", "active").maybeSingle();
     setMsg(data ? `Active plan: ${data.tier} until ${data.current_period_end}` : "No active plan found.");
@@ -68,7 +76,9 @@ export function Paywall() {
                 <li key={f}>{f}</li>
               ))}
             </ul>
-            <p className="mt-1 text-xs text-slate-500">AI grades/day: {e.aiGradesPerDay} · AI orals/day: {e.aiOralPerDay}</p>
+            <p className="mt-1 text-xs text-slate-500">
+              AI grades/day: {e.aiGradesPerDay} · AI orals/day: {e.aiOralPerDay}
+            </p>
             {t.id !== "free" && (
               <button className="btn-primary mt-3 w-full" disabled={!priced || !env.paystackPublicKey} onClick={() => buy(t.id as "pro" | "pro_oral")}>
                 Choose {t.name}

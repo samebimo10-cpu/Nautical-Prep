@@ -23,7 +23,7 @@ export function ProfilePage() {
 
   useEffect(() => {
     if (profile) void installedVersion(profile.country).then(setVersion);
-    void supabase()?.auth.getUser().then(({ data }) => setUser(data.user?.email ?? null));
+    void supabase().then((sb) => sb?.auth.getUser().then(({ data }) => setUser(data.user?.email ?? null)));
   }, [profile]);
   if (!profile) return null;
 
@@ -39,23 +39,32 @@ export function ProfilePage() {
     } else setMsg("Connect to the internet to download that country's pack.");
   }
   async function sendOtp() {
-    const sb = supabase();
+    const sb = await supabase();
     if (!sb) return;
     const { error } = await sb.auth.signInWithOtp({ email });
     setMsg(error ? error.message : "Check your email for a 6-digit code.");
     setOtpSent(!error);
   }
   async function verifyOtp() {
-    const sb = supabase();
+    const sb = await supabase();
     if (!sb) return;
     const { data, error } = await sb.auth.verifyOtp({ email, token: code, type: "email" });
     if (error) return setMsg(error.message);
     setUser(data.user?.email ?? null);
-    await sb.from("profiles").upsert({ user_id: data.user!.id, display_name: profile!.display_name, country: profile!.country, rank: profile!.rank, target_exam_date: profile!.target_exam_date, locale: profile!.locale });
+    await sb
+      .from("profiles")
+      .upsert({
+        user_id: data.user!.id,
+        display_name: profile!.display_name,
+        country: profile!.country,
+        rank: profile!.rank,
+        target_exam_date: profile!.target_exam_date,
+        locale: profile!.locale,
+      });
     void flushQueue();
   }
   async function google() {
-    await supabase()?.auth.signInWithOAuth({ provider: "google", options: { redirectTo: window.location.origin + "/profile" } });
+    await (await supabase())?.auth.signInWithOAuth({ provider: "google", options: { redirectTo: window.location.origin + "/profile" } });
   }
   async function exportData() {
     const dump = {
@@ -78,12 +87,24 @@ export function ProfilePage() {
   }
   async function deleteAccount() {
     if (!confirm("Delete your account and ALL progress on this device (and on the server if signed in)? This cannot be undone.")) return;
-    const sb = supabase();
+    const sb = await supabase();
     if (sb && user) {
       await sb.rpc("delete_my_account");
       await sb.auth.signOut();
     }
-    await Promise.all([db.profile.clear(), db.attempts.clear(), db.srs.clear(), db.mocks.clear(), db.orals.clear(), db.sea.clear(), db.certs.clear(), db.queue.clear(), db.reports.clear(), db.events.clear(), db.reviews.clear()]);
+    await Promise.all([
+      db.profile.clear(),
+      db.attempts.clear(),
+      db.srs.clear(),
+      db.mocks.clear(),
+      db.orals.clear(),
+      db.sea.clear(),
+      db.certs.clear(),
+      db.queue.clear(),
+      db.reports.clear(),
+      db.events.clear(),
+      db.reviews.clear(),
+    ]);
     nav("/onboarding", { replace: true });
   }
 
@@ -116,13 +137,27 @@ export function ProfilePage() {
             <label className="label" htmlFor="p-date">
               Target exam date
             </label>
-            <input id="p-date" type="date" className="input" defaultValue={profile.target_exam_date ?? ""} onChange={(e) => save({ target_exam_date: e.target.value || null })} />
+            <input
+              id="p-date"
+              type="date"
+              className="input"
+              defaultValue={profile.target_exam_date ?? ""}
+              onChange={(e) => save({ target_exam_date: e.target.value || null })}
+            />
           </div>
           <div>
             <label className="label" htmlFor="p-goal">
               Daily goal (questions)
             </label>
-            <input id="p-goal" type="number" min={5} max={200} className="input" defaultValue={profile.daily_goal ?? 20} onBlur={(e) => save({ daily_goal: Number(e.target.value) })} />
+            <input
+              id="p-goal"
+              type="number"
+              min={5}
+              max={200}
+              className="input"
+              defaultValue={profile.daily_goal ?? 20}
+              onBlur={(e) => save({ daily_goal: Number(e.target.value) })}
+            />
           </div>
           <label className="flex items-center gap-2 text-sm">
             <input type="checkbox" className="h-5 w-5" checked={!!profile.reviewer_mode} onChange={(e) => save({ reviewer_mode: e.target.checked })} />
@@ -134,14 +169,21 @@ export function ProfilePage() {
       <Card>
         <h2 className="h2">Account & sync</h2>
         <p className="muted">
-          Offline pack: {profile.country.toUpperCase()} v{version ?? "—"} · {queued ?? 0} record(s) waiting to sync · backend: {activeBackend()?.name ?? "none (local only)"}
+          Offline pack: {profile.country.toUpperCase()} v{version ?? "—"} · {queued ?? 0} record(s) waiting to sync · backend:{" "}
+          {activeBackend()?.name ?? "none (local only)"}
         </p>
         {!backendConfigured() ? (
           <p className="mt-2 text-sm">This build runs in local-only mode. Your progress stays on this device. Use Export to back it up.</p>
         ) : user ? (
           <div className="mt-2 flex items-center justify-between">
             <span className="text-sm">Signed in as {user}</span>
-            <button className="btn-ghost" onClick={() => supabase()!.auth.signOut().then(() => setUser(null))}>
+            <button
+              className="btn-ghost"
+              onClick={async () => {
+                await (await supabase())!.auth.signOut();
+                setUser(null);
+              }}
+            >
               Sign out
             </button>
           </div>
@@ -154,7 +196,14 @@ export function ProfilePage() {
               </button>
             ) : (
               <>
-                <input className="input" inputMode="numeric" placeholder="6-digit code" value={code} onChange={(e) => setCode(e.target.value)} aria-label="Code" />
+                <input
+                  className="input"
+                  inputMode="numeric"
+                  placeholder="6-digit code"
+                  value={code}
+                  onChange={(e) => setCode(e.target.value)}
+                  aria-label="Code"
+                />
                 <button className="btn-primary" onClick={verifyOtp}>
                   Verify & sync
                 </button>

@@ -60,12 +60,15 @@ export function Admin() {
   const [reviewer, setReviewer] = useState("");
   const [note, setNote] = useState("");
   const [upd, setUpd] = useState({ title: "", body: "", ids: "" });
-  const data = useLiveQuery(async () => ({
-    items: await db.items.toArray(),
-    reviews: await db.reviews.toArray(),
-    reports: await db.reports.toArray(),
-    events: await db.events.toArray(),
-  }), []);
+  const data = useLiveQuery(
+    async () => ({
+      items: await db.items.toArray(),
+      reviews: await db.reviews.toArray(),
+      reports: await db.reports.toArray(),
+      events: await db.events.toArray(),
+    }),
+    [],
+  );
   const queue = useMemo(() => {
     if (!data) return [];
     const decided = new Set(data.reviews.map((r) => r.item_id));
@@ -79,7 +82,7 @@ export function Admin() {
     const d: ReviewDecision = { item_id: item.id, decision, reviewer: reviewer || "unknown", note, decided_at: new Date().toISOString().slice(0, 10) };
     await db.reviews.put(d);
     setNote("");
-    const sb = supabase();
+    const sb = await supabase();
     if (sb && decision !== "changes") {
       await sb.from("items").update({ status: decision, needs_review: false, reviewer: d.reviewer, last_reviewed: d.decided_at }).eq("id", item.id);
     }
@@ -95,7 +98,7 @@ export function Admin() {
     const ids = upd.ids.split(/[\s,]+/).filter(Boolean);
     const row = { id: `upd-${Date.now()}`, title: upd.title, body: upd.body, item_ids: ids, published_at: new Date().toISOString(), read: 0 as const };
     await db.updates.put(row);
-    await supabase()?.from("regulation_updates").insert({ title: row.title, body: row.body, item_ids: ids });
+    await (await supabase())?.from("regulation_updates").insert({ title: row.title, body: row.body, item_ids: ids });
     setUpd({ title: "", body: "", ids: "" });
   }
   const item = queue[0];
@@ -114,10 +117,17 @@ export function Admin() {
         </Tabs.List>
         <Tabs.Content value="queue" className="grid gap-3">
           <Banner>
-            {queue.length} draft items awaiting review · {data.reviews.length} decisions made. Export decisions and run <code>pnpm content:apply-reviews file.json</code> to write them to the content repo (the next offline bundle then includes approved items).
+            {queue.length} draft items awaiting review · {data.reviews.length} decisions made. Export decisions and run{" "}
+            <code>pnpm content:apply-reviews file.json</code> to write them to the content repo (the next offline bundle then includes approved items).
           </Banner>
           <div className="grid grid-cols-2 gap-2">
-            <input className="input" placeholder="Reviewer name & credentials" value={reviewer} onChange={(e) => setReviewer(e.target.value)} aria-label="Reviewer" />
+            <input
+              className="input"
+              placeholder="Reviewer name & credentials"
+              value={reviewer}
+              onChange={(e) => setReviewer(e.target.value)}
+              aria-label="Reviewer"
+            />
             <select className="input" value={filter} onChange={(e) => setFilter(e.target.value)} aria-label="Filter">
               <option value="all">All competences</option>
               {["NAV", "STAB", "CARGO", "COLREG", "LAW", "MGMT", "LOCAL"].map((c) => (
@@ -132,7 +142,13 @@ export function Admin() {
               </p>
               <ItemBody item={item} />
               <p className="mt-2 text-xs text-slate-600">Sources: {item.sources.map((s) => `${s.label} ${s.ref}`).join("; ") || "none"}</p>
-              <textarea className="input mt-2" placeholder="Note (required for changes)" value={note} onChange={(e) => setNote(e.target.value)} aria-label="Note" />
+              <textarea
+                className="input mt-2"
+                placeholder="Note (required for changes)"
+                value={note}
+                onChange={(e) => setNote(e.target.value)}
+                aria-label="Note"
+              />
               <div className="mt-2 grid grid-cols-3 gap-2">
                 <button className="btn-accent" disabled={!reviewer} onClick={() => decide(item, "reviewed")} data-testid="approve">
                   Approve
@@ -165,9 +181,27 @@ export function Admin() {
           </ul>
         </Tabs.Content>
         <Tabs.Content value="updates" className="card grid gap-2">
-          <input className="input" placeholder="Title (e.g. MARPOL Annex VI amendment in force)" value={upd.title} onChange={(e) => setUpd({ ...upd, title: e.target.value })} aria-label="Title" />
-          <textarea className="input" placeholder="What changed" value={upd.body} onChange={(e) => setUpd({ ...upd, body: e.target.value })} aria-label="Body" />
-          <input className="input" placeholder="Affected item IDs (comma separated)" value={upd.ids} onChange={(e) => setUpd({ ...upd, ids: e.target.value })} aria-label="Item IDs" />
+          <input
+            className="input"
+            placeholder="Title (e.g. MARPOL Annex VI amendment in force)"
+            value={upd.title}
+            onChange={(e) => setUpd({ ...upd, title: e.target.value })}
+            aria-label="Title"
+          />
+          <textarea
+            className="input"
+            placeholder="What changed"
+            value={upd.body}
+            onChange={(e) => setUpd({ ...upd, body: e.target.value })}
+            aria-label="Body"
+          />
+          <input
+            className="input"
+            placeholder="Affected item IDs (comma separated)"
+            value={upd.ids}
+            onChange={(e) => setUpd({ ...upd, ids: e.target.value })}
+            aria-label="Item IDs"
+          />
           <button className="btn-primary" disabled={!upd.title} onClick={postUpdate} data-testid="post-update">
             Post update
           </button>

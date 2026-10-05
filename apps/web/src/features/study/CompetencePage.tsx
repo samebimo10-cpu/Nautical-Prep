@@ -7,7 +7,10 @@ import { PageHeader } from "../../components/ui";
 export function CompetencePage() {
   const { competence = "NAV" } = useParams();
   const data = useLiveQuery(
-    async () => ({ items: await db.items.where("competence").equals(competence).toArray(), attempts: await db.attempts.where("competence").equals(competence).toArray() }),
+    async () => ({
+      items: await db.items.where("competence").equals(competence).toArray(),
+      attempts: await db.attempts.where("competence").equals(competence).toArray(),
+    }),
     [competence],
   );
   if (!data) return null;
@@ -63,7 +66,9 @@ export function CompetencePage() {
                     {t.total} items · {[...t.types].join(", ")}
                   </span>
                 </span>
-                <span className={`chip ${s === null ? "bg-slate-100 text-slate-600" : s >= 85 ? "bg-emerald-100 text-emerald-800" : s >= 60 ? "bg-amber-100 text-amber-900" : "bg-red-100 text-red-800"}`}>
+                <span
+                  className={`chip ${s === null ? "bg-slate-100 text-slate-600" : s >= 85 ? "bg-emerald-100 text-emerald-800" : s >= 60 ? "bg-amber-100 text-amber-900" : "bg-red-100 text-red-800"}`}
+                >
                   {s === null ? "new" : `${s}%`}
                 </span>
               </Link>

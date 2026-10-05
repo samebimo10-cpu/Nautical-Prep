@@ -6,22 +6,36 @@ import { useProfile } from "../../lib/hooks";
 import { Banner, Card, PageHeader, ProgressBar } from "../../components/ui";
 
 const CAPACITIES = ["Second Officer", "Third Officer", "Chief Mate", "OOW (other)", "Cadet"];
-const COURSES = ["Medical Care", "Advanced Fire Fighting", "ECDIS", "GMDSS GOC", "Proficiency in Survival Craft", "Ship Security Officer", "Bridge Resource Management", "Leadership & Managerial Skills", "High Voltage / other"];
+const COURSES = [
+  "Medical Care",
+  "Advanced Fire Fighting",
+  "ECDIS",
+  "GMDSS GOC",
+  "Proficiency in Survival Craft",
+  "Ship Security Officer",
+  "Bridge Resource Management",
+  "Leadership & Managerial Skills",
+  "High Voltage / other",
+];
 
 export function Tracker() {
   const profile = useProfile();
-  const data = useLiveQuery(async () => ({
-    sea: await db.sea.orderBy("from_date").toArray(),
-    certs: await db.certs.toArray(),
-    config: profile ? await db.configs.get(profile.country) : undefined,
-  }), [profile?.country]);
+  const data = useLiveQuery(
+    async () => ({
+      sea: await db.sea.orderBy("from_date").toArray(),
+      certs: await db.certs.toArray(),
+      config: profile ? await db.configs.get(profile.country) : undefined,
+    }),
+    [profile?.country],
+  );
   const [form, setForm] = useState({ vessel: "", vessel_type: "Bulk carrier", grt: "", from_date: "", to_date: "", capacity: CAPACITIES[0]! });
   const [cert, setCert] = useState({ course: COURSES[0]!, issued_at: "", expires_at: "" });
   const [file, setFile] = useState<File | null>(null);
   const [err, setErr] = useState<string | null>(null);
   if (!data) return null;
   const totals = seaTimeTotals(data.sea);
-  const qualifying = (totals.byCapacity["Second Officer"]?.months ?? 0) + (totals.byCapacity["Chief Mate"]?.months ?? 0) + (totals.byCapacity["OOW (other)"]?.months ?? 0);
+  const qualifying =
+    (totals.byCapacity["Second Officer"]?.months ?? 0) + (totals.byCapacity["Chief Mate"]?.months ?? 0) + (totals.byCapacity["OOW (other)"]?.months ?? 0);
   const elig = eligibilityProgress(qualifying, data.config?.eligibility.sea_time_months ?? null);
   const now = new Date();
 
@@ -79,17 +93,48 @@ export function Tracker() {
         <details className="mt-3">
           <summary className="cursor-pointer font-semibold text-sea-600">Add a voyage</summary>
           <div className="mt-2 grid gap-2">
-            <input aria-label="Vessel name" className="input" placeholder="Vessel name" value={form.vessel} onChange={(e) => setForm({ ...form, vessel: e.target.value })} />
+            <input
+              aria-label="Vessel name"
+              className="input"
+              placeholder="Vessel name"
+              value={form.vessel}
+              onChange={(e) => setForm({ ...form, vessel: e.target.value })}
+            />
             <div className="grid grid-cols-2 gap-2">
-              <input aria-label="Vessel type" className="input" placeholder="Type" value={form.vessel_type} onChange={(e) => setForm({ ...form, vessel_type: e.target.value })} />
-              <input aria-label="GRT" className="input" placeholder="GT" inputMode="numeric" value={form.grt} onChange={(e) => setForm({ ...form, grt: e.target.value })} />
+              <input
+                aria-label="Vessel type"
+                className="input"
+                placeholder="Type"
+                value={form.vessel_type}
+                onChange={(e) => setForm({ ...form, vessel_type: e.target.value })}
+              />
+              <input
+                aria-label="GRT"
+                className="input"
+                placeholder="GT"
+                inputMode="numeric"
+                value={form.grt}
+                onChange={(e) => setForm({ ...form, grt: e.target.value })}
+              />
               <label className="text-xs">
                 Sign-on
-                <input type="date" className="input" value={form.from_date} onChange={(e) => setForm({ ...form, from_date: e.target.value })} data-testid="sea-from" />
+                <input
+                  type="date"
+                  className="input"
+                  value={form.from_date}
+                  onChange={(e) => setForm({ ...form, from_date: e.target.value })}
+                  data-testid="sea-from"
+                />
               </label>
               <label className="text-xs">
                 Sign-off
-                <input type="date" className="input" value={form.to_date} onChange={(e) => setForm({ ...form, to_date: e.target.value })} data-testid="sea-to" />
+                <input
+                  type="date"
+                  className="input"
+                  value={form.to_date}
+                  onChange={(e) => setForm({ ...form, to_date: e.target.value })}
+                  data-testid="sea-to"
+                />
               </label>
             </div>
             <select aria-label="Capacity" className="input" value={form.capacity} onChange={(e) => setForm({ ...form, capacity: e.target.value })}>

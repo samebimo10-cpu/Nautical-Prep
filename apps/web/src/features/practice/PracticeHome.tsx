@@ -15,7 +15,12 @@ export function PracticeHome() {
   const stats = useLiveQuery(async () => {
     const attempts = await db.attempts.toArray();
     const cards = await db.srs.toArray();
-    return { errors: confidentErrors(attempts).length, due: dueQueue(cards, new Date(), 999).length, calc: await db.items.where("type").equals("calc").count(), scen: await db.scenarios.count() };
+    return {
+      errors: confidentErrors(attempts).length,
+      due: dueQueue(cards, new Date(), 999).length,
+      calc: await db.items.where("type").equals("calc").count(),
+      scen: await db.scenarios.count(),
+    };
   }, []);
   return (
     <div className="grid gap-4">
@@ -102,7 +107,11 @@ export function PracticeHome() {
           </div>
           <button
             className="btn-primary"
-            onClick={() => nav(`/quiz?${new URLSearchParams({ ...(competence ? { competence } : { mode: "mixed" }), ...(difficulty ? { difficulty } : {}), n: String(n), types }).toString()}`)}
+            onClick={() =>
+              nav(
+                `/quiz?${new URLSearchParams({ ...(competence ? { competence } : { mode: "mixed" }), ...(difficulty ? { difficulty } : {}), n: String(n), types }).toString()}`,
+              )
+            }
           >
             Start quiz
           </button>

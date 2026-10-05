@@ -68,14 +68,18 @@ export function OralHome() {
           <Card>
             <h2 className="h2">Simulated oral</h2>
             <p className="muted mb-3">
-              The examiner asks questions as if you are the Chief Mate. It probes weak answers with follow-ups, and can fail you on a single unsafe answer, just like a real
-              examiner.
+              The examiner asks questions as if you are the Chief Mate. It probes weak answers with follow-ups, and can fail you on a single unsafe answer, just
+              like a real examiner.
             </p>
             <div className="grid gap-3">
               <fieldset>
                 <legend className="label">Examiner engine</legend>
                 <div className="grid grid-cols-2 gap-2">
-                  <button aria-pressed={engine === "offline"} className={engine === "offline" ? "btn-primary" : "btn-ghost"} onClick={() => setEngine("offline")}>
+                  <button
+                    aria-pressed={engine === "offline"}
+                    className={engine === "offline" ? "btn-primary" : "btn-ghost"}
+                    onClick={() => setEngine("offline")}
+                  >
                     Offline examiner
                   </button>
                   <button
@@ -88,8 +92,14 @@ export function OralHome() {
                     AI examiner {online ? "" : "(needs connection)"}
                   </button>
                 </div>
-                {engine === "ai" && !aiAvailable() && <p className="mt-1 text-xs text-amber-800">Needs a connection. Your answers will queue and send when you're back online.</p>}
-                {!backendConfigured() && <p className="mt-1 text-xs text-slate-600">The offline examiner grades on the device against the key points examiners look for, so it works with no signal.</p>}
+                {engine === "ai" && !aiAvailable() && (
+                  <p className="mt-1 text-xs text-amber-800">Needs a connection. Your answers will queue and send when you're back online.</p>
+                )}
+                {!backendConfigured() && (
+                  <p className="mt-1 text-xs text-slate-600">
+                    The offline examiner grades on the device against the key points examiners look for, so it works with no signal.
+                  </p>
+                )}
               </fieldset>
               <div className="grid grid-cols-2 gap-2">
                 <div>
@@ -147,7 +157,8 @@ export function OralHome() {
             </div>
           </Card>
           <Banner>
-            Tip: answer out loud even in text mode. Explaining aloud (the Feynman technique) is how you'll be tested. Structure it as: what, why, regulation, actions.
+            Tip: answer out loud even in text mode. Explaining aloud (the Feynman technique) is how you'll be tested. Structure it as: what, why, regulation,
+            actions.
           </Banner>
         </Tabs.Content>
 
@@ -155,9 +166,7 @@ export function OralHome() {
           <div className="mb-3 grid gap-2">
             <input className="input" placeholder="Search oral questions…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search oral questions" />
           </div>
-          <p className="muted mb-2">
-            {filtered.length} questions. Try to answer before opening the model answer: that's active recall.
-          </p>
+          <p className="muted mb-2">{filtered.length} questions. Try to answer before opening the model answer: that's active recall.</p>
           <ul className="grid gap-2">
             {filtered.map((i) => (
               <li key={i.id}>
@@ -201,9 +210,13 @@ export function OralHome() {
             {(history ?? []).map((h) => (
               <li key={h.id}>
                 <a href={`/oral/session/${h.id}`} className="card flex items-center justify-between !py-3">
-                  <span className="text-sm">{new Date(h.created_at).toLocaleString()} · {h.engine}</span>
+                  <span className="text-sm">
+                    {new Date(h.created_at).toLocaleString()} · {h.engine}
+                  </span>
                   {h.verdict ? (
-                    <span className={`chip ${h.verdict.passed ? "bg-emerald-100 text-emerald-800" : "bg-red-100 text-red-800"}`}>{Math.round(h.verdict.average * 100)}%</span>
+                    <span className={`chip ${h.verdict.passed ? "bg-emerald-100 text-emerald-800" : "bg-red-100 text-red-800"}`}>
+                      {Math.round(h.verdict.average * 100)}%
+                    </span>
                   ) : (
                     <span className="chip bg-slate-100">in progress</span>
                   )}

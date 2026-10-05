@@ -1,6 +1,7 @@
 import { db, type QueueRow } from "./db";
 import { devSyncUrl } from "./env";
 import { supabase } from "./supabase";
+import { backendConfigured } from "./env";
 
 /** Where queued offline records go when the device is back online. */
 export interface SyncBackend {
@@ -18,11 +19,11 @@ const TABLE: Record<QueueRow["kind"], string> = {
 };
 
 function supabaseBackend(): SyncBackend | null {
-  const sb = supabase();
-  if (!sb) return null;
+  if (!backendConfigured()) return null;
   return {
     name: "supabase",
     async push(batch) {
+      const sb = (await supabase())!;
       const { data } = await sb.auth.getUser();
       const uid = data.user?.id;
       if (!uid) throw new Error("not signed in");
@@ -70,7 +71,10 @@ export async function flushQueue(): Promise<{ pushed: number; backend: string | 
       if (!batch.length) break;
       await backend.push(batch);
       await db.queue.bulkDelete(batch.map((b) => b.id!));
-      const attemptIds = batch.filter((b) => b.kind === "attempt").map((b) => (b.payload as { local_id?: number }).local_id).filter((x): x is number => typeof x === "number");
+      const attemptIds = batch
+        .filter((b) => b.kind === "attempt")
+        .map((b) => (b.payload as { local_id?: number }).local_id)
+        .filter((x): x is number => typeof x === "number");
       if (attemptIds.length) await db.attempts.where("id").anyOf(attemptIds).modify({ synced: 1 });
       pushed += batch.length;
     }

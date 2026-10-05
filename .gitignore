@@ -9,3 +9,4 @@ test-results
 apps/web/public/bundles
 *.tsbuildinfo
 .DS_Store
+supabase/seed-content.sql

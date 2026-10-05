@@ -31,10 +31,17 @@ export function Dashboard() {
     items: data.items,
     attempts: data.attempts,
     mocks: data.mocks.filter((m) => m.result).map((m) => ({ percent: m.result!.percent, finished_at: m.finished_at! })),
-    orals: data.orals.filter((o) => o.verdict).map((o) => ({ average: o.verdict!.average, criticalFailures: o.verdict!.criticalFailures.length, created_at: o.created_at })),
+    orals: data.orals
+      .filter((o) => o.verdict)
+      .map((o) => ({ average: o.verdict!.average, criticalFailures: o.verdict!.criticalFailures.length, created_at: o.created_at })),
     now,
   });
-  const recs = studyNext(data.attempts, practice.map((i) => ({ competence: i.competence, topic: i.topic })), now, 3);
+  const recs = studyNext(
+    data.attempts,
+    practice.map((i) => ({ competence: i.competence, topic: i.topic })),
+    now,
+    3,
+  );
   const today = now.toISOString().slice(0, 10);
   const doneToday = data.attempts.filter((a) => a.created_at.startsWith(today)).length;
   const goal = profile.daily_goal ?? 20;
@@ -42,12 +49,16 @@ export function Dashboard() {
   return (
     <div className="grid gap-4">
       <div>
-        <h1 className="h1">Good {now.getHours() < 12 ? "morning" : now.getHours() < 18 ? "afternoon" : "evening"}, {profile.display_name}</h1>
+        <h1 className="h1">
+          Good {now.getHours() < 12 ? "morning" : now.getHours() < 18 ? "afternoon" : "evening"}, {profile.display_name}
+        </h1>
         <p className="muted">
           {countryName(profile.country)} · Chief Mate CoC · {profile.rank}
         </p>
       </div>
-      {data.mode !== "prod" && <Banner tone="warn">Practice content is original and awaiting maritime-expert review. Always confirm against current regulations.</Banner>}
+      {data.mode !== "prod" && (
+        <Banner tone="warn">Practice content is original and awaiting maritime-expert review. Always confirm against current regulations.</Banner>
+      )}
 
       <Card>
         <div className="flex items-center justify-between">
@@ -57,7 +68,9 @@ export function Dashboard() {
           </span>
         </div>
         <p className="muted mb-3">
-          {r.ready ? "You have cleared every bar — above the level needed to pass. Keep reviewing daily." : "The app's bars are set above the real pass marks so you walk in with margin."}
+          {r.ready
+            ? "You have cleared every bar — above the level needed to pass. Keep reviewing daily."
+            : "The app's bars are set above the real pass marks so you walk in with margin."}
         </p>
         <ul className="grid gap-2">
           {r.checks.map((c) => (
